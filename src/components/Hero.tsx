@@ -3,7 +3,7 @@ import React from 'react'
 
 const Hero = () => {
     return (
-        <div className='flex sm:flex-row flex-col sm:h-screen gap-5 p-4'>
+        <div className='flex sm:flex-row flex-col sm:h-[calc(100vh-6rem)] gap-5 p-4'>
             {/* left */}
             <div className="bg-[#F6F6F6] rounded-2xl p-10 max-w-xl mx-auto flex flex-col items-start justify-center space-y-6">
                 <h1 className="text-4xl md:text-5xl font-semibold leading-tight text-gray-900">
