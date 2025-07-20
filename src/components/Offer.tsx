@@ -25,7 +25,7 @@ export default function HowWeWorkTimeline() {
     }
 
     window.addEventListener("scroll", handleScroll)
-    handleScroll() // Initial check
+    handleScroll()  
 
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
@@ -83,7 +83,6 @@ export default function HowWeWorkTimeline() {
             <div className="relative">
               {/* Timeline Line */}
               <div className="absolute left-8 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-purple-500/50 to-transparent"></div>
-
               {/* Steps */}
               <div className="space-y-32">
                 {steps.map((step, index) => (

@@ -150,12 +150,12 @@ const Navbar: React.FC = () => {
             <div className="px-4 sm:px-6 lg:px-8 xl:px-10 sm:py-4">
                 <div className="flex justify-between items-center h-16">
                     {/* Logo */}
-                    <Image src={"/images/logo.png"} alt='logo' width={100} height={100} className='md:h-32 md:w-32 h-14 w-14'/>
+                    <Image src={"/images/logo.png"} alt='logo' width={100} height={100} className='lg:h-32 lg:w-32 md:w-28 md:h-28 h-14 w-14'/>
 
-                    <div className='flex items-center space-x-4 '>
+                    <div className='flex items-center lg:space-x-4 '>
                         {/* Desktop Navigation */}
                         <div className="hidden md:block">
-                            <div className="ml-4 flex items-baseline space-x-4">
+                            <div className="ml-4 flex items-baseline lg:space-x-4">
                                 <div  className="flex items-center text-gray-700 hover:text-gray-900 px-3 py-2 text-sm font-bold transition-all duration-200 group">Home</div>
                                 {navItems.map((item) => (
                                     <div
@@ -205,7 +205,7 @@ const Navbar: React.FC = () => {
                         </div>
 
                         {/* Right side buttons */}
-                        <div className="hidden md:flex items-center space-x-4">
+                        <div className="hidden md:flex items-center lg:space-x-4">
                             <Link
                                 href="/contact"
                                 className="text-gray-700 hover:text-gray-900 px-3 py-2 text-sm font-bold transition-colors duration-200"

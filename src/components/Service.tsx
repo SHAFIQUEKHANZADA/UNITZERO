@@ -10,49 +10,54 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import Image from 'next/image';
-
 const services = [
   {
-    title: 'AI Training and Workshops',
-    description: 'Integrating intelligent data analytics to help businesses gain deeper insights...',
+    title: 'AI Workflow Orchestration',
+    description:
+      'Design seamless AI pipelines that automate decision-making, optimize task flows, and connect every step of your business logic with intelligence.',
     bgColor: 'bg-[#D5EAD6]',
     bubbleColor: 'bg-[#AFDBB1]',
-    icon: 'https://demo.casethemes.net/aimo/wp-content/uploads/2025/03/img-service4.png'
+    icon: 'https://demo.casethemes.net/aimo/wp-content/uploads/2025/03/img-service1.png'
   },
   {
-    title: 'Robotic Process Automation',
-    description: 'Integrating intelligent data analytics to help businesses gain deeper insights...',
+    title: 'Vector Search & Document Retrieval',
+    description:
+      'Supercharge your search capabilities with high-performance vector databases, enabling smarter, context-aware document and content retrieval.',
     bgColor: 'bg-[#FFF0CE]',
     bubbleColor: 'bg-[#F9E0AC]',
     icon: 'https://demo.casethemes.net/aimo/wp-content/uploads/2025/03/img-srv-build.png'
   },
   {
-    title: 'Data Analytics & Insights',
-    description: 'Integrating intelligent data analytics to help businesses gain deeper insights...',
+    title: 'Scriptwriting & Content Generation',
+    description:
+      'Leverage generative AI to craft blogs, marketing scripts, and branded content—fast, engaging, and tailored to your audience’s voice.',
     bgColor: 'bg-[#F5D9D9]',
     bubbleColor: 'bg-[#F2C6C6]',
-    icon: 'https://demo.casethemes.net/aimo/wp-content/uploads/2025/03/img-service3.png'
+    icon: '/icons/s3.png'
   },
   {
-    title: 'Machine Learning Solutions',
-    description: 'Integrating intelligent data analytics to help businesses gain deeper insights...',
+    title: 'AI Automation & Integration',
+    description:
+      'Automate repetitive workflows by integrating AI with your tools—from emails to analytics—making operations smarter and faster.',
     bgColor: 'bg-[#B5DEE1]',
     bubbleColor: 'bg-[#91CFD3]',
-    icon: 'https://demo.casethemes.net/aimo/wp-content/uploads/2025/03/img-service3.png'
+    icon: 'https://demo.casethemes.net/aimo/wp-content/uploads/2025/03/img-service4.png'
   },
   {
-    title: 'Custom AI Model Development',
-    description: 'Our company creates intelligent models of AI tech that utilize the power of advanced algorithms...',
+    title: 'Voice & Conversational AI',
+    description:
+      'Build natural, human-like voice and chatbot experiences for customer service, support, and internal tasks using advanced NLP engines.',
     bgColor: 'bg-[#FFE7D4]',
     bubbleColor: 'bg-[#FBCFAC]',
-    icon: 'https://demo.casethemes.net/aimo/wp-content/uploads/2025/03/img-service1.png'
+    icon: '/icons/s5.png'
   },
   {
-    title: 'Neural Network Integration',
-    description: 'Leverage the power of AI to build scalable artificial and biological neural networks...',
+    title: 'CRM & Marketing Automation',
+    description:
+      'Drive smarter campaigns with AI-powered CRM solutions—automate outreach, personalize user journeys, and scale your marketing like never before.',
     bgColor: 'bg-[#F5D9D9]',
     bubbleColor: 'bg-[#F2C6C6]',
-    icon: 'https://demo.casethemes.net/aimo/wp-content/uploads/2025/03/img-service3.png'
+    icon: '/icons/s6.png'
   }
 ];
 
@@ -67,7 +72,7 @@ export default function ServicesSection() {
         <div className="absolute bottom-20 right-10 w-96 h-96 bg-blue-500 rounded-full blur-3xl"></div>
       </div>
 
-      <div className="xl:px-40 md:px-20 relative z-10">
+      <div className="xl:px-40 lg:px-20 md:px-10 relative z-10">
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-6xl font-bold text-white leading-tight">
@@ -97,6 +102,9 @@ export default function ServicesSection() {
             breakpoints={{
               640: {
                 slidesPerView: 1,
+              },
+              740: {
+                slidesPerView: 2,
               },
               1024: {
                 slidesPerView: 3,

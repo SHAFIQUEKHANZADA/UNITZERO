@@ -1,4 +1,4 @@
-// import Category from "@/components/Category";
+import Category from "@/components/Category";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
@@ -12,7 +12,7 @@ export default function Home() {
     <div>
       <Navbar />
       <Hero />
-      {/* <Category/> */}
+      <Category/>
       <Services/>
       <ScrollingBar/> 
       <HowWeWorkTimeline/>

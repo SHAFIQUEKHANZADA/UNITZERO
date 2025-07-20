@@ -52,7 +52,7 @@ const Footer = () => {
         <div className="absolute bottom-20 right-10 w-96 h-66 bg-blue-500 rounded-full blur-3xl"></div>
       </div>
 
-      <div className="max-w-[90%] mx-auto grid grid-cols-1 md:grid-cols-5 gap-8">
+      <div className="max-w-[90%] mx-auto grid grid-cols-1 lg:grid-cols-5 md:grid-cols-3 gap-8">
         {/* Left Block */}
         <div>
           <div className="mb-4">
