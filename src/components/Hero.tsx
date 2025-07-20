@@ -24,7 +24,7 @@ const Hero = () => {
 
             {/* right */}
             <div className='flex-2 rounded-2xl overflow-hidden'>
-                <Image src="/images/aihero.webp" alt="Hero Image" className='h-screen w-full object-cover' width={800} height={800} />
+                <Image src="/images/aihero.webp" alt="Hero Image" className='md:h-screen w-full object-cover' width={800} height={800} />
             </div>
         </div>
     )

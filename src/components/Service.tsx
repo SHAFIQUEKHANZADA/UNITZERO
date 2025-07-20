@@ -83,7 +83,6 @@ export default function ServicesSection() {
           <Swiper
             modules={[Navigation, Pagination]}
             spaceBetween={20}
-            slidesPerView={4}
             loop={true}
             pagination={{
               clickable: true,
@@ -140,11 +139,11 @@ export default function ServicesSection() {
           </Swiper>
 
           {/* Custom Navigation Buttons */}
-          <button className="swiper-button-prev-custom absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-20 w-12 h-12 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full flex items-center justify-center text-white hover:bg-white/20 transition-all duration-300 hover:scale-110">
+          <button className="swiper-button-prev-custom absolute left-1 top-1/2 -translate-y-1/2 -translate-x-4 z-20 w-12 h-12 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full flex items-center justify-center text-white hover:bg-white/20 transition-all duration-300 hover:scale-110">
             <ChevronLeft size={20} />
           </button>
 
-          <button className="swiper-button-next-custom absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-20 w-12 h-12 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full flex items-center justify-center text-white hover:bg-white/20 transition-all duration-300 hover:scale-110">
+          <button className="swiper-button-next-custom absolute right-1 top-1/2 -translate-y-1/2 translate-x-4 z-20 w-12 h-12 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full flex items-center justify-center text-white hover:bg-white/20 transition-all duration-300 hover:scale-110">
             <ChevronRight size={20} />
           </button>
         </div>

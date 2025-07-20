@@ -45,7 +45,7 @@ const Footer = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
   return (
-    <footer ref={footerRef} className="relative bg-gradient-to-b from-gray-900 via-purple-900 to-gray-900 text-white px-6 py-12 overflow-hidden">
+    <footer ref={footerRef} className="relative bg-gradient-to-b from-gray-900 via-purple-900 to-gray-900 text-white sm:px-6 py-12 overflow-hidden">
       {/* Background decorative elements */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-20 left-10 w-96 h-66 bg-purple-500 rounded-full blur-3xl"></div>
@@ -71,9 +71,7 @@ const Footer = () => {
         <div>
           <h4 className="font-semibold mb-3">About</h4>
           <ul className="space-y-2 text-md">
-            <li className="flex items-center space-x-1">
-              <span>→</span> <a href="#">About Us</a>
-            </li>
+            <li><a href="#">About Us</a></li>
             <li><a href="#">Leadership Team</a></li>
             <li><a href="#">Case Studies</a></li>
             <li><a href="#">Contact Us</a></li>

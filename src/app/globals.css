@@ -185,3 +185,38 @@
   border: 2px solid #f97316;
   opacity: 0.3;
 }
+
+
+    @keyframes scroll {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(-33.333%);
+          }
+        }
+        
+        .animate-scroll {
+          animation: scroll 15s linear infinite;
+        }
+        
+        .animate-scroll-pause {
+          animation: scroll-with-pause 20s ease-in-out infinite;
+        }
+        
+        .animate-bounce-scroll {
+          animation: bounce-scroll 12s ease-in-out infinite;
+        }
+        
+        /* Hover effects */
+        .animate-scroll:hover {
+          animation-play-state: paused;
+        }
+        
+        .animate-scroll-pause:hover {
+          animation-play-state: paused;
+        }
+        
+        .animate-bounce-scroll:hover {
+          animation-play-state: paused;
+        }

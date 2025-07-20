@@ -1,8 +1,9 @@
 "use client";
 import React, { useState, useRef, useEffect } from 'react';
-import { ChevronDown, Search, Menu, X } from 'lucide-react';
+import { ChevronDown, Search } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
+import MobileMenuBar from './Navlink';
 
 interface DropdownItem {
     label: string;
@@ -18,7 +19,6 @@ interface NavItem {
 
 const Navbar: React.FC = () => {
     const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
-    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [hoveredDropdown, setHoveredDropdown] = useState<string | null>(null);
     console.log(hoveredDropdown)
     const navRef = useRef<HTMLDivElement>(null);
@@ -26,15 +26,6 @@ const Navbar: React.FC = () => {
 
     // Sample dropdown data
     const navItems: NavItem[] = [
-        {
-            label: 'Home',
-            dropdown: [
-                { label: 'Dashboard', href: '/dashboard', description: 'Main dashboard overview' },
-                { label: 'Analytics', href: '/analytics', description: 'View your analytics' },
-                { label: 'Reports', href: '/reports', description: 'Generate reports' },
-                { label: 'Settings', href: '/settings', description: 'Configure your account' }
-            ]
-        },
         {
             label: 'Pages',
             dropdown: [
@@ -122,10 +113,6 @@ const Navbar: React.FC = () => {
         setActiveDropdown(activeDropdown === itemLabel ? null : itemLabel);
     };
 
-    // Handle mobile menu toggle
-    const toggleMobileMenu = () => {
-        setIsMobileMenuOpen(!isMobileMenuOpen);
-    };
 
     return (
         <nav className="bg-white" ref={navRef}>
@@ -163,12 +150,13 @@ const Navbar: React.FC = () => {
             <div className="px-4 sm:px-6 lg:px-8 xl:px-10 sm:py-4">
                 <div className="flex justify-between items-center h-16">
                     {/* Logo */}
-                    <Image src={"/images/logo.png"} alt='logo' width={100} height={100} />
+                    <Image src={"/images/logo.png"} alt='logo' width={100} height={100} className='md:h-32 md:w-32 h-14 w-14'/>
 
                     <div className='flex items-center space-x-4 '>
                         {/* Desktop Navigation */}
                         <div className="hidden md:block">
                             <div className="ml-4 flex items-baseline space-x-4">
+                                <div  className="flex items-center text-gray-700 hover:text-gray-900 px-3 py-2 text-sm font-bold transition-all duration-200 group">Home</div>
                                 {navItems.map((item) => (
                                     <div
                                         key={item.label}
@@ -231,76 +219,9 @@ const Navbar: React.FC = () => {
                                 Get Started
                             </button>
                         </div>
-
                     </div>
-                    {/* Mobile menu button */}
-                    <div className="md:hidden">
-                        <button
-                            onClick={toggleMobileMenu}
-                            className="text-gray-700 hover:text-gray-900 p-2 transition-colors duration-200"
-                        >
-                            {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-                        </button>
-                    </div>
+                    <MobileMenuBar />
                 </div>
-
-                {/* Mobile Navigation */}
-                {isMobileMenuOpen && (
-                    <div className="md:hidden animate-fadeInUp">
-                        <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t border-gray-200">
-                            {navItems.map((item) => (
-                                <div key={item.label}>
-                                    <button
-                                        onClick={() => toggleDropdown(item.label)}
-                                        className="flex items-center justify-between w-full text-left text-gray-700 hover:text-gray-900 px-3 py-2 text-base font-medium transition-all duration-200"
-                                    >
-                                        {item.label}
-                                        <ChevronDown
-                                            className={`h-4 w-4 transition-all duration-300 ease-in-out ${activeDropdown === item.label ? 'rotate-180' : ''
-                                                }`}
-                                        />
-                                    </button>
-
-                                    {/* Mobile Dropdown */}
-                                    {activeDropdown === item.label && item.dropdown && (
-                                        <div className="pl-6 space-y-1 animate-fadeInUp">
-                                            {item.dropdown.map((dropdownItem, index) => (
-                                                <a
-                                                    key={dropdownItem.label}
-                                                    href={dropdownItem.href}
-                                                    className="block px-3 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-50 transition-all duration-200 transform hover:translate-x-1"
-                                                    onClick={() => {
-                                                        setActiveDropdown(null);
-                                                        setIsMobileMenuOpen(false);
-                                                    }}
-                                                    style={{
-                                                        animationDelay: `${index * 50}ms`,
-                                                        animationFillMode: 'both'
-                                                    }}
-                                                >
-                                                    {dropdownItem.label}
-                                                </a>
-                                            ))}
-                                        </div>
-                                    )}
-                                </div>
-                            ))}
-
-                            {/* Mobile Contact and Get Started */}
-                            <div className="border-t border-gray-200 pt-4 space-y-2">
-                                <a
-                                    href="/contact"
-                                    className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-gray-900 transition-all duration-200 transform hover:translate-x-1"
-                                >
-                                    Contact Us
-                                </a>
-                                <button className="w-full bg-black text-white px-4 py-2 rounded-md text-base font-medium hover:bg-gray-800 transition-all duration-200 transform hover:scale-105">
-                                    Get Started
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                )}
             </div>
         </nav>
     );
