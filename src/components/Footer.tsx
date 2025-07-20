@@ -19,24 +19,27 @@ const Footer = () => {
   const [showScrollTop, setShowScrollTop] = useState(false)
 
   useEffect(() => {
+    const footerElement = footerRef.current;
+
     const observer = new IntersectionObserver(
       ([entry]) => setShowScrollTop(entry.isIntersecting),
       {
         root: null,
         threshold: 0.1,
       }
-    )
+    );
 
-    if (footerRef.current) {
-      observer.observe(footerRef.current)
+    if (footerElement) {
+      observer.observe(footerElement);
     }
 
     return () => {
-      if (footerRef.current) {
-        observer.unobserve(footerRef.current)
+      if (footerElement) {
+        observer.unobserve(footerElement);
       }
-    }
-  }, [])
+    };
+  }, []);
+
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' })
@@ -140,7 +143,7 @@ const Footer = () => {
       </div>
       {/* Scroll to top */}
       {showScrollTop && (
-        <div      data-aos="fade-up"
+        <div data-aos="fade-up"
           data-aos-offset="50" className="fixed bottom-6 right-6 z-50">
           <button
             onClick={scrollToTop}

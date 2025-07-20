@@ -20,6 +20,7 @@ const Navbar: React.FC = () => {
     const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [hoveredDropdown, setHoveredDropdown] = useState<string | null>(null);
+    console.log(hoveredDropdown)
     const navRef = useRef<HTMLDivElement>(null);
     const hoverTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
