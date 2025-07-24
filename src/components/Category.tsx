@@ -23,13 +23,44 @@ const Category = () => {
 
   const services = [
     {
+      id: "retail",
+      title: "Retail, Logistics & Cross‑Industry AI",
+      description: "Modular AI services you can mix‑and‑match across any vertical to drive revenue and efficiency.",
+      icon: ShoppingCart,
+      color: "from-purple-500 to-violet-600",
+      image: "/images/auto1.jpg",
+      features: [
+        {
+          icon: TrendingUp,
+          title: "Personalized Recommendations",
+          description: "Tailor product suggestions in real time for each customer's tastes.",
+        },
+        {
+          icon: DollarSign,
+          title: "Dynamic Pricing Engine",
+          description: "Adjust prices automatically based on inventory, demand, and competitor data.",
+        },
+        {
+          icon: Package,
+          title: "Smart Inventory & Route Planning",
+          description: "Predict stock needs and optimize delivery routes to cut logistics costs.",
+        },
+        {
+          icon: Users,
+          title: "HR & Admin Automation",
+          description:
+            "From resume screening to employee onboarding and churn prediction, bring AI to your back‑office.",
+        },
+      ],
+    },
+    {
       id: "legal",
       title: "Legal Automation",
       description:
         "AI tools that streamline contract review, client intake, and document search so your lawyers focus on high‑value work.",
       icon: Scale,
       color: "from-blue-500 to-indigo-600",
-      image: "/placeholder.svg?height=400&width=600",
+      image: "/images/auto2.jpg",
       features: [
         {
           icon: FileText,
@@ -57,7 +88,7 @@ const Category = () => {
         "End‑to‑end AI workflows that close your books faster, catch fraud in real time, and make lending decisions smarter.",
       icon: DollarSign,
       color: "from-green-500 to-emerald-600",
-      image: "/placeholder.svg?height=400&width=600",
+      image: "/images/auto3.jpg",
       features: [
         {
           icon: FileText,
@@ -83,7 +114,7 @@ const Category = () => {
         "Virtual assistants and NLP engines that handle patient intake, coding, and no‑show outreach so your staff can deliver better care.",
       icon: Heart,
       color: "from-red-500 to-pink-600",
-      image: "/placeholder.svg?height=400&width=600",
+      image: "/images/auto4.jpg",
       features: [
         {
           icon: Stethoscope,
@@ -100,37 +131,6 @@ const Category = () => {
           title: "No‑Show Prediction & Outreach",
           description:
             "Identify patients likely to miss appointments and send reminders or calls to reduce no‑shows by up to 30%.",
-        },
-      ],
-    },
-    {
-      id: "retail",
-      title: "Retail, Logistics & Cross‑Industry AI",
-      description: "Modular AI services you can mix‑and‑match across any vertical to drive revenue and efficiency.",
-      icon: ShoppingCart,
-      color: "from-purple-500 to-violet-600",
-      image: "/placeholder.svg?height=400&width=600",
-      features: [
-        {
-          icon: TrendingUp,
-          title: "Personalized Recommendations",
-          description: "Tailor product suggestions in real time for each customer's tastes.",
-        },
-        {
-          icon: DollarSign,
-          title: "Dynamic Pricing Engine",
-          description: "Adjust prices automatically based on inventory, demand, and competitor data.",
-        },
-        {
-          icon: Package,
-          title: "Smart Inventory & Route Planning",
-          description: "Predict stock needs and optimize delivery routes to cut logistics costs.",
-        },
-        {
-          icon: Users,
-          title: "HR & Admin Automation",
-          description:
-            "From resume screening to employee onboarding and churn prediction, bring AI to your back‑office.",
         },
       ],
     },
@@ -190,8 +190,8 @@ const Category = () => {
                     src={services[activeSection].image || "/placeholder.svg"}
                     alt={services[activeSection].title}
                     width={600}
-                    height={400}
-                    className="w-full h-full object-cover rounded-2xl"
+                    height={600}
+                    className="w-full xl:h-[600px] object-cover rounded-2xl"
                   />
                 </div>
               </div>
@@ -206,9 +206,8 @@ const Category = () => {
                 ref={(el) => {
                   sectionsRef.current[index] = el
                 }}
-                className={`transition-all duration-700 ${
-                  index === activeSection ? "opacity-100 transform translate-x-0" : "opacity-60 transform translate-x-4"
-                }`}
+                className={`transition-all duration-700 ${index === activeSection ? "opacity-100 transform translate-x-0" : "opacity-60 transform translate-x-4"
+                  }`}
               >
                 {/* Service Header */}
                 <div className="mb-8">
@@ -229,9 +228,8 @@ const Category = () => {
                   {service.features.map((feature, featureIndex) => (
                     <div
                       key={featureIndex}
-                      className={`bg-slate-800/80 backdrop-blur-sm rounded-xl p-6 shadow-lg border border-slate-700 hover:shadow-xl hover:border-slate-600 transition-all duration-300 hover:transform hover:scale-105 ${
-                        index === activeSection ? "animate-fade-in-up" : ""
-                      }`}
+                      className={`bg-slate-800/80 backdrop-blur-sm rounded-xl p-6 shadow-lg border border-slate-700 hover:shadow-xl hover:border-slate-600 transition-all duration-300 hover:transform hover:scale-105 ${index === activeSection ? "animate-fade-in-up" : ""
+                        }`}
                       style={{ animationDelay: `${featureIndex * 100}ms` }}
                     >
                       <div className="flex items-start space-x-4">

@@ -6,6 +6,7 @@ import Navbar from "@/components/Navbar";
 import HowWeWorkTimeline from "@/components/Offer";
 import ScrollingBar from "@/components/Scrollbar";
 import Services from "@/components/Service";
+import Teams from "@/components/Teams";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
       <Services/>
       <ScrollingBar/> 
       <HowWeWorkTimeline/>
+      <Teams/>
       <Contact/>
       <Footer />
     </div>
