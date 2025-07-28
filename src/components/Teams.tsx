@@ -87,7 +87,7 @@ export default function Teams() {
                         transition={{ duration: 0.3, ease: "easeOut" }}
                       >
                         <motion.a
-                          href={member.twitter}
+                          href={member.linkedin}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="bg-black/70 backdrop-blur-sm p-3 rounded-full hover:bg-blue-600 transition-colors duration-300 group/icon"
