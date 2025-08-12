@@ -37,20 +37,20 @@ export default function Teams() {
   ]
 
   return (
-    <section className="bg-slate-900 text-white py-8 px-4 md:px-6 lg:px-8 h-full sm:h-screen">
+    <section className="bg-omniv-dark text-white py-8 px-4 md:px-6 lg:px-8 h-full sm:h-screen">
       <div className="sm:w-[90%] mx-auto flex items-center justify-center h-full">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
           {/* Left Content */}
           <div className="space-y-6">
             <h2 className="text-4xl md:text-6xl font-bold leading-tight">Our people make us great</h2>
-            <div className="space-y-4 text-slate-300 text-xl leading-relaxed">
+            <div className="space-y-4 text-omniv-muted text-xl leading-relaxed">
               <p>Here we focus on markets where technology, innovation, can unlock long-term value.</p>
               <p>
                 You&apos;ll interact with talented professionals, will be challenged to solve difficult problems and
                 think in new and creative ways.
               </p>
             </div>
-            <Button className="items-center gap-3 px-6 py-3 bg-gradient-to-r from-purple-600 via-pink-500 to-orange-400 text-white font-medium rounded-full hover:from-purple-700 hover:via-pink-600 hover:to-orange-500 transition-all duration-300 hover:shadow-lg mt-8">
+            <Button className="items-center gap-3 px-6 py-3 bg-gradient-to-r from-omniv-primary to-omniv-secondary text-white font-medium rounded-full hover:from-omniv-primary/90 hover:to-omniv-secondary/90 transition-all duration-300 hover:shadow-lg mt-8">
               View more
               <ArrowRight className="w-4 h-4" />
             </Button>
@@ -67,7 +67,7 @@ export default function Teams() {
                 whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.3 }}
               >
-                <div className="rounded-lg overflow-hidden bg-slate-800 relative">
+                <div className="rounded-lg overflow-hidden bg-omniv-card relative">
                   <Image
                     src={member.image || "/placeholder.svg"}
                     alt={`${member.name} - ${member.role}`}
@@ -90,7 +90,7 @@ export default function Teams() {
                           href={member.linkedin}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="bg-black/70 backdrop-blur-sm p-3 rounded-full hover:bg-blue-600 transition-colors duration-300 group/icon"
+                          className="bg-omniv-card/80 backdrop-blur-sm p-3 rounded-full hover:bg-omniv-primary transition-colors duration-300 group/icon"
                           initial={{ opacity: 0, scale: 0.8, x: -10 }}
                           animate={{ opacity: 1, scale: 1, x: 0 }}
                           transition={{ duration: 0.3, delay: 0.1 }}
@@ -103,24 +103,23 @@ export default function Teams() {
                           href={member.twitter}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="bg-black/70 backdrop-blur-sm p-3 rounded-full hover:bg-blue-500 transition-colors duration-300 group/icon"
+                          className="bg-omniv-card/80 backdrop-blur-sm p-3 rounded-full hover:bg-omniv-primary transition-colors duration-300 group/icon"
                           initial={{ opacity: 0, scale: 0.8, x: -10 }}
                           animate={{ opacity: 1, scale: 1, x: 0 }}
-                          transition={{ duration: 0.3, delay: 0.1 }}
+                          transition={{ duration: 0.3, delay: 0.2 }}
                           whileHover={{ scale: 1.1 }}
                           whileTap={{ scale: 0.95 }}
                         >
                           <Twitter className="w-5 h-5 text-white group-hover/icon:text-white transition-colors duration-300" />
                         </motion.a>
-
                         <motion.a
                           href={member.github}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="bg-black/70 backdrop-blur-sm p-3 rounded-full hover:bg-gray-700 transition-colors duration-300 group/icon"
+                          className="bg-omniv-card/80 backdrop-blur-sm p-3 rounded-full hover:bg-omniv-primary transition-colors duration-300 group/icon"
                           initial={{ opacity: 0, scale: 0.8, x: -10 }}
                           animate={{ opacity: 1, scale: 1, x: 0 }}
-                          transition={{ duration: 0.3, delay: 0.2 }}
+                          transition={{ duration: 0.3, delay: 0.3 }}
                           whileHover={{ scale: 1.1 }}
                           whileTap={{ scale: 0.95 }}
                         >
@@ -130,12 +129,10 @@ export default function Teams() {
                     )}
                   </AnimatePresence>
 
-                  {/* Overlay with name and role */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent">
-                    <div className="absolute bottom-0 left-0 right-0 p-4 text-center">
-                      <h3 className="font-semibold text-white text-sm md:text-base">{member.name}</h3>
-                      <p className="text-slate-300 text-xs md:text-sm">{member.role}</p>
-                    </div>
+                  {/* Member Info Overlay */}
+                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-omniv-dark/90 via-omniv-dark/50 to-transparent p-4">
+                    <h3 className="text-lg font-semibold text-white mb-1">{member.name}</h3>
+                    <p className="text-omniv-muted text-sm">{member.role}</p>
                   </div>
                 </div>
               </motion.div>

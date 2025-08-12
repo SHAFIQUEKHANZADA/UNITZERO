@@ -49,26 +49,26 @@ export default function HowWeWorkTimeline() {
   ]
 
   return (
-    <section className="relative min-h-screen bg-black text-white overflow-hidden">
+    <section className="relative min-h-screen bg-omniv-dark text-white overflow-hidden">
       {/* Background decorative elements */}
       <div className="absolute inset-0">
-        <div className="absolute top-20 left-20 w-1 h-1 bg-white rounded-full opacity-60 animate-pulse"></div>
-        <div className="absolute top-32 right-32 w-1 h-1 bg-white rounded-full opacity-40 animate-pulse delay-100"></div>
-        <div className="absolute bottom-40 left-40 w-1 h-1 bg-white rounded-full opacity-50 animate-pulse delay-200"></div>
-        <div className="absolute top-60 right-20 w-1 h-1 bg-white rounded-full opacity-70 animate-pulse delay-300"></div>
+        <div className="absolute top-20 left-20 w-1 h-1 bg-omniv-primary rounded-full opacity-60 animate-pulse"></div>
+        <div className="absolute top-32 right-32 w-1 h-1 bg-omniv-secondary rounded-full opacity-40 animate-pulse delay-100"></div>
+        <div className="absolute bottom-40 left-40 w-1 h-1 bg-omniv-primary rounded-full opacity-50 animate-pulse delay-200"></div>
+        <div className="absolute top-60 right-20 w-1 h-1 bg-omniv-secondary rounded-full opacity-70 animate-pulse delay-300"></div>
 
-        <Sparkles className="absolute top-40 left-60 w-4 h-4 text-white opacity-40 animate-pulse delay-500" />
-        <Sparkles className="absolute bottom-60 right-40 w-3 h-3 text-white opacity-50 animate-pulse delay-700" />
+        <Sparkles className="absolute top-40 left-60 w-4 h-4 text-omniv-primary opacity-40 animate-pulse delay-500" />
+        <Sparkles className="absolute bottom-60 right-40 w-3 h-3 text-omniv-secondary opacity-50 animate-pulse delay-700" />
       </div>
 
       {/* Sticky Header */}
-      <div className="sticky top-0 z-20 bg-black/80 backdrop-blur-sm">
+      <div className="sticky top-0 z-20 bg-omniv-dark/80 backdrop-blur-sm">
         <div className="container mx-auto px-6 py-6">
           <div className="flex items-center justify-center">
             <div className="flex items-center gap-4">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-600/20 border border-purple-500/30">
-                <Sparkles className="w-4 h-4 text-purple-400" />
-                <span className="text-sm font-medium text-purple-300">How We Work</span>
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-omniv-primary/20 border border-omniv-primary/30">
+                <Sparkles className="w-4 h-4 text-omniv-primary" />
+                <span className="text-sm font-medium text-omniv-primary">How We Work</span>
               </div>
             </div>
           </div>
@@ -82,7 +82,7 @@ export default function HowWeWorkTimeline() {
             {/* Left Side - Timeline */}
             <div className="relative">
               {/* Timeline Line */}
-              <div className="absolute left-8 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-purple-500/50 to-transparent"></div>
+              <div className="absolute left-8 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-omniv-primary/50 to-transparent"></div>
               {/* Steps */}
               <div className="space-y-32">
                 {steps.map((step, index) => (
@@ -97,7 +97,7 @@ export default function HowWeWorkTimeline() {
                       <div
                         className={`relative w-16 h-16 rounded-full border-2 transition-all duration-500 ${
                           index <= activeStep
-                            ? "border-purple-500 bg-purple-500/20 scale-110"
+                            ? "border-omniv-primary bg-omniv-primary/20 scale-110"
                             : "border-white/20 bg-black"
                         }`}
                       >

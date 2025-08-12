@@ -27,29 +27,29 @@ export default function Contact() {
   }, []);
 
   return (
-    <div className={`${lato.className} overflow-hidden min-h-screen flex lg:flex-row flex-col justify-center items-center gap-20 bg-[#1B1B1B] text-white p-8 lg:p-16 xl:px-40`}>
+    <div className={`${lato.className} overflow-hidden min-h-screen flex lg:flex-row flex-col justify-center items-center gap-20 bg-omniv-dark text-white p-8 lg:p-16 xl:px-40`}>
 
       {/* Left Content */}
       <div className="space-y-8 flex-1" data-aos="fade-up">
         <div className="space-y-6">
-          <p className="text-gray-300 text-md">We&apos;re here to answer all your questions</p>
+          <p className="text-omniv-muted text-md">We&apos;re here to answer all your questions</p>
 
           <h1 className="text-4xl lg:text-6xl font-bold leading-tight">
             Embrace the future of artificial intelligence!
           </h1>
 
-          <p className="text-gray-300 text-xl leading-relaxed">
+          <p className="text-omniv-muted text-xl leading-relaxed">
             Artificial Intelligence refers to the development of computer systems that possess the ability to perform
             activities typically requiring human intelligence abilities!
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4">
-            <button className="bg-white flex items-center justify-center text-black hover:bg-gray-100 px-6 py-3 text-xl rounded-full">
+            <button className="bg-gradient-to-r from-omniv-primary to-omniv-secondary flex items-center justify-center text-white hover:from-omniv-primary/90 hover:to-omniv-secondary/90 px-6 py-3 text-xl rounded-full transition-all duration-300">
               <span> Get Started</span>
               <ArrowRight className="ml-2 h-4 w-4" />
             </button>
             <button
-              className="border-gray-200 border text-white hover:bg-gray-800 px-6 py-3 text-xl rounded-full bg-transparent"
+              className="border-omniv text-white hover:bg-omniv-card hover:border-omniv-primary px-6 py-3 text-xl rounded-full bg-transparent transition-all duration-300"
             >
               Learn More
             </button>
@@ -65,8 +65,8 @@ export default function Contact() {
               </div>
             </div>
             <div>
-              <h3 className="text-xl font-semibold mb-2">Envision The Extraordinary</h3>
-              <p className="text-gray-300">
+              <h3 className="text-xl font-semibold mb-2 text-white">Envision The Extraordinary</h3>
+              <p className="text-omniv-muted">
                 Design beautiful artwork, digital sketches, or illustrations that match your style while boosting
                 creativity.
               </p>
@@ -80,8 +80,8 @@ export default function Contact() {
               </div>
             </div>
             <div>
-              <h3 className="text-xl font-semibold mb-2">Immersive Creative Process</h3>
-              <p className="text-gray-300">
+              <h3 className="text-xl font-semibold mb-2 text-white">Immersive Creative Process</h3>
+              <p className="text-omniv-muted">
                 Erase distractions, adjust dimensions and finesse every detail of your designs quickly all under one
                 roof with full control.
               </p>
@@ -90,10 +90,10 @@ export default function Contact() {
         </div>
       </div>
       {/* Right Contact Form */}
-      <Card className="bg-white text-black flex flex-col justify-evenly flex-1 md:p-10"  data-aos="fade-left">
+      <Card className="bg-omniv-card/50 backdrop-blur-sm text-white border border-omniv flex flex-col justify-evenly flex-1 md:p-10"  data-aos="fade-left">
         <CardHeader>
-          <CardTitle className="md:text-5xl text-lg font-medium">Get in touch</CardTitle>
-          <p className="text-gray-600 md:text-xl">
+          <CardTitle className="md:text-5xl text-lg font-medium text-white">Get in touch</CardTitle>
+          <p className="text-omniv-muted md:text-xl">
             Just fill out the form and our global experts will be in touch right away with package and price solution
             to help you!
           </p>
@@ -101,52 +101,52 @@ export default function Contact() {
         <CardContent className="space-y-6 text-3xl">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="space-y-2">
-              <Label htmlFor="name" className="sr-only">Your Name</Label>
-              <Input id="name" placeholder="Your Name" className="bg-gray-50 border-gray-200 md:h-14 h-12 placeholder:text-lg" />
+              <Label htmlFor="name" className="sr-only text-white">Your Name</Label>
+              <Input id="name" placeholder="Your Name" className="bg-omniv-input border-omniv-border text-white placeholder:text-omniv-muted md:h-14 h-12 placeholder:text-lg" />
             </div>
             <div className="space-y-2">
-              <Label htmlFor="email" className="sr-only">Email Address</Label>
-              <Input id="email" type="email" placeholder="Email Address" className="bg-gray-50 border-gray-200 md:h-14 h-12 placeholder:text-lg" />
+              <Label htmlFor="email" className="sr-only text-white">Email Address</Label>
+              <Input id="email" type="email" placeholder="Email Address" className="bg-omniv-input border-omniv-border text-white placeholder:text-omniv-muted md:h-14 h-12 placeholder:text-lg" />
             </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="space-y-2">
-              <Label htmlFor="company" className="sr-only">Company Name</Label>
-              <Input id="company" placeholder="Company Name" className="bg-gray-50 border-gray-200 md:h-14 h-12 placeholder:text-lg" />
+              <Label htmlFor="company" className="sr-only text-white">Company Name</Label>
+              <Input id="company" placeholder="Company Name" className="bg-omniv-input border-omniv-border text-white placeholder:text-omniv-muted md:h-14 h-12 placeholder:text-lg" />
             </div>
             <div className="space-y-2">
-              <Label htmlFor="phone" className="sr-only">Phone Number</Label>
-              <Input id="phone" placeholder="Phone Number" className="bg-gray-50 border-gray-200 md:h-14 h-12 placeholder:text-lg" />
+              <Label htmlFor="phone" className="sr-only text-white">Phone Number</Label>
+              <Input id="phone" placeholder="Phone Number" className="bg-omniv-input border-omniv-border text-white placeholder:text-omniv-muted md:h-14 h-12 placeholder:text-lg" />
             </div>
           </div>
 
           <div className="space-y-2 w-full">
-            <Label htmlFor="service" className="sr-only text-xl">AI Integration solutions</Label>
+            <Label htmlFor="service" className="sr-only text-xl text-white">AI Integration solutions</Label>
             <Select defaultValue="chatbots">
-              <SelectTrigger className="w-full bg-gray-50 border-gray-200 md:h-14 py-7 placeholder:text-lg">
+              <SelectTrigger className="w-full bg-omniv-input border-omniv-border text-white placeholder:text-omniv-muted md:h-14 py-7 placeholder:text-lg">
                 <SelectValue placeholder="AI Integration solutions" />
               </SelectTrigger>
-              <SelectContent className="text-xl">
-                <SelectItem className="p-2 text-xl" value="chatbots">AI Chatbots</SelectItem>
-                <SelectItem className="p-2 text-xl" value="automation">Process Automation</SelectItem>
-                <SelectItem className="p-2 text-xl" value="analytics">Predictive Analytics</SelectItem>
-                <SelectItem className="p-2 text-xl" value="vision">Computer Vision</SelectItem>
-                <SelectItem className="p-2 text-xl" value="nlp">Natural Language Processing</SelectItem>
+              <SelectContent className="text-xl bg-omniv-card border-omniv-border">
+                <SelectItem className="p-2 text-xl text-white hover:bg-omniv-card" value="chatbots">AI Chatbots</SelectItem>
+                <SelectItem className="p-2 text-xl text-white hover:bg-omniv-card" value="automation">Process Automation</SelectItem>
+                <SelectItem className="p-2 text-xl text-white hover:bg-omniv-card" value="analytics">Predictive Analytics</SelectItem>
+                <SelectItem className="p-2 text-xl text-white hover:bg-omniv-card" value="vision">Computer Vision</SelectItem>
+                <SelectItem className="p-2 text-xl text-white hover:bg-omniv-card" value="nlp">Natural Language Processing</SelectItem>
               </SelectContent>
             </Select>
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="message" className="sr-only">Business Information</Label>
+            <Label htmlFor="message" className="sr-only text-white">Business Information</Label>
             <Textarea
               id="message"
               placeholder="Kindly provide enough information about your business..."
-              className="bg-gray-50 border-gray-200 min-h-[150px] resize-none  placeholder:text-lg"
+              className="bg-omniv-input border-omniv-border text-white placeholder:text-omniv-muted min-h-[150px] resize-none placeholder:text-lg"
             />
           </div>
 
-          <button className="w-fit flex items-center bg-gray-900 text-xl hover:bg-gray-800 text-white px-5 py-3 rounded-4xl">
+          <button className="w-fit flex items-center bg-gradient-to-r from-omniv-primary to-omniv-secondary hover:from-omniv-primary/90 hover:to-omniv-secondary/90 text-xl text-white px-5 py-3 rounded-4xl transition-all duration-300 hover:scale-105">
             <span>Submit Request</span>
             <ArrowRight className="ml-2 h-4 w-4" />
           </button>

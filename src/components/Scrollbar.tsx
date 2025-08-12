@@ -2,7 +2,7 @@
  
 const ScrollingBar = () => {
   return (
-    <div className="overflow-hidden sm:py-28 py-10 bg-gradient-to-b from-gray-900 via-gray-900 to-black">
+    <div className="overflow-hidden sm:py-28 py-10 bg-omniv-dark">
         <div className="relative">
          <div className="w-full sm:h-[6rem] h-10 bg-[#3f3e3e] overflow-hidden flex items-center sm:rotate-[1.5deg] rotate-2">
           <div className="flex whitespace-nowrap animate-scroll">

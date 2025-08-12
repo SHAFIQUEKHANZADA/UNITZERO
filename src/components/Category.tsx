@@ -27,7 +27,7 @@ const Category = () => {
       title: "Retail, Logistics & Cross‑Industry AI",
       description: "Modular AI services you can mix‑and‑match across any vertical to drive revenue and efficiency.",
       icon: ShoppingCart,
-      color: "from-purple-500 to-violet-600",
+      color: "from-omniv-primary to-omniv-secondary",
       image: "/images/auto1.jpg",
       features: [
         {
@@ -59,7 +59,7 @@ const Category = () => {
       description:
         "AI tools that streamline contract review, client intake, and document search so your lawyers focus on high‑value work.",
       icon: Scale,
-      color: "from-blue-500 to-indigo-600",
+      color: "from-omniv-primary to-omniv-secondary",
       image: "/images/auto2.jpg",
       features: [
         {
@@ -87,7 +87,7 @@ const Category = () => {
       description:
         "End‑to‑end AI workflows that close your books faster, catch fraud in real time, and make lending decisions smarter.",
       icon: DollarSign,
-      color: "from-green-500 to-emerald-600",
+      color: "from-omniv-primary to-omniv-secondary",
       image: "/images/auto3.jpg",
       features: [
         {
@@ -113,7 +113,7 @@ const Category = () => {
       description:
         "Virtual assistants and NLP engines that handle patient intake, coding, and no‑show outreach so your staff can deliver better care.",
       icon: Heart,
-      color: "from-red-500 to-pink-600",
+      color: "from-omniv-primary to-omniv-secondary",
       image: "/images/auto4.jpg",
       features: [
         {
@@ -163,14 +163,20 @@ const Category = () => {
   }, [activeSection, services.length])
 
   return (
-    <div ref={containerRef} className="min-h-screen bg-gradient-to-br from-slate-900 to-slate-800">
-      <div className="container mx-auto px-6 py-20">
+    <div ref={containerRef} className="min-h-screen bg-omniv-dark relative ">
+      {/* Background decorative elements */}
+      <div className="absolute inset-0 opacity-20">
+        <div className="absolute top-20 left-20 w-96 h-96 bg-omniv-primary rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 right-20 w-96 h-96 bg-omniv-secondary rounded-full blur-3xl"></div>
+      </div>
+      
+      <div className="container mx-auto px-6 py-20 relative z-10">
         {/* Header */}
         <div className="text-center mb-20">
-          <h1 className="md:text-5xl text-3xl font-bold bg-gradient-to-r from-slate-100 to-slate-300 bg-clip-text text-transparent mb-6">
+          <h1 className="md:text-5xl text-3xl font-bold bg-gradient-to-r from-white via-omniv-primary to-white bg-clip-text text-transparent mb-6">
             Next-Gen Intelligence Solutions
           </h1>
-          <p className="md:text-xl text-sm text-slate-300 max-w-3xl mx-auto">
+          <p className="md:text-xl text-sm text-omniv-muted max-w-3xl mx-auto">
             Revolutionize your operations with powerful AI-driven automation that scales with your ambitions
           </p>
         </div>
@@ -181,18 +187,28 @@ const Category = () => {
             <div className="relative">
               {/* Background gradient that matches active section */}
               <div
-                className={`absolute inset-0 bg-gradient-to-r ${services[activeSection].color} rounded-2xl opacity-30 blur-xl transform scale-110 transition-all duration-700`}
+                className={`absolute inset-0 bg-gradient-to-r ${services[activeSection].color} rounded-2xl opacity-40 blur-xl transform scale-110 transition-all duration-700`}
               ></div>
               {/* Main image container */}
               <div className="relative">
-                <div className="flex items-center justify-center relative overflow-hidden rounded-2xl bg-slate-700/50 backdrop-blur-sm border border-slate-600">
+                <div className="flex items-center justify-center relative overflow-hidden rounded-2xl bg-omniv-card/80 backdrop-blur-sm border border-omniv-primary/30 shadow-2xl">
                   <Image
-                    src={services[activeSection].image || "/placeholder.svg"}
+                    src={services[activeSection].image}
                     alt={services[activeSection].title}
                     width={600}
                     height={600}
-                    className="w-full xl:h-[600px] object-cover rounded-2xl"
+                    className="w-full xl:h-[600px] object-cover rounded-2xl transition-transform duration-700 hover:scale-105"
+                    priority
                   />
+                  {/* Add overlay with service info */}
+                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-omniv-dark/90 via-omniv-dark/50 to-transparent p-6 rounded-b-2xl">
+                    <div className="flex items-center gap-3">
+                      <div className={`bg-gradient-to-r ${services[activeSection].color} p-2 rounded-lg shadow-lg`}>
+                        {React.createElement(services[activeSection].icon, { size: 20, className: "text-white" })}
+                      </div>
+                      <span className="text-white font-semibold text-sm">{services[activeSection].title.split(' ')[0]}</span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -216,11 +232,11 @@ const Category = () => {
                       {React.createElement(service.icon, { size: 32, className: "text-white" })}
                     </div>
                     <div>
-                      <h2 className="text-3xl font-bold text-slate-100">{service.title}</h2>
+                      <h2 className="text-3xl font-bold text-white">{service.title}</h2>
                       <div className={`h-1 w-24 bg-gradient-to-r ${service.color} mt-2 rounded-full`}></div>
                     </div>
                   </div>
-                  <p className="text-lg text-slate-300 leading-relaxed">{service.description}</p>
+                  <p className="text-lg text-omniv-muted leading-relaxed">{service.description}</p>
                 </div>
 
                 {/* Features */}
@@ -228,7 +244,7 @@ const Category = () => {
                   {service.features.map((feature, featureIndex) => (
                     <div
                       key={featureIndex}
-                      className={`bg-slate-800/80 backdrop-blur-sm rounded-xl p-6 shadow-lg border border-slate-700 hover:shadow-xl hover:border-slate-600 transition-all duration-300 hover:transform hover:scale-105 ${index === activeSection ? "animate-fade-in-up" : ""
+                      className={`bg-omniv-card/80 backdrop-blur-sm rounded-xl p-6 shadow-lg border border-omniv hover:shadow-xl hover:border-omniv-primary/50 transition-all duration-300 hover:transform hover:scale-105 ${index === activeSection ? "animate-fade-in-up" : ""
                         }`}
                       style={{ animationDelay: `${featureIndex * 100}ms` }}
                     >
@@ -237,8 +253,20 @@ const Category = () => {
                           {React.createElement(feature.icon, { size: 24, className: "text-white" })}
                         </div>
                         <div>
-                          <h3 className="text-xl font-semibold text-slate-100 mb-2">{feature.title}</h3>
-                          <p className="text-slate-300 leading-relaxed">{feature.description}</p>
+                          <h3 className="text-xl font-semibold text-white mb-2">{feature.title}</h3>
+                          <p className="text-omniv-muted leading-relaxed">{feature.description}</p>
+                          {/* Add highlight tags back */}
+                          <div className="mt-3">
+                            <span className={`inline-block px-3 py-1 text-xs font-medium rounded-full border ${
+                              featureIndex % 2 === 0 
+                                ? 'bg-omniv-primary/20 text-omniv-primary border-omniv-primary/30' 
+                                : 'bg-omniv-secondary/20 text-omniv-secondary border-omniv-secondary/30'
+                            }`}>
+                              {featureIndex === 0 ? 'AI-Powered' : 
+                               featureIndex === 1 ? 'Smart Analytics' : 
+                               'Advanced Technology'}
+                            </span>
+                          </div>
                         </div>
                       </div>
                     </div>

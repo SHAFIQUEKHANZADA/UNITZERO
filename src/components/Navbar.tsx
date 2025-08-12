@@ -1,9 +1,14 @@
 "use client";
 import React, { useState, useRef, useEffect } from 'react';
-import { ChevronDown, Search } from 'lucide-react';
-import Image from 'next/image';
+import { ChevronDown } from 'lucide-react';
 import Link from 'next/link';
 import MobileMenuBar from './Navlink';
+import { Bungee } from 'next/font/google';
+
+const bungee = Bungee({
+    subsets: ['latin'],
+    weight: '400',
+  })
 
 interface DropdownItem {
     label: string;
@@ -27,41 +32,30 @@ const Navbar: React.FC = () => {
     // Sample dropdown data
     const navItems: NavItem[] = [
         {
-            label: 'Pages',
+            label: 'ABOUT',
             dropdown: [
-                { label: 'About Us', href: '/about', description: 'Learn about our company' },
-                { label: 'Our Team', href: '/team', description: 'Meet our team members' },
+                { label: 'Our Story', href: '/about', description: 'Learn about our journey' },
+                { label: 'Our Team', href: '/team', description: 'Meet our experts' },
                 { label: 'Careers', href: '/careers', description: 'Join our team' },
-                { label: 'Press', href: '/press', description: 'Media resources' },
-                { label: 'Case Studies', href: '/case-studies', description: 'Success stories' }
+                { label: 'Press', href: '/press', description: 'Media resources' }
             ]
         },
         {
-            label: 'Services',
+            label: 'FEATURES',
             dropdown: [
-                { label: 'AI Consulting', href: '/ai-consulting', description: 'Expert AI guidance' },
-                { label: 'Machine Learning', href: '/ml', description: 'ML solutions' },
+                { label: 'AI Solutions', href: '/ai-solutions', description: 'Cutting-edge AI technology' },
+                { label: 'Machine Learning', href: '/ml', description: 'Advanced ML capabilities' },
                 { label: 'Data Analytics', href: '/analytics', description: 'Data-driven insights' },
-                { label: 'Custom Development', href: '/development', description: 'Tailored solutions' },
-                { label: 'Training & Support', href: '/training', description: 'Learn and grow' }
+                { label: 'Custom Development', href: '/development', description: 'Tailored solutions' }
             ]
         },
         {
-            label: 'Blog',
+            label: 'PAGES',
             dropdown: [
-                { label: 'Latest Posts', href: '/blog', description: 'Recent articles' },
-                { label: 'AI News', href: '/blog/ai-news', description: 'Industry updates' },
-                { label: 'Tutorials', href: '/blog/tutorials', description: 'Step-by-step guides' },
-                { label: 'Case Studies', href: '/blog/case-studies', description: 'Real-world examples' }
-            ]
-        },
-        {
-            label: 'Shop',
-            dropdown: [
-                { label: 'AI Tools', href: '/shop/tools', description: 'Powerful AI software' },
-                { label: 'Templates', href: '/shop/templates', description: 'Ready-to-use templates' },
-                { label: 'Courses', href: '/shop/courses', description: 'Online learning' },
-                { label: 'Consulting', href: '/shop/consulting', description: 'Professional services' }
+                { label: 'Case Studies', href: '/case-studies', description: 'Success stories' },
+                { label: 'Blog', href: '/blog', description: 'Latest insights' },
+                { label: 'Resources', href: '/resources', description: 'Helpful materials' },
+                { label: 'Support', href: '/support', description: 'Get help' }
             ]
         }
     ];
@@ -115,7 +109,7 @@ const Navbar: React.FC = () => {
 
 
     return (
-        <nav className="bg-white" ref={navRef}>
+        <nav className="bg-omniv-dark border-b border-omniv" ref={navRef}>
             <style jsx>{`
         @keyframes dropdown {
           from {
@@ -147,16 +141,19 @@ const Navbar: React.FC = () => {
           animation: fadeInUp 0.3s ease-out forwards;
         }
       `}</style>
-            <div className="px-4 sm:px-6 lg:px-8 xl:px-10 sm:py-4">
+            <div className="px-4 sm:px-6 lg:px-8 xl:px-20 sm:py-4">
                 <div className="flex justify-between items-center h-16">
                     {/* Logo */}
-                    <Image src={"/images/logo.png"} alt='logo' width={100} height={100} className='lg:h-32 lg:w-32 md:w-28 md:h-28 h-14 w-14'/>
+                    <div className="flex items-center gap-3">
+                    
+                        <span className={`${bungee.className} text-2xl font-bold text-white`}>UNITZERO</span>
+                    </div>
 
                     <div className='flex items-center lg:space-x-4 '>
                         {/* Desktop Navigation */}
                         <div className="hidden md:block">
                             <div className="ml-4 flex items-baseline lg:space-x-4">
-                                <div  className="flex items-center text-gray-700 hover:text-gray-900 px-3 py-2 text-sm font-bold transition-all duration-200 group">Home</div>
+                                <div className="flex items-center text-omniv-primary hover:text-omniv-secondary px-3 py-2 text-sm font-bold transition-all duration-200 group">HOME</div>
                                 {navItems.map((item) => (
                                     <div
                                         key={item.label}
@@ -166,33 +163,33 @@ const Navbar: React.FC = () => {
                                     >
                                         <button
                                             onClick={() => toggleDropdown(item.label)}
-                                            className="flex items-center text-gray-700 hover:text-gray-900 px-3 py-2 text-sm font-bold transition-all duration-200 group"
+                                            className="flex items-center text-white hover:text-omniv-primary px-3 py-2 text-sm font-bold transition-all duration-200 group"
                                         >
                                             {item.label}
                                             <ChevronDown
-                                                className={`ml-1 h-4 w-4 transition-all duration-300 ease-in-out ${activeDropdown === item.label ? 'rotate-180 text-gray-900' : 'group-hover:text-gray-900'
+                                                className={`ml-1 h-4 w-4 transition-all duration-300 ease-in-out ${activeDropdown === item.label ? 'rotate-180 text-omniv-primary' : 'group-hover:text-omniv-primary'
                                                     }`}
                                             />
                                         </button>
 
                                         {/* Dropdown Menu */}
                                         {activeDropdown === item.label && item.dropdown && (
-                                            <div className="absolute top-full left-0 mt-2 w-72 bg-white rounded-lg shadow-lg border border-gray-200 z-50 opacity-0 translate-y-2 animate-dropdown">
+                                            <div className="absolute top-full left-0 mt-2 w-72 bg-omniv-card rounded-lg shadow-lg border border-omniv z-50 opacity-0 translate-y-2 animate-dropdown">
                                                 <div className="py-2">
                                                     {item.dropdown.map((dropdownItem, index) => (
                                                         <a
                                                             key={dropdownItem.label}
                                                             href={dropdownItem.href}
-                                                            className="block px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-gray-900 transition-all duration-200 transform hover:translate-x-1"
+                                                            className="block px-4 py-3 text-sm text-white hover:bg-omniv-muted hover:text-omniv-primary transition-all duration-200 transform hover:translate-x-1"
                                                             onClick={() => setActiveDropdown(null)}
                                                             style={{
                                                                 animationDelay: `${index * 50}ms`,
                                                                 animationFillMode: 'both'
                                                             }}
                                                         >
-                                                            <div className="font-medium text-gray-900 transition-colors duration-200">{dropdownItem.label}</div>
+                                                            <div className="font-medium text-white transition-colors duration-200">{dropdownItem.label}</div>
                                                             {dropdownItem.description && (
-                                                                <div className="text-gray-500 text-xs mt-1 transition-colors duration-200">{dropdownItem.description}</div>
+                                                                <div className="text-omniv-muted text-xs mt-1 transition-colors duration-200">{dropdownItem.description}</div>
                                                             )}
                                                         </a>
                                                     ))}
@@ -208,15 +205,12 @@ const Navbar: React.FC = () => {
                         <div className="hidden md:flex items-center lg:space-x-4">
                             <Link
                                 href="/contact"
-                                className="text-gray-700 hover:text-gray-900 px-3 py-2 text-sm font-bold transition-colors duration-200"
+                                className="text-white hover:text-omniv-primary px-3 py-2 text-sm font-bold transition-colors duration-200"
                             >
-                                Contact Us
+                                CONTACT
                             </Link>
-                            <button className="text-gray-700 hover:text-gray-900 p-2 transition-all duration-200 transform hover:scale-110">
-                                <Search className="h-5 w-5" />
-                            </button>
-                            <button className="bg-[#222222] text-white px-4 py-3 rounded-3xl text-sm font-bold hover:bg-gray-800 transition-all duration-200 transform hover:scale-105 hover:shadow-lg">
-                                Get Started
+                            <button className="bg-gradient-to-r from-[#ff6b35] to-[#00d4aa] text-white px-6 py-3 rounded-xl text-sm font-bold hover:from-omniv-primary/90 hover:to-omniv-secondary/90 transition-all duration-200 transform hover:scale-105 hover:shadow-lg">
+                                GET STARTED
                             </button>
                         </div>
                     </div>
