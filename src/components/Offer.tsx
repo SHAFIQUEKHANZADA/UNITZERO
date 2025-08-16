@@ -1,31 +1,37 @@
 "use client"
 
-import { Sparkles, Star } from "lucide-react"
-import { useEffect, useState } from "react"
+import { Sparkles, ArrowRight, CheckCircle, Zap, Target, Code, TrendingUp } from "lucide-react"
+import { useEffect, useState, useRef } from "react"
 
 export default function HowWeWorkTimeline() {
   const [activeStep, setActiveStep] = useState(0)
+  const [hoveredStep, setHoveredStep] = useState<number | null>(null)
+  const timelineRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollY = window.scrollY
+      if (!timelineRef.current) return
+      
+      const rect = timelineRef.current.getBoundingClientRect()
+      const timelineTop = rect.top
+      const timelineHeight = rect.height
       const windowHeight = window.innerHeight
-
-      const step1Trigger = windowHeight * 0.2
-      const step2Trigger = windowHeight * 0.6
-      const step3Trigger = windowHeight * 1.0
-
-      if (scrollY >= step3Trigger) {
-        setActiveStep(2)
-      } else if (scrollY >= step2Trigger) {
-        setActiveStep(1)
-      } else if (scrollY >= step1Trigger) {
+      
+      // Calculate which step should be active based on scroll position
+      const stepHeight = timelineHeight / 3
+      const scrollProgress = (windowHeight - timelineTop) / stepHeight
+      
+      if (scrollProgress <= 1) {
         setActiveStep(0)
+      } else if (scrollProgress <= 2) {
+        setActiveStep(1)
+      } else {
+        setActiveStep(2)
       }
     }
 
     window.addEventListener("scroll", handleScroll)
-    handleScroll()  
+    handleScroll()
 
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
@@ -34,135 +40,214 @@ export default function HowWeWorkTimeline() {
     {
       title: "Discovery & Free Pilot",
       description: "Rapidly target your biggest bottleneck—zero‑risk, clear success metrics.",
-      number: "01",
+      icon: Target,
+      color: "from-omniv-primary to-omniv-secondary",
+      bgColor: "bg-omniv-primary/10",
+      borderColor: "border-omniv-primary/30",
+      features: ["Risk Assessment", "Success Metrics", "Free Pilot Setup"],
+      status: "Ready to Start"
     },
     {
       title: "Low‑Code Integration",
       description: "Plug into MS 365, SAP, EHRs, ERPs with minimal IT lift.",
-      number: "02",
+      icon: Code,
+      color: "from-omniv-secondary to-omniv-primary",
+      bgColor: "bg-omniv-secondary/10",
+      borderColor: "border-omniv-secondary/30",
+      features: ["MS 365", "SAP", "EHRs", "ERPs"],
+      status: "In Progress"
     },
     {
       title: "Scale & Optimize",
       description: "Reusable AI modules, weekly tuning, usage insights delivered automatically.",
-      number: "03",
+      icon: TrendingUp,
+      color: "from-omniv-primary via-omniv-secondary to-omniv-primary",
+      bgColor: "bg-omniv-primary/10",
+      borderColor: "border-omniv-primary/30",
+      features: ["AI Performance", "Auto-tuning", "Real-time Insights"],
+      status: "Active"
     },
   ]
 
+  const handleStepClick = (index: number) => {
+    setActiveStep(index)
+    // Smooth scroll to the step
+    const stepElement = document.getElementById(`step-${index}`)
+    if (stepElement) {
+      stepElement.scrollIntoView({ behavior: 'smooth', block: 'center' })
+    }
+  }
+
   return (
     <section className="relative min-h-screen bg-omniv-dark text-white overflow-hidden">
-      {/* Background decorative elements */}
+      {/* Animated Background */}
       <div className="absolute inset-0">
-        <div className="absolute top-20 left-20 w-1 h-1 bg-omniv-primary rounded-full opacity-60 animate-pulse"></div>
-        <div className="absolute top-32 right-32 w-1 h-1 bg-omniv-secondary rounded-full opacity-40 animate-pulse delay-100"></div>
-        <div className="absolute bottom-40 left-40 w-1 h-1 bg-omniv-primary rounded-full opacity-50 animate-pulse delay-200"></div>
-        <div className="absolute top-60 right-20 w-1 h-1 bg-omniv-secondary rounded-full opacity-70 animate-pulse delay-300"></div>
-
-        <Sparkles className="absolute top-40 left-60 w-4 h-4 text-omniv-primary opacity-40 animate-pulse delay-500" />
-        <Sparkles className="absolute bottom-60 right-40 w-3 h-3 text-omniv-secondary opacity-50 animate-pulse delay-700" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,107,53,0.05),transparent_50%)]"></div>
+        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_20%_80%,rgba(0,212,170,0.05),transparent_50%)]"></div>
+        <div className="absolute top-0 right-0 w-full h-full bg-[radial-gradient(circle_at_80%_20%,rgba(255,107,53,0.03),transparent_50%)]"></div>
+        
+        {/* Floating particles */}
+        {[...Array(20)].map((_, i) => (
+          <div
+            key={i}
+            className="absolute w-1 h-1 bg-omniv-primary/20 rounded-full animate-pulse"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+              animationDelay: `${Math.random() * 3}s`,
+              animationDuration: `${2 + Math.random() * 3}s`
+            }}
+          />
+        ))}
       </div>
 
-      {/* Sticky Header */}
-      <div className="sticky top-0 z-20 bg-omniv-dark/80 backdrop-blur-sm">
-        <div className="container mx-auto px-6 py-6">
-          <div className="flex items-center justify-center">
-            <div className="flex items-center gap-4">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-omniv-primary/20 border border-omniv-primary/30">
-                <Sparkles className="w-4 h-4 text-omniv-primary" />
-                <span className="text-sm font-medium text-omniv-primary">How We Work</span>
-              </div>
-            </div>
+      {/* Header */}
+      <div className="relative z-20 pt-20 pb-16">
+        <div className="container mx-auto px-6 text-center">
+          <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-omniv-card/50 backdrop-blur-sm border border-omniv-primary/30 mb-8">
+            <Sparkles className="w-5 h-5 text-omniv-primary" />
+            <span className="text-omniv-primary font-medium">How We Work</span>
           </div>
+          <h2 className="text-5xl lg:text-6xl font-bold bg-gradient-to-r from-white via-omniv-primary to-omniv-secondary bg-clip-text text-transparent mb-6">
+            Our Process
+          </h2>
+          <p className="text-xl text-omniv-muted max-w-3xl mx-auto leading-relaxed">
+            A proven three-step approach to transform your business with AI, from discovery to full-scale optimization
+          </p>
         </div>
       </div>
 
-      {/* Main Timeline Content */}
-      <div className="relative z-10 container mx-auto px-6 py-20">
+      {/* Main Timeline */}
+      <div ref={timelineRef} className="relative z-10 container mx-auto px-6 pb-20">
         <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-16 items-start">
-            {/* Left Side - Timeline */}
+          <div className="grid lg:grid-cols-2 gap-20 items-start">
+            {/* Left Side - Interactive Timeline */}
             <div className="relative">
-              {/* Timeline Line */}
-              <div className="absolute left-8 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-omniv-primary/50 to-transparent"></div>
+              {/* Central Timeline Line */}
+              <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-transparent via-omniv-primary/50 to-transparent"></div>
+              
               {/* Steps */}
-              <div className="space-y-32">
+              <div className="space-y-24">
                 {steps.map((step, index) => (
                   <div
                     key={index}
-                    className={`relative transition-all duration-1000 transform ${
-                      index <= activeStep ? "opacity-100 translate-y-0" : "opacity-30 translate-y-8"
+                    id={`step-${index}`}
+                    className={`relative group cursor-pointer transition-all duration-700 ${
+                      index <= activeStep ? "opacity-100 translate-y-0" : "opacity-40 translate-y-8"
                     }`}
+                    onClick={() => handleStepClick(index)}
+                    onMouseEnter={() => setHoveredStep(index)}
+                    onMouseLeave={() => setHoveredStep(null)}
                   >
                     {/* Step Indicator */}
                     <div className="absolute left-0 flex items-center justify-center">
                       <div
-                        className={`relative w-16 h-16 rounded-full border-2 transition-all duration-500 ${
-                          index <= activeStep
-                            ? "border-omniv-primary bg-omniv-primary/20 scale-110"
-                            : "border-white/20 bg-black"
+                        className={`relative w-20 h-20 rounded-full border-2 transition-all duration-500 ${
+                          index === activeStep
+                            ? "border-omniv-primary bg-omniv-primary/20 scale-110 shadow-lg shadow-omniv-primary/25"
+                            : index < activeStep
+                            ? "border-omniv-secondary bg-omniv-secondary/20 scale-105"
+                            : "border-omniv text-omniv-muted"
+                        } ${
+                          hoveredStep === index ? "scale-110" : ""
                         }`}
                       >
-                        {index <= activeStep ? (
-                          <Star className="w-8 h-8 text-purple-400 absolute inset-0 m-auto animate-pulse" />
+                        {index < activeStep ? (
+                          <CheckCircle className="w-10 h-10 text-omniv-secondary absolute inset-0 m-auto" />
+                        ) : index === activeStep ? (
+                          <div className="absolute inset-0 m-auto w-10 h-10">
+                            <step.icon className="w-10 h-10 text-omniv-primary animate-pulse" />
+                          </div>
                         ) : (
-                          <span className="text-white/40 font-bold absolute inset-0 flex items-center justify-center">
-                            {step.number}
+                          <span className="text-omniv-muted font-bold text-lg absolute inset-0 flex items-center justify-center">
+                            {index + 1}
                           </span>
                         )}
                       </div>
 
-                      {/* Connecting Line Segment */}
+                      {/* Progress Line */}
                       {index < steps.length - 1 && (
                         <div
-                          className={`absolute top-16 left-1/2 w-px h-32 transition-all duration-1000 ${
-                            index < activeStep ? "bg-gradient-to-b from-purple-500 to-purple-500/50" : "bg-white/10"
+                          className={`absolute top-20 left-1/2 w-0.5 h-24 transition-all duration-1000 ${
+                            index < activeStep 
+                              ? "bg-gradient-to-b from-omniv-secondary to-omniv-primary" 
+                              : "bg-omniv"
                           }`}
                         />
                       )}
                     </div>
 
                     {/* Step Content */}
-                    <div className="ml-24 space-y-4">
+                    <div className="ml-28 space-y-4">
                       <div
-                        className={`inline-block px-3 py-1 rounded-full text-xs font-medium transition-all duration-500 ${
-                          index <= activeStep
-                            ? "bg-purple-600/30 text-purple-300 border border-purple-500/30"
-                            : "bg-white/5 text-white/40 border border-white/10"
+                        className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-all duration-500 ${
+                          index === activeStep
+                            ? "bg-omniv-primary/30 text-omniv-primary border border-omniv-primary/50"
+                            : index < activeStep
+                            ? "bg-omniv-secondary/30 text-omniv-secondary border border-omniv-secondary/50"
+                            : "bg-omniv-muted/10 text-omniv-muted border border-omniv"
                         }`}
                       >
-                        Step {index + 1}
+                        <span>Step {index + 1}</span>
+                        {index === activeStep && (
+                          <div className="w-2 h-2 bg-omniv-primary rounded-full animate-pulse" />
+                        )}
                       </div>
 
                       <h3
                         className={`text-3xl lg:text-4xl font-bold transition-all duration-500 ${
-                          index <= activeStep ? "text-white" : "text-white/40"
+                          index === activeStep ? "text-white" : "text-white/70"
                         }`}
                       >
                         {step.title}
                       </h3>
 
                       <p
-                        className={`text-lg leading-relaxed max-w-2xl transition-all duration-500 ${
-                          index <= activeStep ? "text-gray-300" : "text-gray-500"
+                        className={`text-lg leading-relaxed max-w-xl transition-all duration-500 ${
+                          index === activeStep ? "text-omniv-muted" : "text-omniv-muted/60"
                         }`}
                       >
                         {step.description}
                       </p>
 
-                      {/* Visual Enhancement for Active Step */}
-                      {index === activeStep && (
-                        <div className="mt-8 p-6 rounded-2xl bg-gradient-to-r from-purple-600/10 to-pink-600/10 border border-purple-500/20 backdrop-blur-sm">
-                          <div className="flex items-center gap-4">
-                            <div className="w-12 h-12 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center">
-                              <Sparkles className="w-6 h-6 text-white" />
-                            </div>
-                            <div>
-                              <p className="text-sm text-purple-300 font-medium">Currently Active</p>
-                              <p className="text-xs text-gray-400">
-                                This step is highlighted based on your scroll position
-                              </p>
-                            </div>
+                      {/* Features List */}
+                      <div className="space-y-2">
+                        {step.features.map((feature, featureIndex) => (
+                          <div
+                            key={featureIndex}
+                            className={`flex items-center gap-3 transition-all duration-500 ${
+                              index === activeStep ? "opacity-100" : "opacity-60"
+                            }`}
+                          >
+                            <div className={`w-2 h-2 rounded-full ${
+                              index === activeStep ? "bg-omniv-primary" : "bg-omniv-muted"
+                            }`} />
+                            <span className={`text-sm ${
+                              index === activeStep ? "text-omniv-muted" : "text-omniv-muted/60"
+                            }`}>
+                              {feature}
+                            </span>
                           </div>
-                        </div>
+                        ))}
+                      </div>
+
+                      {/* Status Badge */}
+                      <div
+                        className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-all duration-500 ${
+                          index === activeStep
+                            ? "bg-omniv-primary/20 text-omniv-primary border border-omniv-primary/30"
+                            : "bg-omniv-muted/10 text-omniv-muted border border-omniv"
+                        }`}
+                      >
+                        <div className={`w-2 h-2 rounded-full ${
+                          index === activeStep ? "bg-omniv-primary animate-pulse" : "bg-omniv-muted"
+                        }`} />
+                        {step.status}
+                      </div>
+
+                      {/* Hover Effect */}
+                      {hoveredStep === index && (
+                        <div className="absolute inset-0 bg-gradient-to-r from-omniv-primary/5 to-transparent rounded-2xl -z-10 transform scale-105 transition-transform duration-300" />
                       )}
                     </div>
                   </div>
@@ -170,163 +255,197 @@ export default function HowWeWorkTimeline() {
               </div>
             </div>
 
-            {/* Right Side - Dynamic Images */}
+            {/* Right Side - Dynamic Dashboard */}
             <div className="sticky top-32 lg:block hidden">
-              <div className="relative w-full h-[600px]">
-                {/* Step 1 Image - Discovery & Free Pilot */}
+              <div className="relative w-full h-[700px]">
+                {/* Step 1 Dashboard */}
                 <div
                   className={`absolute inset-0 transition-all duration-1000 ${
-                    activeStep === 0 ? "opacity-100 scale-100" : "opacity-0 scale-95"
+                    activeStep === 0 ? "opacity-100 scale-100 rotate-0" : "opacity-0 scale-95 rotate-2"
                   }`}
                 >
-                  <div className="relative w-full h-full bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 rounded-3xl p-8 transform rotate-3 hover:rotate-1 transition-transform duration-500">
-                    <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 h-full flex flex-col justify-center space-y-6">
-                      <div className="text-center space-y-4">
-                        <div className="w-20 h-20 bg-white/20 rounded-full mx-auto flex items-center justify-center">
-                          <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth={2}
-                              d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
-                            />
-                          </svg>
+                  <div className="relative w-full h-full bg-gradient-to-br from-omniv-primary via-omniv-secondary to-omniv-primary rounded-3xl p-8 shadow-2xl">
+                    <div className="bg-omniv-card/80 backdrop-blur-sm rounded-2xl p-8 h-full flex flex-col justify-between">
+                      <div className="text-center space-y-6">
+                        <div className="w-24 h-24 bg-omniv-primary/20 rounded-full mx-auto flex items-center justify-center">
+                          <Target className="w-12 h-12 text-omniv-primary" />
                         </div>
-                        <h4 className="text-xl font-bold text-white">Discovery Phase</h4>
-                        <p className="text-white/80 text-sm">Analyzing bottlenecks and opportunities</p>
-                      </div>
-
-                      <div className="space-y-3">
-                        <div className="flex items-center justify-between p-3 bg-white/10 rounded-lg">
-                          <span className="text-white/80 text-sm">Risk Assessment</span>
-                          <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+                        <div>
+                          <h4 className="text-2xl font-bold text-white mb-2">Discovery Phase</h4>
+                          <p className="text-omniv-muted">Analyzing bottlenecks and opportunities</p>
                         </div>
-                        <div className="flex items-center justify-between p-3 bg-white/10 rounded-lg">
-                          <span className="text-white/80 text-sm">Success Metrics</span>
-                          <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse delay-100"></div>
-                        </div>
-                        <div className="flex items-center justify-between p-3 bg-white/10 rounded-lg">
-                          <span className="text-white/80 text-sm">Free Pilot Setup</span>
-                          <div className="w-2 h-2 bg-yellow-400 rounded-full animate-pulse delay-200"></div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Step 2 Image - Low-Code Integration */}
-                <div
-                  className={`absolute inset-0 transition-all duration-1000 ${
-                    activeStep === 1 ? "opacity-100 scale-100" : "opacity-0 scale-95"
-                  }`}
-                >
-                  <div className="relative w-full h-full bg-gradient-to-br from-green-500 via-blue-500 to-purple-500 rounded-3xl p-8 transform -rotate-2 hover:rotate-0 transition-transform duration-500">
-                    <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 h-full flex flex-col justify-center space-y-6">
-                      <div className="text-center space-y-4">
-                        <div className="w-20 h-20 bg-white/20 rounded-full mx-auto flex items-center justify-center">
-                          <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth={2}
-                              d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"
-                            />
-                          </svg>
-                        </div>
-                        <h4 className="text-xl font-bold text-white">Integration Hub</h4>
-                        <p className="text-white/80 text-sm">Connecting your existing systems</p>
-                      </div>
-
-                      <div className="grid grid-cols-2 gap-3">
-                        <div className="p-3 bg-white/10 rounded-lg text-center">
-                          <div className="w-8 h-8 bg-blue-500 rounded mx-auto mb-2 flex items-center justify-center">
-                            <span className="text-white text-xs font-bold">365</span>
-                          </div>
-                          <span className="text-white/80 text-xs">MS 365</span>
-                        </div>
-                        <div className="p-3 bg-white/10 rounded-lg text-center">
-                          <div className="w-8 h-8 bg-orange-500 rounded mx-auto mb-2 flex items-center justify-center">
-                            <span className="text-white text-xs font-bold">SAP</span>
-                          </div>
-                          <span className="text-white/80 text-xs">SAP</span>
-                        </div>
-                        <div className="p-3 bg-white/10 rounded-lg text-center">
-                          <div className="w-8 h-8 bg-red-500 rounded mx-auto mb-2 flex items-center justify-center">
-                            <span className="text-white text-xs font-bold">EHR</span>
-                          </div>
-                          <span className="text-white/80 text-xs">EHRs</span>
-                        </div>
-                        <div className="p-3 bg-white/10 rounded-lg text-center">
-                          <div className="w-8 h-8 bg-purple-500 rounded mx-auto mb-2 flex items-center justify-center">
-                            <span className="text-white text-xs font-bold">ERP</span>
-                          </div>
-                          <span className="text-white/80 text-xs">ERPs</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Step 3 Image - Scale & Optimize */}
-                <div
-                  className={`absolute inset-0 transition-all duration-1000 ${
-                    activeStep === 2 ? "opacity-100 scale-100" : "opacity-0 scale-95"
-                  }`}
-                >
-                  <div className="relative w-full h-full bg-gradient-to-br from-purple-500 via-pink-500 to-orange-500 rounded-3xl p-8 transform rotate-1 hover:rotate-3 transition-transform duration-500">
-                    <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 h-full flex flex-col justify-center space-y-6">
-                      <div className="text-center space-y-4">
-                        <div className="w-20 h-20 bg-white/20 rounded-full mx-auto flex items-center justify-center">
-                          <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth={2}
-                              d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
-                            />
-                          </svg>
-                        </div>
-                        <h4 className="text-xl font-bold text-white">Scale & Optimize</h4>
-                        <p className="text-white/80 text-sm">AI modules working automatically</p>
                       </div>
 
                       <div className="space-y-4">
-                        <div className="bg-white/10 rounded-lg p-4">
-                          <div className="flex items-center justify-between mb-2">
-                            <span className="text-white/80 text-sm">AI Module Performance</span>
-                            <span className="text-green-400 text-sm font-bold">+127%</span>
+                        <div className="bg-omniv-muted/20 rounded-xl p-4">
+                          <div className="flex items-center justify-between mb-3">
+                            <span className="text-white/90 font-medium">Risk Assessment</span>
+                            <div className="w-3 h-3 bg-omniv-secondary rounded-full animate-pulse"></div>
                           </div>
-                          <div className="w-full bg-white/20 rounded-full h-2">
-                            <div className="bg-gradient-to-r from-green-400 to-blue-400 h-2 rounded-full w-4/5 animate-pulse"></div>
-                          </div>
-                        </div>
-
-                        <div className="bg-white/10 rounded-lg p-4">
-                          <div className="flex items-center justify-between mb-2">
-                            <span className="text-white/80 text-sm">Weekly Optimization</span>
-                            <span className="text-blue-400 text-sm font-bold">Active</span>
-                          </div>
-                          <div className="flex items-center gap-2">
-                            <div className="w-2 h-2 bg-green-400 rounded-full animate-ping"></div>
-                            <span className="text-white/60 text-xs">Auto-tuning in progress</span>
+                          <div className="w-full bg-omniv-muted/30 rounded-full h-2">
+                            <div className="bg-omniv-secondary h-2 rounded-full w-4/5 transition-all duration-1000"></div>
                           </div>
                         </div>
 
-                        <div className="bg-white/10 rounded-lg p-4">
-                          <div className="flex items-center justify-between mb-2">
-                            <span className="text-white/80 text-sm">Usage Insights</span>
-                            <span className="text-purple-400 text-sm font-bold">Real-time</span>
+                        <div className="bg-omniv-muted/20 rounded-xl p-4">
+                          <div className="flex items-center justify-between mb-3">
+                            <span className="text-white/90 font-medium">Success Metrics</span>
+                            <div className="w-3 h-3 bg-omniv-secondary rounded-full animate-pulse delay-100"></div>
                           </div>
-                          <div className="text-white/60 text-xs">Delivered automatically to your dashboard</div>
+                          <div className="w-full bg-omniv-muted/30 rounded-full h-2">
+                            <div className="bg-omniv-secondary h-2 rounded-full w-3/4 transition-all duration-1000 delay-200"></div>
+                          </div>
                         </div>
+
+                        <div className="bg-omniv-muted/20 rounded-xl p-4">
+                          <div className="flex items-center justify-between mb-3">
+                            <span className="text-white/90 font-medium">Free Pilot Setup</span>
+                            <div className="w-3 h-3 bg-omniv-primary rounded-full animate-pulse delay-200"></div>
+                          </div>
+                          <div className="w-full bg-omniv-muted/30 rounded-full h-2">
+                            <div className="bg-omniv-primary h-2 rounded-full w-2/3 transition-all duration-1000 delay-400"></div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className="text-center">
+                        <button className="inline-flex items-center gap-2 px-6 py-3 bg-omniv-primary/20 hover:bg-omniv-primary/30 rounded-full text-omniv-primary font-medium transition-all duration-300 hover:scale-105 border border-omniv-primary/30">
+                          Start Discovery
+                          <ArrowRight className="w-4 h-4" />
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Step 2 Dashboard */}
+                <div
+                  className={`absolute inset-0 transition-all duration-1000 ${
+                    activeStep === 1 ? "opacity-100 scale-100 rotate-0" : "opacity-0 scale-95 -rotate-2"
+                  }`}
+                >
+                  <div className="relative w-full h-full bg-gradient-to-br from-omniv-secondary via-omniv-primary to-omniv-secondary rounded-3xl p-8 shadow-2xl">
+                    <div className="bg-omniv-card/80 backdrop-blur-sm rounded-2xl p-8 h-full flex flex-col justify-between">
+                      <div className="text-center space-y-6">
+                        <div className="w-24 h-24 bg-omniv-secondary/20 rounded-full mx-auto flex items-center justify-center">
+                          <Code className="w-12 h-12 text-omniv-secondary" />
+                        </div>
+                        <div>
+                          <h4 className="text-2xl font-bold text-white mb-2">Integration Hub</h4>
+                          <p className="text-omniv-muted">Connecting your existing systems</p>
+                        </div>
+                      </div>
+
+                      <div className="grid grid-cols-2 gap-4">
+                        {[
+                          { name: "MS 365", color: "bg-blue-500", status: "Connected" },
+                          { name: "SAP", color: "bg-orange-500", status: "Connecting" },
+                          { name: "EHRs", color: "bg-red-500", status: "Pending" },
+                          { name: "ERPs", color: "bg-purple-500", status: "Ready" }
+                        ].map((system, idx) => (
+                          <div key={idx} className="bg-omniv-muted/20 rounded-xl p-4 text-center">
+                            <div className={`w-12 h-12 ${system.color} rounded-lg mx-auto mb-3 flex items-center justify-center`}>
+                              <span className="text-white text-sm font-bold">{system.name}</span>
+                            </div>
+                            <span className="text-omniv-muted text-xs">{system.status}</span>
+                          </div>
+                        ))}
+                      </div>
+
+                      <div className="text-center">
+                        <button className="inline-flex items-center gap-2 px-6 py-3 bg-omniv-secondary/20 hover:bg-omniv-secondary/30 rounded-full text-omniv-secondary font-medium transition-all duration-300 hover:scale-105 border border-omniv-secondary/30">
+                          Configure Integration
+                          <ArrowRight className="w-4 h-4" />
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Step 3 Dashboard */}
+                <div
+                  className={`absolute inset-0 transition-all duration-1000 ${
+                    activeStep === 2 ? "opacity-100 scale-100 rotate-0" : "opacity-0 scale-95 rotate-1"
+                  }`}
+                >
+                  <div className="relative w-full h-full bg-gradient-to-br from-omniv-primary via-omniv-secondary to-omniv-primary rounded-3xl p-8 shadow-2xl">
+                    <div className="bg-omniv-card/80 backdrop-blur-sm rounded-2xl p-8 h-full flex flex-col justify-between">
+                      <div className="text-center space-y-6">
+                        <div className="w-24 h-24 bg-omniv-primary/20 rounded-full mx-auto flex items-center justify-center">
+                          <TrendingUp className="w-12 h-12 text-omniv-primary" />
+                        </div>
+                        <div>
+                          <h4 className="text-2xl font-bold text-white mb-2">Scale & Optimize</h4>
+                          <p className="text-omniv-muted">AI modules working automatically</p>
+                        </div>
+                      </div>
+
+                      <div className="space-y-4">
+                        <div className="bg-omniv-muted/20 rounded-xl p-4">
+                          <div className="flex items-center justify-between mb-3">
+                            <span className="text-white/90 font-medium">AI Module Performance</span>
+                            <span className="text-omniv-secondary text-lg font-bold">+127%</span>
+                          </div>
+                          <div className="w-full bg-omniv-muted/30 rounded-full h-3">
+                            <div className="bg-gradient-to-r from-omniv-secondary to-omniv-primary h-3 rounded-full w-4/5 transition-all duration-1000"></div>
+                          </div>
+                        </div>
+
+                        <div className="bg-omniv-muted/20 rounded-xl p-4">
+                          <div className="flex items-center justify-between mb-3">
+                            <span className="text-white/90 font-medium">Weekly Optimization</span>
+                            <span className="text-omniv-primary text-sm font-bold bg-omniv-primary/20 px-3 py-1 rounded-full">Active</span>
+                          </div>
+                          <div className="flex items-center gap-3">
+                            <div className="w-3 h-3 bg-omniv-secondary rounded-full animate-ping"></div>
+                            <span className="text-omniv-muted text-sm">Auto-tuning in progress</span>
+                          </div>
+                        </div>
+
+                        <div className="bg-omniv-muted/20 rounded-xl p-4">
+                          <div className="flex items-center justify-between mb-3">
+                            <span className="text-white/90 font-medium">Usage Insights</span>
+                            <span className="text-omniv-primary text-sm font-bold bg-omniv-primary/20 px-3 py-1 rounded-full">Real-time</span>
+                          </div>
+                          <div className="text-omniv-muted text-sm">Delivered automatically to your dashboard</div>
+                        </div>
+                      </div>
+
+                      <div className="text-center">
+                        <button className="inline-flex items-center gap-2 px-6 py-3 bg-omniv-primary/20 hover:bg-omniv-primary/30 rounded-full text-omniv-primary font-medium transition-all duration-300 hover:scale-105 border border-omniv-primary/30">
+                          View Dashboard
+                          <ArrowRight className="w-4 h-4" />
+                        </button>
                       </div>
                     </div>
                   </div>
                 </div>
 
                 {/* Glow Effects */}
-                <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 via-pink-500/10 to-orange-500/10 rounded-3xl blur-2xl -z-10"></div>
+                <div className="absolute inset-0 bg-gradient-to-br from-omniv-primary/10 via-omniv-secondary/10 to-omniv-primary/10 rounded-3xl blur-3xl -z-10"></div>
               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Bottom CTA */}
+      <div className="relative z-10 container mx-auto px-6 pb-20">
+        <div className="max-w-4xl mx-auto text-center">
+          <div className="bg-gradient-to-r from-omniv-primary/10 to-omniv-secondary/10 backdrop-blur-sm rounded-3xl p-12 border border-omniv-primary/20">
+            <h3 className="text-3xl font-bold text-white mb-4">Ready to Transform Your Business?</h3>
+            <p className="text-xl text-omniv-muted mb-8">
+              Start with our free pilot and see the difference AI can make in just weeks
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <button className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-omniv-primary to-omniv-secondary hover:from-omniv-primary/90 hover:to-omniv-secondary/90 rounded-full text-white font-semibold transition-all duration-300 hover:scale-105 shadow-lg shadow-omniv-primary/25">
+                <Zap className="w-5 h-5" />
+                Start Free Pilot
+              </button>
+              <button className="inline-flex items-center gap-3 px-8 py-4 bg-omniv-muted/10 hover:bg-omniv-muted/20 rounded-full text-white font-semibold transition-all duration-300 hover:scale-105 border border-omniv">
+                <Sparkles className="w-5 h-5" />
+                Learn More
+              </button>
             </div>
           </div>
         </div>

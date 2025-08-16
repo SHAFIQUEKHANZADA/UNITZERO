@@ -1,8 +1,9 @@
 'use client'
 
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { FaFacebookF, FaXTwitter, FaLinkedinIn } from 'react-icons/fa6'
 import { FiArrowUpRight } from 'react-icons/fi'
+import Image from 'next/image'
 import 'aos/dist/aos.css'
 import AOS from 'aos'
 
@@ -16,34 +17,7 @@ const Footer = () => {
   }, [])
 
   const footerRef = useRef(null)
-  const [showScrollTop, setShowScrollTop] = useState(false)
 
-  useEffect(() => {
-    const footerElement = footerRef.current;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => setShowScrollTop(entry.isIntersecting),
-      {
-        root: null,
-        threshold: 0.1,
-      }
-    );
-
-    if (footerElement) {
-      observer.observe(footerElement);
-    }
-
-    return () => {
-      if (footerElement) {
-        observer.unobserve(footerElement);
-      }
-    };
-  }, []);
-
-
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' })
-  }
   return (
     <footer ref={footerRef} className="relative bg-omniv-dark text-white sm:px-6 py-12 overflow-hidden">
       {/* Background decorative elements */}
@@ -54,12 +28,20 @@ const Footer = () => {
 
       <div className="max-w-[90%] mx-auto grid grid-cols-1 lg:grid-cols-5 md:grid-cols-3 gap-8">
         {/* Left Block */}
-        <div>
-          <div className="mb-4">
-            <div className="bg-gradient-to-r from-omniv-primary to-omniv-secondary w-8 h-8 rounded flex items-center justify-center text-white font-bold text-lg">
-              S
+                  <div>
+            <div className="mb-4">
+                          <div className="bg-gradient-to-r from-omniv-primary to-omniv-secondary w-20 h-20 rounded-xl flex items-center justify-center text-white font-bold text-lg overflow-hidden">
+              <div className="w-full h-full flex items-center justify-center">
+                <Image 
+                  src="/images/unitzero.png" 
+                  alt="UnitZero Logo" 
+                  width={80} 
+                  height={80} 
+                  className="max-w-full max-h-full object-contain" 
+                />
+              </div>
             </div>
-          </div>
+            </div>
           <p className="text-sm mb-2 text-omniv-muted">Embrace the future of artificial intelligence!</p>
           <a href="mailto:support@unitzero.com" className="text-omniv-primary text-sm block">
             support@unitzero.com
@@ -130,7 +112,7 @@ const Footer = () => {
 
       {/* Bottom */}
       <div className="border-t border-omniv w-[90%] mx-auto mt-10 pt-6 flex flex-col md:flex-row items-center justify-between text-sm text-omniv-muted">
-        <p>©2025 Spark AI, All Rights Reserved. With Love by <a href="https://7oroof.com" className="text-omniv-primary hover:text-omniv-secondary transition-colors">7oroof.com</a></p>
+        <p>©2025 UNITZERO, All Rights Reserved. With Love by <a href="https://unitzero.com" className="text-omniv-primary hover:text-omniv-secondary transition-colors">unitzero.tech</a></p>
         <div className="flex space-x-4 mt-2 md:mt-0">
           <a href="#" className="hover:text-omniv-primary transition-colors">Terms & Conditions</a>
           <span>–</span>
@@ -139,18 +121,6 @@ const Footer = () => {
           <a href="#" className="hover:text-omniv-primary transition-colors">Sitemap</a>
         </div>
       </div>
-      {/* Scroll to top */}
-      {showScrollTop && (
-        <div data-aos="fade-up"
-          data-aos-offset="50" className="fixed bottom-6 right-6 z-50">
-          <button
-            onClick={scrollToTop}
-            className="bg-gradient-to-br from-omniv-primary to-omniv-secondary p-3 w-10 h-10 flex items-center justify-center rounded-full text-white shadow-lg transition-all duration-300 hover:scale-110"
-          >
-            ↑
-          </button>
-        </div>
-      )}
     </footer>
   )
 }

@@ -4,11 +4,12 @@ import { ChevronDown } from 'lucide-react';
 import Link from 'next/link';
 import MobileMenuBar from './Navlink';
 import { Bungee } from 'next/font/google';
+import Image from 'next/image';
 
 const bungee = Bungee({
     subsets: ['latin'],
     weight: '400',
-  })
+})
 
 interface DropdownItem {
     label: string;
@@ -34,7 +35,7 @@ const Navbar: React.FC = () => {
         {
             label: 'ABOUT',
             dropdown: [
-                { label: 'Our Story', href: '/about', description: 'Learn about our journey' },
+                { label: 'Our Story', href: '/our-story', description: 'Learn about our journey' },
                 { label: 'Our Team', href: '/team', description: 'Meet our experts' },
                 { label: 'Careers', href: '/careers', description: 'Join our team' },
                 { label: 'Press', href: '/press', description: 'Media resources' }
@@ -145,8 +146,11 @@ const Navbar: React.FC = () => {
                 <div className="flex justify-between items-center h-16">
                     {/* Logo */}
                     <div className="flex items-center gap-3">
-                    
-                        <span className={`${bungee.className} text-2xl font-bold text-white`}>UNITZERO</span>
+
+                        <span className={`${bungee.className} text-2xl font-bold text-white`}>
+                            <Image src="/images/unitzero.png" alt="logo" width={200} height={200} />
+
+                        </span>
                     </div>
 
                     <div className='flex items-center lg:space-x-4 '>
