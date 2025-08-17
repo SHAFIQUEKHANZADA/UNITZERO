@@ -72,7 +72,7 @@ const Hero = () => {
 
                         {/* Enhanced CTA Button */}
                         <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                            <button className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-[#ff6b35] to-[#00d4aa] text-white font-semibold rounded-xl hover:from-omniv-primary/90 hover:to-omniv-secondary/90 transition-all duration-300 hover:shadow-xl transform hover:-translate-y-1 hover:scale-105 shadow-lg shadow-omniv-primary/25">
+                            <button className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-gradient-to-r from-[#ff6b35] to-[#00d4aa] text-white font-semibold rounded-xl hover:from-omniv-primary/90 hover:to-omniv-secondary/90 transition-all duration-300 hover:shadow-xl transform hover:-translate-y-1 hover:scale-105 shadow-lg shadow-omniv-primary/25">
                                 EXPLORE OUR SOLUTIONS
                                 <svg 
                                     className="w-5 h-5 animate-bounce-x" 
@@ -83,7 +83,7 @@ const Hero = () => {
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                                 </svg>
                             </button>
-                            <button className="inline-flex items-center gap-3 px-8 py-4 border-2 border-omniv text-omniv-muted font-semibold rounded-xl hover:border-omniv-primary hover:text-omniv-primary hover:bg-omniv-card transition-all duration-300 hover:shadow-lg hover:scale-105 transform hover:-translate-y-1">
+                            <button className="inline-flex items-center justify-center gap-3 px-8 py-4 border-2 border-omniv text-omniv-muted font-semibold rounded-xl hover:border-omniv-primary hover:text-omniv-primary hover:bg-omniv-card transition-all duration-300 hover:shadow-lg hover:scale-105 transform hover:-translate-y-1">
                                 WATCH DEMO
                                 <svg 
                                     className="w-5 h-5 transition-transform duration-300 hover:scale-125" 
@@ -99,7 +99,7 @@ const Hero = () => {
                         {/* Enhanced Stats */}
                         <div className="flex flex-wrap justify-center lg:justify-start gap-8 pt-8">
                             {[
-                                { number: "500+", label: "AI Projects Completed", color: "omniv-primary" },
+                                { number: "50+", label: "AI Projects Completed", color: "omniv-primary" },
                                 { number: "98%", label: "Client Satisfaction", color: "omniv-secondary" },
                                 { number: "24/7", label: "Support Available", color: "omniv-primary" }
                             ].map((stat, index) => (
@@ -138,7 +138,7 @@ const Hero = () => {
                             <div className="absolute bottom-20 right-0 lg:right-10 bg-omniv-card/90 backdrop-blur-sm rounded-2xl p-6 shadow-2xl border border-omniv z-30 hover:scale-105 hover:-translate-y-2 transition-all duration-300">
                                 <div className="text-center">
                                     <div className="text-4xl font-bold text-white animate-pulse-glow">
-                                        250+
+                                        50+
                                     </div>
                                     <div className="text-sm text-omniv-muted font-medium">AI PROJECTS COMPLETED</div>
                                 </div>

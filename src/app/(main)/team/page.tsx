@@ -7,32 +7,33 @@ import { Users, Star, Globe, Award, Zap, Mail, Linkedin } from 'lucide-react'
 const Team = () => {
   const teamMembers = [
     {
-      name: "Shafique Ahmed",
-      role: "CTO & Co-Founder",
-      image: "/images/shafique.jpeg",
-      description: "Visionary leader with 10+ years in AI and business transformation. Passionate about making AI accessible to all businesses.",
-      expertise: ["AI Strategy", "Business Development", "Team Leadership"],
-      linkedin: "#",
-      email: "shafique@unitzero.tech"
-    },
-    {
-      name: "Zayan Khan",
-      role: "COO & Lead Architect",
-      image: "/images/zayan.jpeg", 
-      description: "Technical expert specializing in scalable AI solutions and enterprise architecture. Drives innovation in our core technology stack.",
-      expertise: ["AI Architecture", "System Design", "Technical Leadership"],
-      linkedin: "#",
-      email: "zayan@unitzero.tech"
-    },
-    {
-      name: "Hilal Ahmed",
+      name: "Hilal Aziz",
       role: "CEO & Head of AI Research",
       image: "/images/hilal.jpeg",
       description: "Leading our AI research initiatives and developing cutting-edge algorithms that power our solutions.",
       expertise: ["Machine Learning", "Research & Development", "Algorithm Design"],
       linkedin: "#",
-      email: "hilal@unitzero.tech"
-    }
+      email: "hilalaziz@unitzero.tech"
+    },
+    {
+      name: "Shafique Ur Rehman",
+      role: "CTO & Co-Founder",
+      image: "/images/shafique.jpeg",
+      description: "Visionary leader with 2 years in AI and business transformation. Passionate about making AI accessible to all businesses.",
+      expertise: ["AI Strategy", "Business Development", "Team Leadership"],
+      linkedin: "#",
+      email: "shafique@unitzero.tech"
+    },
+    {
+      name: "Zayan Ahmed",
+      role: "COO & Lead Architect",
+      image: "/images/zayan.jpeg",
+      description: "Technical expert specializing in scalable AI solutions and enterprise architecture. Drives innovation in our core technology stack.",
+      expertise: ["AI Architecture", "System Design", "Technical Leadership"],
+      linkedin: "#",
+      email: "zayan@unitzero.tech"
+    },
+
   ]
 
   return (
@@ -52,11 +53,11 @@ const Team = () => {
               <Users className="w-5 h-5 text-omniv-primary" />
               <span className="text-omniv-primary font-medium">Our Team</span>
             </div>
-            
+
             <h1 className="text-5xl lg:text-6xl font-bold bg-gradient-to-r from-white via-omniv-primary to-omniv-secondary bg-clip-text text-transparent mb-6">
               Meet the Team
             </h1>
-            
+
             <p className="text-xl text-omniv-muted max-w-3xl mx-auto leading-relaxed mb-8">
               The brilliant minds behind UnitZero, united by a shared vision to democratize AI and transform businesses worldwide.
             </p>
@@ -64,7 +65,7 @@ const Team = () => {
             <div className="flex items-center justify-center gap-4 text-omniv-muted">
               <div className="flex items-center gap-2">
                 <Star className="w-4 h-4 text-omniv-primary" />
-                <span>10+ Years Experience</span>
+                <span>2 Years Experience</span>
               </div>
               <div className="w-1 h-1 bg-omniv-muted rounded-full"></div>
               <div className="flex items-center gap-2">
@@ -92,7 +93,7 @@ const Team = () => {
               >
                 {/* Background Glow */}
                 <div className="absolute inset-0 bg-gradient-to-br from-omniv-primary/5 to-omniv-secondary/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                
+
                 <div className="relative z-10">
                   {/* Profile Image */}
                   <div className="relative mb-6">

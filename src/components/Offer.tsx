@@ -140,9 +140,9 @@ export default function HowWeWorkTimeline() {
                     onMouseLeave={() => setHoveredStep(null)}
                   >
                     {/* Step Indicator */}
-                    <div className="absolute left-0 flex items-center justify-center">
+                    <div className="absolute left-0 flex items-center justify-center sm:left-[-10px]">
                       <div
-                        className={`relative w-20 h-20 rounded-full border-2 transition-all duration-500 ${
+                        className={`relative sm:w-20 sm:h-20 w-10 h-10 rounded-full border-2 transition-all duration-500 ${
                           index === activeStep
                             ? "border-omniv-primary bg-omniv-primary/20 scale-110 shadow-lg shadow-omniv-primary/25"
                             : index < activeStep
@@ -153,10 +153,10 @@ export default function HowWeWorkTimeline() {
                         }`}
                       >
                         {index < activeStep ? (
-                          <CheckCircle className="w-10 h-10 text-omniv-secondary absolute inset-0 m-auto" />
+                          <CheckCircle className="sm:w-10 sm:h-10 w-5 h-5 text-omniv-secondary absolute inset-0 m-auto" />
                         ) : index === activeStep ? (
-                          <div className="absolute inset-0 m-auto w-10 h-10">
-                            <step.icon className="w-10 h-10 text-omniv-primary animate-pulse" />
+                          <div className="absolute inset-0 m-auto sm:w-10 sm:h-10 w-5 h-5">
+                            <step.icon className="sm:w-10 sm:h-10 w-5 h-5 text-omniv-primary animate-pulse" />
                           </div>
                         ) : (
                           <span className="text-omniv-muted font-bold text-lg absolute inset-0 flex items-center justify-center">
@@ -178,7 +178,7 @@ export default function HowWeWorkTimeline() {
                     </div>
 
                     {/* Step Content */}
-                    <div className="ml-28 space-y-4">
+                    <div className="sm:ml-28 ml-20 space-y-4">
                       <div
                         className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-all duration-500 ${
                           index === activeStep
@@ -195,7 +195,7 @@ export default function HowWeWorkTimeline() {
                       </div>
 
                       <h3
-                        className={`text-3xl lg:text-4xl font-bold transition-all duration-500 ${
+                        className={`sm:text-3xl text-lg lg:text-4xl font-bold transition-all duration-500 ${
                           index === activeStep ? "text-white" : "text-white/70"
                         }`}
                       >
@@ -438,7 +438,7 @@ export default function HowWeWorkTimeline() {
               Start with our free pilot and see the difference AI can make in just weeks
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-omniv-primary to-omniv-secondary hover:from-omniv-primary/90 hover:to-omniv-secondary/90 rounded-full text-white font-semibold transition-all duration-300 hover:scale-105 shadow-lg shadow-omniv-primary/25">
+              <button className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-[#ff6b35] to-[#00d4aa] hover:from-omniv-primary/90 hover:to-omniv-secondary/90 rounded-full text-white font-semibold transition-all duration-300 hover:scale-105 shadow-lg shadow-omniv-primary/25">
                 <Zap className="w-5 h-5" />
                 Start Free Pilot
               </button>

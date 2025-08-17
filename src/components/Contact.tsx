@@ -44,12 +44,12 @@ export default function Contact() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4">
-            <button className="bg-gradient-to-r from-omniv-primary to-omniv-secondary flex items-center justify-center text-white hover:from-omniv-primary/90 hover:to-omniv-secondary/90 px-6 py-3 text-xl rounded-full transition-all duration-300">
+            <button className="bg-gradient-to-r from-[#ff6b35] to-[#00d4aa] flex items-center justify-center text-white hover:from-omniv-primary/90 hover:to-omniv-secondary/90 px-6 py-3 text-xl rounded-full transition-all duration-300">
               <span> Get Started</span>
               <ArrowRight className="ml-2 h-4 w-4" />
             </button>
             <button
-              className="border-omniv text-white hover:bg-omniv-card hover:border-omniv-primary px-6 py-3 text-xl rounded-full bg-transparent transition-all duration-300"
+              className="border-omniv text-white hover:bg-omniv-card hover:border-omniv-primary px-6 py-3 text-xl rounded-full bg-transparent transition-all duration-300 inline-flex items-center justify-center gap-3 border-2 border-omniv text-omniv-muted font-semibold hover:border-omniv-primary hover:text-omniv-primary hover:bg-omniv-card hover:shadow-lg hover:scale-105 transform hover:-translate-y-1"
             >
               Learn More
             </button>
@@ -146,7 +146,7 @@ export default function Contact() {
             />
           </div>
 
-          <button className="w-fit flex items-center bg-gradient-to-r from-omniv-primary to-omniv-secondary hover:from-omniv-primary/90 hover:to-omniv-secondary/90 text-xl text-white px-5 py-3 rounded-4xl transition-all duration-300 hover:scale-105">
+          <button className="w-fit flex items-center bg-gradient-to-r from-[#ff6b35] to-[#00d4aa] hover:from-omniv-primary/90 hover:to-omniv-secondary/90 text-xl text-white px-5 py-3 rounded-4xl transition-all duration-300 hover:scale-105">
             <span>Submit Request</span>
             <ArrowRight className="ml-2 h-4 w-4" />
           </button>

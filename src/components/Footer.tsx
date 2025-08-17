@@ -28,20 +28,20 @@ const Footer = () => {
 
       <div className="max-w-[90%] mx-auto grid grid-cols-1 lg:grid-cols-5 md:grid-cols-3 gap-8">
         {/* Left Block */}
-                  <div>
-            <div className="mb-4">
-                          <div className="bg-gradient-to-r from-omniv-primary to-omniv-secondary w-20 h-20 rounded-xl flex items-center justify-center text-white font-bold text-lg overflow-hidden">
+        <div>
+          <div className="mb-4">
+            <div className="bg-gradient-to-r from-omniv-primary to-omniv-secondary w-20 h-20 rounded-xl flex items-center justify-center text-white font-bold text-lg overflow-hidden">
               <div className="w-full h-full flex items-center justify-center">
-                <Image 
-                  src="/images/unitzero.png" 
-                  alt="UnitZero Logo" 
-                  width={80} 
-                  height={80} 
-                  className="max-w-full max-h-full object-contain" 
+                <Image
+                  src="/images/unitzero.png"
+                  alt="UnitZero Logo"
+                  width={80}
+                  height={80}
+                  className="max-w-full max-h-full object-contain"
                 />
               </div>
             </div>
-            </div>
+          </div>
           <p className="text-sm mb-2 text-omniv-muted">Embrace the future of artificial intelligence!</p>
           <a href="mailto:support@unitzero.com" className="text-omniv-primary text-sm block">
             support@unitzero.com

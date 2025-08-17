@@ -50,7 +50,7 @@ export default function Teams() {
                 think in new and creative ways.
               </p>
             </div>
-            <Button className="items-center gap-3 px-6 py-3 bg-gradient-to-r from-omniv-primary to-omniv-secondary text-white font-medium rounded-full hover:from-omniv-primary/90 hover:to-omniv-secondary/90 transition-all duration-300 hover:shadow-lg mt-8">
+            <Button className="items-center gap-3 px-6 py-3 bg-gradient-to-r from-[#ff6b35] to-[#00d4aa] text-white font-medium rounded-full hover:from-omniv-primary/90 hover:to-omniv-secondary/90 transition-all duration-300 hover:shadow-lg mt-8">
               View more
               <ArrowRight className="w-4 h-4" />
             </Button>
@@ -73,7 +73,7 @@ export default function Teams() {
                     alt={`${member.name} - ${member.role}`}
                     width={300}
                     height={400}
-                    className="w-[400px] sm:h-[350px] h-[300px] object-cover transition-transform duration-300 group-hover:scale-105"
+                    className="w-[400px]  sm:h-[350px] h-[250px] object-cover transition-transform duration-300 group-hover:scale-105"
                   />
 
                   {/* Social Media Icons */}

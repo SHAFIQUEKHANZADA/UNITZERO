@@ -142,13 +142,13 @@ const Navbar: React.FC = () => {
           animation: fadeInUp 0.3s ease-out forwards;
         }
       `}</style>
-            <div className="px-4 sm:px-6 lg:px-8 xl:px-20 sm:py-4">
+            <div className="sm:pr-0 pr-4 sm:px-6 lg:px-8 xl:px-20 sm:py-4">
                 <div className="flex justify-between items-center h-16">
                     {/* Logo */}
                     <div className="flex items-center gap-3">
 
                         <span className={`${bungee.className} text-2xl font-bold text-white`}>
-                            <Image src="/images/unitzero.png" alt="logo" width={200} height={200} />
+                            <Link href={"/"}><Image src="/images/unitzero.png" alt="logo" width={200} height={200} className='h-full sm:w-[200px] w-[100px]'/></Link>
 
                         </span>
                     </div>

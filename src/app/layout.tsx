@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Unit Zero - Specialized Intelligence for a Smarter Future",
+  title: "Unitzero - Specialized Intelligence for a Smarter Future",
   description: "Transform your business with cutting-edge AI solutions. We deliver specialized intelligence that drives innovation, efficiency, and growth across all industries.",
 };
 

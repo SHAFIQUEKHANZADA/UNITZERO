@@ -163,44 +163,70 @@ const Category = () => {
   }, [activeSection, services.length])
 
   return (
-    <div ref={containerRef} className="min-h-screen bg-omniv-dark relative ">
+    <div ref={containerRef} className="bg-omniv-dark relative">
       {/* Background decorative elements */}
       <div className="absolute inset-0 opacity-20">
-        <div className="absolute top-20 left-20 w-96 h-96 bg-omniv-primary rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 right-20 w-96 h-96 bg-omniv-secondary rounded-full blur-3xl"></div>
+        <div className="absolute top-16 md:top-20 left-4 md:left-20 w-32 md:w-96 h-32 md:h-96 bg-omniv-primary rounded-full blur-3xl"></div>
+        <div className="absolute bottom-16 md:bottom-20 right-4 md:right-20 w-32 md:w-96 h-32 md:h-96 bg-omniv-secondary rounded-full blur-3xl"></div>
       </div>
       
-      <div className="container mx-auto px-6 py-20 relative z-10">
+      <div className="container mx-auto px-4 md:px-6 py-8 md:py-16 relative z-10">
         {/* Header */}
-        <div className="text-center mb-20">
-          <h1 className="md:text-5xl text-3xl font-bold bg-gradient-to-r from-white via-omniv-primary to-white bg-clip-text text-transparent mb-6">
+        <div className="text-center mb-8 md:mb-16">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-white via-omniv-primary to-white bg-clip-text text-transparent mb-3 md:mb-6">
             Next-Gen Intelligence Solutions
           </h1>
-          <p className="md:text-xl text-sm text-omniv-muted max-w-3xl mx-auto">
+          <p className="text-sm sm:text-base md:text-lg lg:text-xl text-omniv-muted max-w-3xl mx-auto px-4">
             Revolutionize your operations with powerful AI-driven automation that scales with your ambitions
           </p>
         </div>
 
-        <div className="flex gap-12 items-start">
-          {/* Sticky Image Section */}
-          <div className="w-1/2 sticky top-24 hidden md:block">
+        {/* Mobile Image Section - Show on mobile, hidden on desktop */}
+        <div className="block md:hidden mb-6">
+          <div className="relative">
+            <div
+              className={`absolute inset-0 bg-gradient-to-r ${services[activeSection].color} rounded-2xl opacity-40 blur-xl transform scale-110 transition-all duration-700`}
+            ></div>
             <div className="relative">
-              {/* Background gradient that matches active section */}
+              <div className="flex items-center justify-center relative overflow-hidden rounded-2xl bg-omniv-card/80 backdrop-blur-sm border border-omniv-primary/30 shadow-2xl">
+                <Image
+                  src={services[activeSection].image}
+                  alt={services[activeSection].title}
+                  width={400}
+                  height={250}
+                  className="w-full h-[250px] object-cover rounded-2xl transition-transform duration-700"
+                  priority
+                />
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-omniv-dark/90 via-omniv-dark/50 to-transparent p-4 rounded-b-2xl">
+                  <div className="flex items-center gap-3">
+                    <div className={`bg-gradient-to-r ${services[activeSection].color} p-2 rounded-lg shadow-lg`}>
+                      {React.createElement(services[activeSection].icon, { size: 18, className: "text-white" })}
+                    </div>
+                    <span className="text-white font-semibold text-xs">{services[activeSection].title.split(' ')[0]}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="flex flex-col lg:flex-row gap-6 md:gap-8 lg:gap-12 items-start">
+          {/* Sticky Image Section - Hidden on mobile, shown on desktop */}
+          <div className="w-full lg:w-1/2 sticky top-24 hidden lg:block">
+            <div className="relative">
               <div
                 className={`absolute inset-0 bg-gradient-to-r ${services[activeSection].color} rounded-2xl opacity-40 blur-xl transform scale-110 transition-all duration-700`}
               ></div>
-              {/* Main image container */}
               <div className="relative">
                 <div className="flex items-center justify-center relative overflow-hidden rounded-2xl bg-omniv-card/80 backdrop-blur-sm border border-omniv-primary/30 shadow-2xl">
                   <Image
                     src={services[activeSection].image}
                     alt={services[activeSection].title}
                     width={600}
-                    height={600}
-                    className="w-full xl:h-[600px] object-cover rounded-2xl transition-transform duration-700 hover:scale-105"
+                    height={500}
+                    className="w-full h-[500px] object-cover rounded-2xl transition-transform duration-700 hover:scale-105"
                     priority
                   />
-                  {/* Add overlay with service info */}
                   <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-omniv-dark/90 via-omniv-dark/50 to-transparent p-6 rounded-b-2xl">
                     <div className="flex items-center gap-3">
                       <div className={`bg-gradient-to-r ${services[activeSection].color} p-2 rounded-lg shadow-lg`}>
@@ -215,49 +241,48 @@ const Category = () => {
           </div>
 
           {/* Scrollable Content Section */}
-          <div className="md:w-1/2 space-y-32">
+          <div className="w-full lg:w-1/2 space-y-12 md:space-y-16 lg:space-y-20">
             {services.map((service, index) => (
               <div
                 key={service.id}
                 ref={(el) => {
                   sectionsRef.current[index] = el
                 }}
-                className={`transition-all duration-700 ${index === activeSection ? "opacity-100 transform translate-x-0" : "opacity-60 transform translate-x-4"
+                className={`transition-all duration-700 ${index === activeSection ? "opacity-100 transform translate-x-0" : "opacity-60 transform translate-x-2 lg:translate-x-4"
                   }`}
               >
                 {/* Service Header */}
-                <div className="mb-8">
-                  <div className="flex items-center mb-4">
-                    <div className={`bg-gradient-to-r ${service.color} p-3 rounded-xl shadow-lg mr-4`}>
-                      {React.createElement(service.icon, { size: 32, className: "text-white" })}
+                <div className="mb-4 md:mb-6">
+                  <div className="flex items-center mb-2 md:mb-3">
+                    <div className={`bg-gradient-to-r ${service.color} p-2 md:p-3 rounded-xl shadow-lg mr-3 md:mr-4`}>
+                      {React.createElement(service.icon, { size: 20, className: "text-white" })}
                     </div>
                     <div>
-                      <h2 className="text-3xl font-bold text-white">{service.title}</h2>
-                      <div className={`h-1 w-24 bg-gradient-to-r ${service.color} mt-2 rounded-full`}></div>
+                      <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-white">{service.title}</h2>
+                      <div className={`h-1 w-12 md:w-16 lg:w-24 bg-gradient-to-r ${service.color} mt-2 rounded-full`}></div>
                     </div>
                   </div>
-                  <p className="text-lg text-omniv-muted leading-relaxed">{service.description}</p>
+                  <p className="text-sm md:text-base lg:text-lg text-omniv-muted leading-relaxed">{service.description}</p>
                 </div>
 
                 {/* Features */}
-                <div className="space-y-6">
+                <div className="space-y-3 md:space-y-4">
                   {service.features.map((feature, featureIndex) => (
                     <div
                       key={featureIndex}
-                      className={`bg-omniv-card/80 backdrop-blur-sm rounded-xl p-6 shadow-lg border border-omniv hover:shadow-xl hover:border-omniv-primary/50 transition-all duration-300 hover:transform hover:scale-105 ${index === activeSection ? "animate-fade-in-up" : ""
+                      className={`bg-omniv-card/80 backdrop-blur-sm rounded-xl p-3 md:p-4 lg:p-6 shadow-lg border border-omniv hover:shadow-xl hover:border-omniv-primary/50 transition-all duration-300 hover:transform hover:scale-105 ${index === activeSection ? "animate-fade-in-up" : ""
                         }`}
                       style={{ animationDelay: `${featureIndex * 100}ms` }}
                     >
-                      <div className="flex items-start space-x-4">
-                        <div className={`bg-gradient-to-r ${service.color} p-3 rounded-lg shadow-md flex-shrink-0`}>
-                          {React.createElement(feature.icon, { size: 24, className: "text-white" })}
+                      <div className="flex items-start space-x-2 md:space-x-3 lg:space-x-4">
+                        <div className={`bg-gradient-to-r ${service.color} p-2 md:p-3 rounded-lg shadow-md flex-shrink-0`}>
+                          {React.createElement(feature.icon, { size: 18, className: "text-white" })}
                         </div>
                         <div>
-                          <h3 className="text-xl font-semibold text-white mb-2">{feature.title}</h3>
-                          <p className="text-omniv-muted leading-relaxed">{feature.description}</p>
-                          {/* Add highlight tags back */}
-                          <div className="mt-3">
-                            <span className={`inline-block px-3 py-1 text-xs font-medium rounded-full border ${
+                          <h3 className="text-base md:text-lg lg:text-xl font-semibold text-white mb-1 md:mb-2">{feature.title}</h3>
+                          <p className="text-xs md:text-sm lg:text-base text-omniv-muted leading-relaxed">{feature.description}</p>
+                          <div className="mt-2 md:mt-3">
+                            <span className={`inline-block px-2 md:px-3 py-1 text-xs font-medium rounded-full border ${
                               featureIndex % 2 === 0 
                                 ? 'bg-omniv-primary/20 text-omniv-primary border-omniv-primary/30' 
                                 : 'bg-omniv-secondary/20 text-omniv-secondary border-omniv-secondary/30'
@@ -277,23 +302,6 @@ const Category = () => {
           </div>
         </div>
       </div>
-
-      {/* Custom CSS for animations */}
-      <style jsx>{`
-        @keyframes fade-in-up {
-          from {
-            opacity: 0;
-            transform: translateY(30px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-        .animate-fade-in-up {
-          animation: fade-in-up 0.6s ease-out forwards;
-        }
-      `}</style>
     </div>
   )
 }
