@@ -56,7 +56,8 @@ const Navbar: React.FC = () => {
                 { label: 'Case Studies', href: '/case-studies', description: 'Success stories' },
                 { label: 'Blog', href: '/blog', description: 'Latest insights' },
                 { label: 'Resources', href: '/resources', description: 'Helpful materials' },
-                { label: 'Support', href: '/support', description: 'Get help' }
+                { label: 'Support', href: '/support', description: 'Get help' },
+                { label: 'Privacy Policy', href: '/privacy-policy', description: 'Our privacy policy' }
             ]
         }
     ];
