@@ -15,8 +15,30 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Unitzero - Specialized Intelligence for a Smarter Future",
-  description: "Transform your business with cutting-edge AI solutions. We deliver specialized intelligence that drives innovation, efficiency, and growth across all industries.",
+  metadataBase: new URL('https://unitzero.tech'),
+  title: {
+    default: 'Unitzero',
+    template: '%s | Unitzero',
+  },
+  description:
+    'Transform your business with cutting-edge AI solutions. We deliver specialized intelligence that drives innovation, efficiency, and growth across all industries.',
+  openGraph: {
+    title: 'Unitzero',
+    siteName: 'Unitzero',
+    description:
+      'Transform your business with cutting-edge AI solutions. We deliver specialized intelligence that drives innovation, efficiency, and growth across all industries.',
+    url: 'https://unitzero.tech',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Unitzero',
+    description:
+      'Transform your business with cutting-edge AI solutions. We deliver specialized intelligence that drives innovation, efficiency, and growth across all industries.',
+  },
+  alternates: {
+    canonical: '/',
+  },
 };
 
 export default function RootLayout({
