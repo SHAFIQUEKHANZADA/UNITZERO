@@ -86,7 +86,7 @@ const MobileMenuBar = () => {
 
                         {/* Navigation Items */}
                         {navItems.map((item, index) => (
-                            <div key={item.label}>
+                            <div key={item.label} className="flex items-center justify-between w-full">
                                 <div
                                     data-aos="fade-up"
                                     data-aos-duration="600"

@@ -111,7 +111,7 @@ const Navbar: React.FC = () => {
 
 
     return (
-        <nav className="bg-omniv-dark border-b border-omniv" ref={navRef}>
+        <nav className="bg-omniv-dark border-b border-omniv fixed sm:relative top-0 left-0 right-0 z-50" ref={navRef}>
             <style jsx>{`
         @keyframes dropdown {
           from {
@@ -149,7 +149,7 @@ const Navbar: React.FC = () => {
                     <div className="flex items-center gap-3">
 
                         <span className={`${bungee.className} text-2xl font-bold text-white`}>
-                            <Link href={"/"}><Image src="/images/unitzero.png" alt="logo" width={200} height={200} className='h-full sm:w-[200px] w-[100px]'/></Link>
+                            <Link href={"/"}><Image src="/images/unitzero.png" alt="logo" width={200} height={200} className='h-full sm:w-[200px] w-[120px]'/></Link>
 
                         </span>
                     </div>

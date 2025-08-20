@@ -182,8 +182,8 @@ const Category = () => {
         </div>
 
         {/* Mobile Image Section - Show on mobile, hidden on desktop */}
-        <div className="block md:hidden mb-6">
-          <div className="relative">
+        {/* <div className="block md:hidden mb-6">
+          <div className="relative overflow-hidden">
             <div
               className={`absolute inset-0 bg-gradient-to-r ${services[activeSection].color} rounded-2xl opacity-40 blur-xl transform scale-110 transition-all duration-700`}
             ></div>
@@ -208,7 +208,7 @@ const Category = () => {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
 
         <div className="flex flex-col lg:flex-row gap-6 md:gap-8 lg:gap-12 items-start">
           {/* Sticky Image Section - Hidden on mobile, shown on desktop */}
@@ -258,7 +258,7 @@ const Category = () => {
                       {React.createElement(service.icon, { size: 20, className: "text-white" })}
                     </div>
                     <div>
-                      <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-white">{service.title}</h2>
+                      <h2 className="text-lg pt-3 sm:text-xl md:text-2xl lg:text-3xl font-bold text-white">{service.title}</h2>
                       <div className={`h-1 w-12 md:w-16 lg:w-24 bg-gradient-to-r ${service.color} mt-2 rounded-full`}></div>
                     </div>
                   </div>
@@ -266,7 +266,7 @@ const Category = () => {
                 </div>
 
                 {/* Features */}
-                <div className="space-y-3 md:space-y-4">
+                <div className="space-y-3 md:space-y-4 overflow-hidden">
                   {service.features.map((feature, featureIndex) => (
                     <div
                       key={featureIndex}

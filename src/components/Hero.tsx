@@ -5,7 +5,7 @@ import React from 'react'
 
 const Hero = () => {
     return (
-        <div className="relative min-h-screen bg-omniv-dark overflow-hidden">
+        <div className="relative min-h-screen bg-omniv-dark overflow-hidden sm:pt-0 pt-16">
             {/* Enhanced Background decorative elements */}
             <div className="absolute inset-0 opacity-30">
                 <div className="absolute top-20 left-10 w-32 h-32 border-l-2 border-t-2 border-omniv-primary rounded-tl-full animate-circuit-float"></div>

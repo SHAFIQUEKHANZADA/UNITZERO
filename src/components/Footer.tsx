@@ -2,10 +2,10 @@
 
 import React, { useEffect, useRef } from 'react'
 import { FaFacebookF, FaXTwitter, FaLinkedinIn } from 'react-icons/fa6'
-import { FiArrowUpRight } from 'react-icons/fi'
 import Image from 'next/image'
 import 'aos/dist/aos.css'
 import AOS from 'aos'
+import { BsSend } from 'react-icons/bs'
 
 const Footer = () => {
 
@@ -29,18 +29,16 @@ const Footer = () => {
       <div className="max-w-[90%] mx-auto grid grid-cols-1 lg:grid-cols-5 md:grid-cols-3 gap-8">
         {/* Left Block */}
         <div>
-          <div className="mb-4">
-            <div className="bg-gradient-to-r from-omniv-primary to-omniv-secondary w-20 h-20 rounded-xl flex items-center justify-center text-white font-bold text-lg overflow-hidden">
-              <div className="w-full h-full flex items-center justify-center">
+          <div className="mb-4">      
+              <div className="w-[200px] h-full">
                 <Image
-                  src="/images/unitzero.png"
+                  src="/images/unitzerof.png"
                   alt="UnitZero Logo"
-                  width={80}
+                  width={150}
                   height={80}
-                  className="max-w-full max-h-full object-contain"
+                  className="max-w-full"
                 />
               </div>
-            </div>
           </div>
           <p className="text-sm mb-2 text-omniv-muted">Embrace the future of artificial intelligence!</p>
           <a href="mailto:support@unitzero.com" className="text-omniv-primary text-sm block">
@@ -94,10 +92,10 @@ const Footer = () => {
             <input
               type="email"
               placeholder="Type your email"
-              className="bg-omniv-card border border-omniv text-white text-md outline-none w-full px-4 pr-10 py-2 h-14 rounded-lg focus:border-omniv-primary transition-colors"
+              className="bg-omniv-card border border-omniv text-white text-md outline-none w-full px-4 pr-10 py-2 h-16 rounded-lg focus:border-omniv-primary transition-colors"
             />
-            <span className="absolute right-2 top-1/2 -translate-y-1/2 text-white">
-              <FiArrowUpRight className="text-xl cursor-pointer bg-omniv-primary hover:bg-omniv-secondary text-white p-2 rounded-full transition-colors" />
+            <span className="absolute right-3 top-1/2 -translate-y-1/2 text-white">
+              <BsSend className="text-4xl cursor-pointer bg-omniv-primary hover:bg-omniv-secondary text-white p-2 rounded-full transition-colors" />
             </span>
           </div>
 
@@ -113,13 +111,7 @@ const Footer = () => {
       {/* Bottom */}
       <div className="border-t border-omniv w-[90%] mx-auto mt-10 pt-6 flex flex-col md:flex-row items-center justify-between text-sm text-omniv-muted">
         <p>©2025 UNITZERO, All Rights Reserved. With Love by <a href="https://unitzero.com" className="text-omniv-primary hover:text-omniv-secondary transition-colors">unitzero.tech</a></p>
-        <div className="flex space-x-4 mt-2 md:mt-0">
-          <a href="#" className="hover:text-omniv-primary transition-colors">Terms & Conditions</a>
-          <span>–</span>
-          <a href="#" className="hover:text-omniv-primary transition-colors">Privacy Policy</a>
-          <span>–</span>
-          <a href="#" className="hover:text-omniv-primary transition-colors">Sitemap</a>
-        </div>
+       
       </div>
     </footer>
   )
