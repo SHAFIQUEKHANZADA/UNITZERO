@@ -37,7 +37,7 @@ export default function Teams() {
   ]
 
   return (
-    <section className="bg-omniv-dark text-white py-8 px-4 md:px-6 lg:px-8 h-full sm:h-screen">
+    <section className="bg-omniv-dark text-white   px-4 md:px-6 lg:px-8 h-full sm:h-screen">
       <div className="sm:w-[90%] mx-auto flex items-center justify-center h-full">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
           {/* Left Content */}

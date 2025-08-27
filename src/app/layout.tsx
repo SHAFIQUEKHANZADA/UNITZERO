@@ -17,27 +17,45 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL('https://unitzero.tech'),
   title: {
-    default: 'Unitzero',
-    template: '%s | Unitzero',
+    default: 'UnitZero',
+    template: '%s | UnitZero',
   },
   description:
     'Transform your business with cutting-edge AI solutions. We deliver specialized intelligence that drives innovation, efficiency, and growth across all industries.',
+  keywords: ['UnitZero', 'AI Solutions', 'Artificial Intelligence', 'Machine Learning', 'Business Automation', 'AI Consulting'],
+  authors: [{ name: 'UnitZero' }],
+  creator: 'UnitZero',
+  publisher: 'UnitZero',
   openGraph: {
-    title: 'Unitzero',
-    siteName: 'Unitzero',
+    title: 'UnitZero',
+    siteName: 'UnitZero',
     description:
       'Transform your business with cutting-edge AI solutions. We deliver specialized intelligence that drives innovation, efficiency, and growth across all industries.',
     url: 'https://unitzero.tech',
     type: 'website',
+    locale: 'en_US',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Unitzero',
+    title: 'UnitZero',
     description:
       'Transform your business with cutting-edge AI solutions. We deliver specialized intelligence that drives innovation, efficiency, and growth across all industries.',
+    creator: '@unitzero',
+    site: '@unitzero',
   },
   alternates: {
     canonical: '/',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
   },
 };
 

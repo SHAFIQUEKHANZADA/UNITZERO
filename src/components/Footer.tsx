@@ -6,6 +6,7 @@ import Image from 'next/image'
 import 'aos/dist/aos.css'
 import AOS from 'aos'
 import { BsSend } from 'react-icons/bs'
+import Link from 'next/link'
 
 const Footer = () => {
 
@@ -21,10 +22,10 @@ const Footer = () => {
   return (
     <footer ref={footerRef} className="relative bg-omniv-dark text-white sm:px-6 py-12 overflow-hidden">
       {/* Background decorative elements */}
-      <div className="absolute inset-0 opacity-10">
+      {/* <div className="absolute inset-0 opacity-10">
         <div className="absolute top-20 left-10 w-96 h-66 bg-omniv-primary rounded-full blur-3xl"></div>
         <div className="absolute bottom-20 right-10 w-96 h-66 bg-omniv-secondary rounded-full blur-3xl"></div>
-      </div>
+      </div> */}
 
       <div className="max-w-[90%] mx-auto grid grid-cols-1 lg:grid-cols-5 md:grid-cols-3 gap-8">
         {/* Left Block */}
@@ -51,11 +52,11 @@ const Footer = () => {
         <div>
           <h4 className="font-semibold mb-3 text-white">About</h4>
           <ul className="space-y-2 text-md">
-            <li><a href="#" className="text-omniv-muted hover:text-omniv-primary transition-colors">About Us</a></li>
-            <li><a href="#" className="text-omniv-muted hover:text-omniv-primary transition-colors">Leadership Team</a></li>
-            <li><a href="#" className="text-omniv-muted hover:text-omniv-primary transition-colors">Case Studies</a></li>
-            <li><a href="#" className="text-omniv-muted hover:text-omniv-primary transition-colors">Contact Us</a></li>
-            <li><a href="#" className="text-omniv-muted hover:text-omniv-primary transition-colors">Careers</a></li>
+            {/* <li><Link href="#" className="text-omniv-muted hover:text-omniv-primary transition-colors">About Us</Link></li> */}
+            <li><Link href="/team" className="text-omniv-muted hover:text-omniv-primary transition-colors">Our Team</Link></li>
+            <li><Link href="/our-story" className="text-omniv-muted hover:text-omniv-primary transition-colors">Our Story</Link></li>
+            <li><Link href="#" className="text-omniv-muted hover:text-omniv-primary transition-colors">Contact Us</Link></li>
+            <li><Link href="#" className="text-omniv-muted hover:text-omniv-primary transition-colors">Careers</Link></li>
           </ul>
         </div>
 
@@ -63,12 +64,12 @@ const Footer = () => {
         <div>
           <h4 className="font-semibold mb-3 text-white">Services</h4>
           <ul className="space-y-2 text-md">
-            <li><a href="#" className="text-omniv-muted hover:text-omniv-primary transition-colors">AI Model Development</a></li>
-            <li><a href="#" className="text-omniv-muted hover:text-omniv-primary transition-colors">AI Integration solutions</a></li>
-            <li><a href="#" className="text-omniv-muted hover:text-omniv-primary transition-colors">AI Strategy Consulting</a></li>
-            <li><a href="#" className="text-omniv-muted hover:text-omniv-primary transition-colors">Machine Learning</a></li>
-            <li><a href="#" className="text-omniv-muted hover:text-omniv-primary transition-colors">Data Monitoring</a></li>
-            <li><a href="#" className="text-omniv-muted hover:text-omniv-primary transition-colors">Neural Network</a></li>
+            <li><Link href="#" className="text-omniv-muted hover:text-omniv-primary transition-colors">AI Model Development</Link></li>
+            <li><Link href="#" className="text-omniv-muted hover:text-omniv-primary transition-colors">AI Integration solutions</Link></li>
+            <li><Link href="#" className="text-omniv-muted hover:text-omniv-primary transition-colors">AI Strategy Consulting</Link></li>
+            <li><Link href="#" className="text-omniv-muted hover:text-omniv-primary transition-colors">Machine Learning</Link></li>
+            <li><Link href="#" className="text-omniv-muted hover:text-omniv-primary transition-colors">Data Monitoring</Link></li>
+            <li><Link href="#" className="text-omniv-muted hover:text-omniv-primary transition-colors">Neural Network</Link></li>
           </ul>
         </div>
 
@@ -76,11 +77,11 @@ const Footer = () => {
         <div>
           <h4 className="font-semibold mb-3 text-white">Resources</h4>
           <ul className="space-y-2 text-md">
-            <li><a href="#" className="text-omniv-muted hover:text-omniv-primary transition-colors">News & Media</a></li>
-            <li><a href="#" className="text-omniv-muted hover:text-omniv-primary transition-colors">Pricing & Plans</a></li>
-            <li><a href="#" className="text-omniv-muted hover:text-omniv-primary transition-colors">How it Works</a></li>
-            <li><a href="#" className="text-omniv-muted hover:text-omniv-primary transition-colors">Key Features</a></li>
-            <li><a href="#" className="text-omniv-muted hover:text-omniv-primary transition-colors">Testimonials</a></li>
+            <li><Link href="#" className="text-omniv-muted hover:text-omniv-primary transition-colors">News & Media</Link></li>
+            <li><Link href="#" className="text-omniv-muted hover:text-omniv-primary transition-colors">Pricing & Plans</Link></li>
+            <li><Link href="#" className="text-omniv-muted hover:text-omniv-primary transition-colors">How it Works</Link></li>
+            <li><Link href="#" className="text-omniv-muted hover:text-omniv-primary transition-colors">Key Features</Link></li>
+            <li><Link href="#" className="text-omniv-muted hover:text-omniv-primary transition-colors">Testimonials</Link></li>
           </ul>
         </div>
 
@@ -101,9 +102,9 @@ const Footer = () => {
 
           <p className="text-xs text-omniv-muted mt-2">By subscribing, you accept the Privacy Policy</p>
           <div className="flex space-x-4 mt-4 text-xl">
-            <a href="#" className="text-omniv-muted hover:text-omniv-primary transition-colors"><FaFacebookF /></a>
-            <a href="#" className="text-omniv-muted hover:text-omniv-primary transition-colors"><FaXTwitter /></a>
-            <a href="#" className="text-omniv-muted hover:text-omniv-primary transition-colors"><FaLinkedinIn /></a>
+            <Link href="#" className="text-omniv-muted hover:text-omniv-primary transition-colors"><FaFacebookF /></Link>
+            <Link href="#" className="text-omniv-muted hover:text-omniv-primary transition-colors"><FaXTwitter /></Link>
+            <Link href="#" className="text-omniv-muted hover:text-omniv-primary transition-colors"><FaLinkedinIn /></Link>
           </div>
         </div>
       </div>

@@ -15,6 +15,8 @@ const MobileMenuBar = () => {
         AOS.init({
             once: true,
             offset: 400,
+            duration: 800,
+            easing: 'ease-out-cubic',
         });
     }, []);
 
@@ -75,24 +77,26 @@ const MobileMenuBar = () => {
                         {/* HOME Link */}
                         <div
                             data-aos="fade-up"
-                            data-aos-duration="600"
+                            data-aos-duration="400"
+                            data-aos-offset="50"
                             className="flex items-center justify-between w-full hover:bg-omniv-card/50 rounded-lg p-2 transition-all duration-300"
                         >
                             <Link href="/" className="text-[16px] font-medium py-[10px] text-omniv-primary hover:text-omniv-secondary transition-colors">
                                 HOME
                             </Link>
                         </div>
-                        <div data-aos="fade-up" data-aos-duration="600" className="w-full h-[0.1px] bg-omniv-primary/30 my-2"></div>
+                        <div data-aos="fade-up" data-aos-duration="400" data-aos-offset="50" className="w-full h-[0.1px] bg-omniv-primary/30 my-2"></div>
 
                         {/* Navigation Items */}
                         {navItems.map((item, index) => (
-                            <div key={item.label} className="flex items-center justify-between w-full">
+                            <div key={item.label}>
                                 <div
                                     data-aos="fade-up"
-                                    data-aos-duration="600"
-                                    data-aos-delay={index * 100}
+                                    data-aos-duration="400"
+                                    data-aos-delay={index * 50}
+                                    data-aos-offset="50"
                                     onClick={() => setActiveSubMenu(item.label)}
-                                    className="flex items-center justify-between w-full hover:bg-omniv-card/50 rounded-lg p-2 transition-all duration-300"
+                                    className="flex items-center justify-between w-[90vw] hover:bg-omniv-card/50 rounded-lg p-2 transition-all duration-300"
                                 >
                                     <span className="text-[16px] font-medium py-[10px] text-white hover:text-omniv-primary transition-colors">
                                         {item.label}
@@ -105,28 +109,30 @@ const MobileMenuBar = () => {
                                         className="w-[18px] h-[18px] font-extralight filter invert"
                                     />
                                 </div>
-                                <div data-aos="fade-up" data-aos-duration="600" data-aos-delay={index * 100} className="w-full h-[0.1px] bg-omniv-primary/30 my-2"></div>
+                                <div data-aos="fade-up" data-aos-duration="400" data-aos-delay={index * 50} data-aos-offset="50" className="w-full h-[0.1px] bg-omniv-primary/30 my-2"></div>
                             </div>
                         ))}
 
                         {/* CONTACT Link */}
                         <div
                             data-aos="fade-up"
-                            data-aos-duration="600"
-                            data-aos-delay={400}
+                            data-aos-duration="400"
+                            data-aos-delay={200}
+                            data-aos-offset="50"
                             className="flex items-center justify-between w-full hover:bg-omniv-card/50 rounded-lg p-2 transition-all duration-300"
                         >
                             <Link href="/contact" className="text-[16px] font-medium py-[10px] text-white hover:text-omniv-primary transition-colors">
                                 CONTACT
                             </Link>
                         </div>
-                        <div data-aos="fade-up" data-aos-duration="600" data-aos-delay={400} className="w-full h-[0.1px] bg-omniv-primary/30 my-2"></div>
+                        <div data-aos="fade-up" data-aos-duration="400" data-aos-delay={200} data-aos-offset="50" className="w-full h-[0.1px] bg-omniv-primary/30 my-2"></div>
 
                         {/* GET STARTED Button */}
                         <div
                             data-aos="fade-up"
-                            data-aos-duration="600"
-                            data-aos-delay={500}
+                            data-aos-duration="400"
+                            data-aos-delay={300}
+                            data-aos-offset="50"
                             className="w-full mt-4"
                         >
                             <button className="w-full bg-gradient-to-r from-[#ff6b35] to-[#00d4aa] text-white px-6 py-3 rounded-xl text-sm font-bold hover:from-omniv-primary/90 hover:to-omniv-secondary/90 transition-all duration-200 transform hover:scale-105 hover:shadow-lg">

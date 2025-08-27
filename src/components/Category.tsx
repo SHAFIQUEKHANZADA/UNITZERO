@@ -181,35 +181,6 @@ const Category = () => {
           </p>
         </div>
 
-        {/* Mobile Image Section - Show on mobile, hidden on desktop */}
-        {/* <div className="block md:hidden mb-6">
-          <div className="relative overflow-hidden">
-            <div
-              className={`absolute inset-0 bg-gradient-to-r ${services[activeSection].color} rounded-2xl opacity-40 blur-xl transform scale-110 transition-all duration-700`}
-            ></div>
-            <div className="relative">
-              <div className="flex items-center justify-center relative overflow-hidden rounded-2xl bg-omniv-card/80 backdrop-blur-sm border border-omniv-primary/30 shadow-2xl">
-                <Image
-                  src={services[activeSection].image}
-                  alt={services[activeSection].title}
-                  width={400}
-                  height={250}
-                  className="w-full h-[250px] object-cover rounded-2xl transition-transform duration-700"
-                  priority
-                />
-                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-omniv-dark/90 via-omniv-dark/50 to-transparent p-4 rounded-b-2xl">
-                  <div className="flex items-center gap-3">
-                    <div className={`bg-gradient-to-r ${services[activeSection].color} p-2 rounded-lg shadow-lg`}>
-                      {React.createElement(services[activeSection].icon, { size: 18, className: "text-white" })}
-                    </div>
-                    <span className="text-white font-semibold text-xs">{services[activeSection].title.split(' ')[0]}</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div> */}
-
         <div className="flex flex-col lg:flex-row gap-6 md:gap-8 lg:gap-12 items-start">
           {/* Sticky Image Section - Hidden on mobile, shown on desktop */}
           <div className="w-full lg:w-1/2 sticky top-24 hidden lg:block">
