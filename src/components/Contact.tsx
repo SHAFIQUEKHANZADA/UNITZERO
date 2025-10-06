@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useMemo, useRef, useState } from "react";
-import { ArrowRight } from "lucide-react";
 
 export default function ContactSection() {
   const formRef = useRef<HTMLFormElement | null>(null);

@@ -51,6 +51,7 @@ const Footer = () => {
         setIsSuccess(false)
       }
     } catch (error) {
+      console.log(error)
       setMessage('Network error. Please check your connection and try again.')
       setIsSuccess(false)
     } finally {
