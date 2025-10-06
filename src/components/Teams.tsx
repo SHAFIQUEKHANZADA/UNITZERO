@@ -37,7 +37,7 @@ export default function Teams() {
   ]
 
   return (
-    <section className="bg-omniv-dark text-white   px-4 md:px-6 lg:px-8 h-full sm:h-screen">
+    <section className="bg-omniv-dark text-white   px-4 md:px-6 lg:px-8 h-full sm:h-screen flex items-center justify-center">
       <div className="sm:w-[90%] mx-auto flex items-center justify-center h-full">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
           {/* Left Content */}
@@ -71,9 +71,9 @@ export default function Teams() {
                   <Image
                     src={member.image || "/placeholder.svg"}
                     alt={`${member.name} - ${member.role}`}
-                    width={300}
-                    height={400}
-                    className="w-[400px]  sm:h-[350px] h-[250px] object-cover transition-transform duration-300 group-hover:scale-105"
+                    width={600}
+                    height={800}
+                    className="w-full xl:h-[460px] lg:h-[420px] md:h-[380px] sm:h-[340px] h-[300px] object-cover transition-transform duration-300 group-hover:scale-105"
                   />
 
                   {/* Social Media Icons */}

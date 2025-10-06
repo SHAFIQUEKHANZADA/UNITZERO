@@ -53,21 +53,19 @@ const Hero = () => {
                         </div>
 
                         {/* Enhanced Main Heading */}
-                        <h1 className="text-4xl lg:text-7xl font-bold leading-tight text-white">
-                            <span className="block transition-all duration-300 hover:text-omniv-primary hover:scale-105 transform">
-                                SPECIALIZED
+                        <h1 className="text-4xl lg:text-6xl font-bold leading-tight text-white">
+                            <span className="transition-all duration-300 hover:text-omniv-primary hover:scale-105 transform uppercase">
+                            Automate Your Business with AI Agents that Call,   <span className="text-omniv-primary hover:text-omniv-secondary transition-all duration-300 uppercase">
+                              Chat & Work for You — 24/7.
+                            </span>            
                             </span>
-                            <span className="block transition-all duration-300 hover:text-omniv-secondary hover:scale-105 transform">
-                                INTELLIGENCE FOR A
-                            </span>
-                            <span className="block text-omniv-primary hover:text-omniv-secondary transition-all duration-300">
-                                SMARTER FUTURE
-                            </span>
+                           
+                        
                         </h1>
 
                         {/* Enhanced Description */}
                         <p className="text-lg lg:text-xl text-omniv-muted leading-relaxed max-w-xl mx-auto lg:mx-0">
-                            Transform your business with cutting-edge AI solutions. We deliver specialized intelligence that drives innovation, efficiency, and growth across all industries.
+                        We design and deploy AI voice, chat, and workflow automations for agencies, healthcare, and real estate.
                         </p>
 
                         {/* Enhanced CTA Button */}

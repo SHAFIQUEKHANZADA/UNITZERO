@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { FaFacebookF, FaXTwitter, FaLinkedinIn } from 'react-icons/fa6'
 import Image from 'next/image'
 import 'aos/dist/aos.css'
@@ -9,6 +9,10 @@ import { BsSend } from 'react-icons/bs'
 import Link from 'next/link'
 
 const Footer = () => {
+  const [email, setEmail] = useState('')
+  const [isLoading, setIsLoading] = useState(false)
+  const [message, setMessage] = useState('')
+  const [isSuccess, setIsSuccess] = useState(false)
 
   useEffect(() => {
     AOS.init({
@@ -18,6 +22,41 @@ const Footer = () => {
   }, [])
 
   const footerRef = useRef(null)
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    if (!email.trim()) return
+
+    setIsLoading(true)
+    setMessage('')
+    setIsSuccess(false)
+
+    try {
+      const response = await fetch('https://n8n.unitzero.tech:5678/webhook/newsletter-subscribe', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email: email.trim() }),
+      })
+
+      const data = await response.json()
+
+      if (data.success) {
+        setMessage(data.message || 'Thanks for subscribing!')
+        setIsSuccess(true)
+        setEmail('') // Reset form
+      } else {
+        setMessage(data.message || 'Something went wrong. Please try again.')
+        setIsSuccess(false)
+      }
+    } catch (error) {
+      setMessage('Network error. Please check your connection and try again.')
+      setIsSuccess(false)
+    } finally {
+      setIsLoading(false)
+    }
+  }
 
   return (
     <footer ref={footerRef} className="relative bg-omniv-dark text-white sm:px-6 py-12 overflow-hidden">
@@ -64,12 +103,15 @@ const Footer = () => {
         <div>
           <h4 className="font-semibold mb-3 text-white">Services</h4>
           <ul className="space-y-2 text-md">
-            <li><Link href="#" className="text-omniv-muted hover:text-omniv-primary transition-colors">AI Model Development</Link></li>
-            <li><Link href="#" className="text-omniv-muted hover:text-omniv-primary transition-colors">AI Integration solutions</Link></li>
-            <li><Link href="#" className="text-omniv-muted hover:text-omniv-primary transition-colors">AI Strategy Consulting</Link></li>
-            <li><Link href="#" className="text-omniv-muted hover:text-omniv-primary transition-colors">Machine Learning</Link></li>
-            <li><Link href="#" className="text-omniv-muted hover:text-omniv-primary transition-colors">Data Monitoring</Link></li>
-            <li><Link href="#" className="text-omniv-muted hover:text-omniv-primary transition-colors">Neural Network</Link></li>
+            <li><Link href="#" className="text-omniv-muted hover:text-omniv-primary transition-colors">AI Website Chatbot</Link></li>
+            <li><Link href="#" className="text-omniv-muted hover:text-omniv-primary transition-colors">AI Voice Receptionist </Link></li>
+            <li><Link href="#" className="text-omniv-muted hover:text-omniv-primary transition-colors">Mini CRM + Lead Tracker</Link></li>
+            <li><Link href="#" className="text-omniv-muted hover:text-omniv-primary transition-colors">Contract Automation</Link></li>
+            <li><Link href="#" className="text-omniv-muted hover:text-omniv-primary transition-colors">Confirmation Email & Notification Engine</Link></li>
+            <li><Link href="#" className="text-omniv-muted hover:text-omniv-primary transition-colors">AI Ticketing Workflow</Link></li>
+            <li><Link href="#" className="text-omniv-muted hover:text-omniv-primary transition-colors">Multi-Channel Lead Capture Hub</Link></li>
+            <li><Link href="#" className="text-omniv-muted hover:text-omniv-primary transition-colors">AI Follow-Up Sequences</Link></li>
+            <li><Link href="#" className="text-omniv-muted hover:text-omniv-primary transition-colors">Real-Time Lead Qualification Bot</Link></li>
           </ul>
         </div>
 
@@ -89,22 +131,42 @@ const Footer = () => {
         <div>
           <h4 className="font-semibold mb-3 text-white">Stay Updated</h4>
           <p className="text-sm mb-4 text-omniv-muted">subscribe to our newsletter and receive the latest news on products, services & more.</p>
-          <div className="relative w-full max-w-xl">
+          
+          <form onSubmit={handleSubmit} className="relative w-full max-w-xl">
             <input
               type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               placeholder="Type your email"
-              className="bg-omniv-card border border-omniv text-white text-md outline-none w-full px-4 pr-10 py-2 h-16 rounded-lg focus:border-omniv-primary transition-colors"
+              required
+              disabled={isLoading}
+              className="bg-omniv-card border border-omniv text-white text-md outline-none w-full px-4 pr-16 py-2 h-16 rounded-lg focus:border-omniv-primary transition-colors disabled:opacity-50"
             />
-            <span className="absolute right-3 top-1/2 -translate-y-1/2 text-white">
-              <BsSend className="text-4xl cursor-pointer bg-omniv-primary hover:bg-omniv-secondary text-white p-2 rounded-full transition-colors" />
-            </span>
-          </div>
+            <button
+              type="submit"
+              disabled={isLoading || !email.trim()}
+              className="absolute right-3 top-1/2 -translate-y-1/2 text-white disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              <BsSend className={`text-4xl bg-omniv-primary hover:bg-omniv-secondary text-white p-2 rounded-full transition-colors ${isLoading ? 'animate-pulse' : ''}`} />
+            </button>
+          </form>
+
+          {/* Success/Error Message */}
+          {message && (
+            <div className={`mt-3 p-3 rounded-lg text-sm ${
+              isSuccess 
+                ? 'bg-green-900/20 border border-green-500/30 text-green-400' 
+                : 'bg-red-900/20 border border-red-500/30 text-red-400'
+            }`}>
+              {message}
+            </div>
+          )}
 
           <p className="text-xs text-omniv-muted mt-2">By subscribing, you accept the Privacy Policy</p>
           <div className="flex space-x-4 mt-4 text-xl">
             <Link href="#" className="text-omniv-muted hover:text-omniv-primary transition-colors"><FaFacebookF /></Link>
             <Link href="#" className="text-omniv-muted hover:text-omniv-primary transition-colors"><FaXTwitter /></Link>
-            <Link href="#" className="text-omniv-muted hover:text-omniv-primary transition-colors"><FaLinkedinIn /></Link>
+            <Link href="https://www.linkedin.com/company/unitzero-pvtltd/" target="_blank" className="text-omniv-muted hover:text-omniv-primary transition-colors"><FaLinkedinIn /></Link>
           </div>
         </div>
       </div>

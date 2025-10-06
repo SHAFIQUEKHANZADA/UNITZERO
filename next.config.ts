@@ -3,7 +3,14 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   /* config options here */
    images: {
-    domains: ['demo.casethemes.net'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'demo.casethemes.net',
+        port: '',
+        pathname: '/**',
+      },
+    ],
   },
 };
 
