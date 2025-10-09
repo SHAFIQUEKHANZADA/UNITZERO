@@ -37,7 +37,7 @@ export default function Teams() {
   ]
 
   return (
-    <section className="bg-omniv-dark text-white   px-4 md:px-6 lg:px-8 h-full sm:h-screen flex items-center justify-center">
+    <section className="bg-omniv-dark text-white px-4 md:px-6 lg:px-8 h-full sm:h-screen flex items-center justify-center">
       <div className="sm:w-[90%] mx-auto flex items-center justify-center h-full">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
           {/* Left Content */}
@@ -67,20 +67,19 @@ export default function Teams() {
                 whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.3 }}
               >
-                <div className="rounded-lg overflow-hidden bg-omniv-card relative">
+                <div className="rounded-lg overflow-hidden bg-omniv-card relative aspect-square">
                   <Image
                     src={member.image || "/placeholder.svg"}
                     alt={`${member.name} - ${member.role}`}
-                    width={600}
-                    height={800}
-                    className="w-full xl:h-[460px] lg:h-[420px] md:h-[380px] sm:h-[340px] h-[300px] object-cover transition-transform duration-300 group-hover:scale-105"
+                    fill
+                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                   />
 
                   {/* Social Media Icons */}
                   <AnimatePresence>
                     {hoveredMember === index && (
                       <motion.div
-                        className="absolute left-4 top-1/2 -translate-y-1/2 flex flex-col gap-3 z-10"
+                        className="absolute left-4 top-4 flex flex-col gap-3 z-10"
                         initial={{ opacity: 0, x: -20 }}
                         animate={{ opacity: 1, x: 0 }}
                         exit={{ opacity: 0, x: -20 }}

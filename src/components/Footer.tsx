@@ -32,7 +32,7 @@ const Footer = () => {
     setIsSuccess(false)
 
     try {
-      const response = await fetch('https://n8n.unitzero.tech:5678/webhook/newsletter-subscribe', {
+      const response = await fetch('https://n8n.unitzero.tech/webhook/newsletter-subscribe', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
