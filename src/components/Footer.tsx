@@ -74,7 +74,7 @@ const Footer = () => {
               <div className="w-[200px] h-full">
                 <Image
                   src="/images/unitzerof.png"
-                  alt="UnitZero Logo"
+                  alt="UNITZERO Logo"
                   width={150}
                   height={80}
                   className="max-w-full"

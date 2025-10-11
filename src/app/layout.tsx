@@ -18,25 +18,25 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://unitzero.tech"),
   title: {
-    default: "UnitZero",
-    template: "%s | UnitZero",
+    default: "UNITZERO",
+    template: "%s | UNITZERO",
   },
   description:
     "Transform your business with cutting-edge AI solutions. We deliver specialized intelligence that drives innovation, efficiency, and growth across all industries.",
   keywords: [
-    "UnitZero",
+    "UNITZERO",
     "AI Solutions",
     "Artificial Intelligence",
     "Machine Learning",
     "Business Automation",
     "AI Consulting",
   ],
-  authors: [{ name: "UnitZero" }],
-  creator: "UnitZero",
-  publisher: "UnitZero",
+  authors: [{ name: "UNITZERO" }],
+  creator: "UNITZERO",
+  publisher: "UNITZERO",
   openGraph: {
-    title: "UnitZero",
-    siteName: "UnitZero",
+    title: "UNITZERO",
+    siteName: "UNITZERO",
     description:
       "Transform your business with cutting-edge AI solutions. We deliver specialized intelligence that drives innovation, efficiency, and growth across all industries.",
     url: "https://unitzero.tech",
@@ -45,11 +45,11 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "UnitZero",
+    title: "UNITZERO",
     description:
       "Transform your business with cutting-edge AI solutions. We deliver specialized intelligence that drives innovation, efficiency, and growth across all industries.",
-    creator: "@unitzero",
-    site: "@unitzero",
+    creator: "@UNITZERO",
+    site: "@UNITZERO",
   },
   alternates: {
     canonical: "/",

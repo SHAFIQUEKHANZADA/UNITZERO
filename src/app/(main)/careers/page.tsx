@@ -218,7 +218,7 @@ const CareersPage = () => {
             </div>
             
             <h1 className="text-5xl lg:text-6xl font-bold bg-gradient-to-r from-white via-omniv-primary to-omniv-secondary bg-clip-text text-transparent mb-6">
-              Careers at UnitZero
+              Careers at UNITZERO
             </h1>
             
             <p className="text-xl text-omniv-muted max-w-3xl mx-auto leading-relaxed mb-8">
@@ -359,7 +359,7 @@ const CareersPage = () => {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-white mb-6">
-              Why Join <span className="text-omniv-primary">UnitZero</span>
+              Why Join <span className="text-omniv-primary">UNITZERO</span>
             </h2>
             <p className="text-xl text-omniv-muted max-w-3xl mx-auto">
               We&apos;re building more than just a company—we&apos;re building a movement to democratize AI technology.

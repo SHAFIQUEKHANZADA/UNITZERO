@@ -59,7 +59,7 @@ const Team = () => {
             </h1>
 
             <p className="text-xl text-omniv-muted max-w-3xl mx-auto leading-relaxed mb-8">
-              The brilliant minds behind UnitZero, united by a shared vision to democratize AI and transform businesses worldwide.
+              The brilliant minds behind UNITZERO, united by a shared vision to democratize AI and transform businesses worldwide.
             </p>
 
             <div className="flex items-center justify-center gap-4 text-omniv-muted">

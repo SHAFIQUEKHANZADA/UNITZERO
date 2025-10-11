@@ -46,7 +46,7 @@ const Story = () => {
             </div>
             
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-white via-omniv-primary to-omniv-secondary bg-clip-text text-transparent mb-4 sm:mb-6">
-              The UnitZero Story
+              The UNITZERO Story
             </h1>
             
             <p className="text-lg sm:text-xl text-omniv-muted max-w-3xl mx-auto leading-relaxed mb-6 sm:mb-8 px-4">
@@ -82,15 +82,15 @@ const Story = () => {
                 <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4 sm:mb-6">
                   Our <span className="text-omniv-primary">Mission</span>
                 </h2>
-                <h3 className="text-xl sm:text-2xl font-semibold text-omniv-secondary mb-3 sm:mb-4">The Story of UnitZero</h3>
+                <h3 className="text-xl sm:text-2xl font-semibold text-omniv-secondary mb-3 sm:mb-4">The Story of UNITZERO</h3>
                 <p className="text-base sm:text-lg leading-relaxed text-omniv-muted mb-4 sm:mb-6">
-                  UnitZero was founded on a simple principle: <span className="font-semibold text-white">our customers come first.</span> We
+                UNITZERO was founded on a simple principle: <span className="font-semibold text-white">our customers come first.</span> We
                   launched this company with a mission to unlock the potential of businesses through Artificial Intelligence.
                   From day one, we set out to unify cutting‑edge technology with a human‑centric approach, ensuring that every
                   decision we make serves the people who trust us.
                 </p>
 
-                <h4 className="text-lg sm:text-xl font-semibold text-white mb-3 sm:mb-4">The Meaning of UnitZero</h4>
+                <h4 className="text-lg sm:text-xl font-semibold text-white mb-3 sm:mb-4">The Meaning of UNITZERO</h4>
                 <p className="text-base sm:text-lg leading-relaxed text-omniv-muted">
                   Our name reflects our philosophy. <span className="font-semibold text-omniv-primary">Unit</span> represents unity and discipline—like a
                   tightly knit military unit, we move in sync and support each other. <span className="font-semibold text-omniv-secondary">Zero</span> symbolizes a
@@ -193,7 +193,7 @@ const Story = () => {
               Our <span className="text-omniv-primary">Journey</span>
             </h2>
             <p className="text-lg sm:text-xl text-omniv-muted max-w-3xl mx-auto px-4">
-              Key milestones that shaped UnitZero into the company it is today.
+              Key milestones that shaped UNITZERO into the company it is today.
             </p>
           </div>
 
@@ -207,7 +207,7 @@ const Story = () => {
                 {
                   year: "2020",
                   title: "Foundation",
-                  description: "UnitZero was founded with a vision to democratize AI technology for businesses of all sizes."
+                  description: "UNITZERO was founded with a vision to democratize AI technology for businesses of all sizes."
                 },
                 {
                   year: "2021",
