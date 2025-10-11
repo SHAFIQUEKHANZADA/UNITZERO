@@ -88,6 +88,22 @@ export default function RootLayout({
             gtag('config', 'G-S19LWF2FB9');
           `}
         </Script>
+
+        {/* ✅ Organization Schema (helps Google display UNITZERO in uppercase) */}
+        <Script id="org-schema" type="application/ld+json" strategy="afterInteractive">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            name: "UNITZERO",
+            url: "https://www.unitzero.tech",
+            logo: "https://www.unitzero.tech/_next/image?url=%2Fimages%2Funitzero.png&w=256&q=75",
+            sameAs: [
+              "https://www.linkedin.com/company/unitzero-pvtltd/",
+              "https://www.instagram.com/unitzero",
+              "https://twitter.com/unitzero",
+            ],
+          })}
+        </Script>
       </head>
 
       <body
