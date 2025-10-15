@@ -133,7 +133,7 @@ export default function Solutions() {
 
       <div className="relative z-10 container mx-auto px-4 md:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold leading-tight">How Our Solutions Work Together</h2>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight">How Our Solutions Work Together</h2>
           <p className="mt-3 text-omniv-muted max-w-3xl mx-auto">
             Start with basic automation at $260, add voice and knowledge at $350, then scale to full automation at $500.
           </p>

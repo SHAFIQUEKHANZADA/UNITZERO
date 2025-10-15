@@ -79,7 +79,7 @@ export default function HowWeWorkTimeline() {
   }
 
   return (
-    <section className="relative min-h-screen bg-omniv-dark text-white overflow-hidden">
+    <section className="relative min-h-screen bg-omniv-dark text-white overflow-hidden md:px-10">
       {/* Animated Background */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,107,53,0.05),transparent_50%)]"></div>
@@ -108,7 +108,7 @@ export default function HowWeWorkTimeline() {
             <Sparkles className="w-5 h-5 text-omniv-primary" />
             <span className="text-omniv-primary font-medium">How We Work</span>
           </div>
-          <h2 className="text-5xl lg:text-6xl font-bold bg-gradient-to-r from-white via-omniv-primary to-omniv-secondary bg-clip-text text-transparent mb-6">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-white via-omniv-primary to-omniv-secondary bg-clip-text text-transparent mb-6">
             Our Process
           </h2>
           <p className="text-xl text-omniv-muted max-w-3xl mx-auto leading-relaxed">

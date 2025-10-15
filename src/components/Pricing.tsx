@@ -46,7 +46,7 @@ const tiers = [
 export default function Pricing() {
   return (
     <section className="bg-omniv-dark text-white py-20 relative overflow-hidden">
-      <div className="absolute inset-0 opacity-30 pointer-events-none">
+      <div className="absolute inset-0 opacity-20 pointer-events-none">
         <div className="absolute -top-24 left-0 w-[28rem] h-[28rem] bg-omniv-primary rounded-full blur-3xl" />
         <div className="absolute -bottom-24 right-0 w-[28rem] h-[28rem] bg-omniv-secondary rounded-full blur-3xl" />
       </div>
@@ -57,7 +57,7 @@ export default function Pricing() {
             <Zap className="w-4 h-4 text-omniv-primary" />
             <span className="text-sm text-omniv-primary">Transparent pricing that scales with you</span>
           </div>
-          <h2 className="text-4xl md:text-6xl font-bold leading-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight">
             Simple Plans. Real Outcomes.
           </h2>
           <p className="mt-3 text-omniv-muted max-w-2xl mx-auto">
@@ -67,10 +67,10 @@ export default function Pricing() {
 
         <div className="grid lg:grid-cols-3 gap-6 items-stretch">
           {tiers.map((tier, idx) => (
-            <div key={tier.name} className={`relative group ${idx === 1 ? "ring-1 rounded-2xl ring-omniv-primary/40 z-10" : "z-10"}`}>
+            <div key={tier.name} className={`relative group ${idx === 1 ? "ring-1 rounded-2xl ring-omniv-primary/40 z-20" : "z-20"}`}>
               {/* Badge sits on wrapper so it's never clipped by inner card */}
               {tier.badge && (
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 inline-flex items-center gap-2 rounded-full bg-omniv-primary/20 border border-omniv-primary/40 text-omniv-primary text-xs font-semibold px-3 py-1 z-20">
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 inline-flex items-center bg-omniv-primary gap-2 rounded-full bg-omniv-primary/20 border border-omniv-primary/40 text-white text-xs font-semibold px-3 py-1 z-30">
                   <Star className="w-3 h-3" /> {tier.badge}
                 </div>
               )}

@@ -22,7 +22,7 @@ export default function ContactSection() {
         {/* LEFT: Copy + Proof */}
         <div className="space-y-8">
           <div className="space-y-5">
-            <h1 className="text-4xl md:text-5xl font-bold leading-tight">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight">
               Book Your Free AI Automation Pilot
             </h1>
             <p className="text-omniv-muted text-lg">

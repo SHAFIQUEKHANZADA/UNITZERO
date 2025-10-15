@@ -45,7 +45,7 @@ const Team = () => {
   return (
     <div className="min-h-screen bg-omniv-dark text-white">
       {/* Hero Section */}
-      <section className="relative pt-20 pb-16 overflow-hidden">
+      <section className="relative pt-20 py-16 overflow-hidden">
         {/* Background Elements */}
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,107,53,0.05),transparent_50%)]"></div>
@@ -60,7 +60,7 @@ const Team = () => {
               <span className="text-omniv-primary font-medium">Our Team</span>
             </div>
 
-            <h1 className="text-5xl lg:text-6xl font-bold bg-gradient-to-r from-white via-omniv-primary to-omniv-secondary bg-clip-text text-transparent mb-6">
+            <h1 className="sm:text-5xl lg:text-6xl text-4xl font-bold bg-gradient-to-r from-white via-omniv-primary to-omniv-secondary bg-clip-text text-transparent mb-6">
               Meet the Team
             </h1>
 
@@ -68,18 +68,18 @@ const Team = () => {
               The brilliant minds behind UNITZERO, united by a shared vision to democratize AI and transform businesses worldwide.
             </p>
 
-            <div className="flex items-center justify-center gap-4 text-omniv-muted">
-              <div className="flex items-center gap-2">
+            <div className="flex items-center justify-center sm:gap-4 gap-2 text-omniv-muted">
+              <div className="flex items-center sm:gap-2">
                 <Star className="w-4 h-4 text-omniv-primary" />
                 <span>2 Years Experience</span>
               </div>
               <div className="w-1 h-1 bg-omniv-muted rounded-full"></div>
-              <div className="flex items-center gap-2">
+              <div className="flex items-center sm:gap-2">
                 <Globe className="w-4 h-4 text-omniv-secondary" />
                 <span>Global Impact</span>
               </div>
               <div className="w-1 h-1 bg-omniv-muted rounded-full"></div>
-              <div className="flex items-center gap-2">
+              <div className="flex items-center sm:gap-2">
                 <Award className="w-4 h-4 text-omniv-primary" />
                 <span>Industry Leaders</span>
               </div>
@@ -89,9 +89,9 @@ const Team = () => {
       </section>
 
       {/* Team Members */}
-      <section className="relative z-10 container mx-auto px-6 pb-20">
+      <section className="relative z-10 container mx-auto px-6 sm:py-20 py-10">
         <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-3 gap-8 mb-20">
+          <div className="grid lg:grid-cols-3 gap-8 sm:mb-20 mb-10">
             {teamMembers.map((member, index) => (
               <div
                 key={index}
@@ -163,9 +163,9 @@ const Team = () => {
       </section>
 
       {/* Team Culture Section */}
-      <section className="relative z-10 container mx-auto px-6 pb-20">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
+      <section className="relative z-10 container mx-auto px-6 sm:py-20 py-10">
+        <div className="sm:max-w-6xl mx-auto">
+          <div className="text-center sm:mb-16 mb-10">
             <h2 className="text-4xl font-bold text-white mb-6">
               Our <span className="text-omniv-primary">Culture</span>
             </h2>

@@ -184,8 +184,8 @@ const Navbar: React.FC = () => {
           animation: fadeInUp 0.3s ease-out forwards;
         }
       `}</style>
-            <div className="sm:pr-0 pr-4 sm:px-6 lg:px-8 xl:px-20 sm:py-4">
-                <div className="flex justify-between items-center h-16">
+            <div className="pl-2 pr-4 sm:px-6 lg:px-8 xl:px-20 sm:py-3">
+                <div className="flex justify-between items-center h-12">
                     {/* Logo */}
                     <div className="flex items-center gap-3">
 
@@ -195,11 +195,11 @@ const Navbar: React.FC = () => {
                         </span>
                     </div>
 
-                    <div className='flex items-center lg:space-x-4 '>
+                    <div className='flex items-center lg:space-x-3'>
                         {/* Desktop Navigation */}
                         <div className="hidden md:block">
-                            <div className="ml-4 flex items-baseline lg:space-x-4">
-                                <div className="flex items-center text-omniv-primary hover:text-omniv-secondary px-3 py-2 text-sm font-bold transition-all duration-200 group">HOME</div>
+                            <div className="ml-4 flex items-baseline lg:space-x-3">
+                                <div className="flex items-center text-omniv-primary hover:text-omniv-secondary px-3 py-2 text-xs font-bold transition-all duration-200 group">HOME</div>
                                 {navItems.map((item) => (
                                     <div
                                         key={item.label}
@@ -209,7 +209,7 @@ const Navbar: React.FC = () => {
                                     >
                                         <button
                                             onClick={() => toggleDropdown(item.label)}
-                                            className="flex items-center text-white hover:text-omniv-primary px-3 py-2 text-sm font-bold transition-all duration-200 group"
+                                            className="flex items-center text-white hover:text-omniv-primary px-3 py-2 text-xs font-bold transition-all duration-200 group"
                                         >
                                             {item.label}
                                             <ChevronDown
@@ -226,7 +226,7 @@ const Navbar: React.FC = () => {
                                                         <a
                                                             key={dropdownItem.label}
                                                             href={dropdownItem.href}
-                                                            className="block px-4 py-3 text-sm text-white hover:bg-omniv-muted hover:text-omniv-primary transition-all duration-200 transform hover:translate-x-1"
+                                                            className="block px-4 py-3 text-xs text-white hover:bg-omniv-muted hover:text-omniv-primary transition-all duration-200 transform hover:translate-x-1"
                                                             onClick={() => setActiveDropdown(null)}
                                                             style={{
                                                                 animationDelay: `${index * 50}ms`,
@@ -248,14 +248,14 @@ const Navbar: React.FC = () => {
                         </div>
 
                         {/* Right side buttons */}
-                        <div className="hidden md:flex items-center lg:space-x-4">
+                        <div className="hidden md:flex items-center lg:space-x-3">
                             <Link
                                 href="/contact"
-                                className="text-white hover:text-omniv-primary px-3 py-2 text-sm font-bold transition-colors duration-200"
+                                className="text-white hover:text-omniv-primary px-3 py-2 text-xs font-bold transition-colors duration-200"
                             >
                                 CONTACT
                             </Link>
-                            <button className="bg-gradient-to-r from-[#ff6b35] to-[#00d4aa] text-white px-6 py-3 rounded-xl text-sm font-bold hover:from-omniv-primary/90 hover:to-omniv-secondary/90 transition-all duration-200 transform hover:scale-105 hover:shadow-lg">
+                            <button className="bg-gradient-to-r from-[#ff6b35] to-[#00d4aa] text-white lg:px-6 px-3 py-3 rounded-xl text-xs font-bold hover:from-omniv-primary/90 hover:to-omniv-secondary/90 transition-all duration-200 transform hover:scale-105 hover:shadow-lg">
                                 GET STARTED
                             </button>
                         </div>

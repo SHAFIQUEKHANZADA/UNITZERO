@@ -38,12 +38,12 @@ export default function Teams() {
 
   return (
     <section className="bg-omniv-dark text-white px-4 md:px-6 lg:px-8 h-full sm:h-screen flex items-center justify-center">
-      <div className="sm:w-[90%] mx-auto flex items-center justify-center h-full">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+      <div className="sm:w-[95%] mx-auto flex items-center justify-center h-full">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-10 items-start">
           {/* Left Content */}
-          <div className="space-y-6">
-            <h2 className="text-4xl md:text-6xl font-bold leading-tight">Our people make us great</h2>
-            <div className="space-y-4 text-omniv-muted text-xl leading-relaxed">
+          <div className="space-y-4">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight">Our people make us great</h2>
+            <div className="space-y-4 text-omniv-muted text-lg leading-relaxed">
               <p>Here we focus on markets where technology, innovation, can unlock long-term value.</p>
               <p>
                 You&apos;ll interact with talented professionals, will be challenged to solve difficult problems and
@@ -67,7 +67,7 @@ export default function Teams() {
                 whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.3 }}
               >
-                <div className="rounded-lg overflow-hidden bg-omniv-card relative aspect-square">
+                <div className="rounded-lg overflow-hidden bg-omniv-card relative aspect-[4/5]">
                   <Image
                     src={member.image || "/placeholder.svg"}
                     alt={`${member.name} - ${member.role}`}
@@ -89,49 +89,49 @@ export default function Teams() {
                           href={member.linkedin}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="bg-omniv-card/80 backdrop-blur-sm p-3 rounded-full hover:bg-omniv-primary transition-colors duration-300 group/icon"
+                          className="bg-gradient-to-r from-[#ff6b35] to-[#00d4aa] backdrop-blur-sm p-2 rounded-full hover:bg-omniv-primary transition-colors duration-300 group/icon"
                           initial={{ opacity: 0, scale: 0.8, x: -10 }}
                           animate={{ opacity: 1, scale: 1, x: 0 }}
                           transition={{ duration: 0.3, delay: 0.1 }}
                           whileHover={{ scale: 1.1 }}
                           whileTap={{ scale: 0.95 }}
                         >
-                          <Linkedin className="w-5 h-5 text-white group-hover/icon:text-white transition-colors duration-300" />
+                          <Linkedin className="w-4 h-4 text-white group-hover/icon:text-white transition-colors duration-300" />
                         </motion.a>
                         <motion.a
                           href={member.twitter}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="bg-omniv-card/80 backdrop-blur-sm p-3 rounded-full hover:bg-omniv-primary transition-colors duration-300 group/icon"
+                          className="bg-gradient-to-r from-[#ff6b35] to-[#00d4aa] backdrop-blur-sm p-2 rounded-full hover:bg-omniv-primary transition-colors duration-300 group/icon"
                           initial={{ opacity: 0, scale: 0.8, x: -10 }}
                           animate={{ opacity: 1, scale: 1, x: 0 }}
                           transition={{ duration: 0.3, delay: 0.2 }}
                           whileHover={{ scale: 1.1 }}
                           whileTap={{ scale: 0.95 }}
                         >
-                          <Twitter className="w-5 h-5 text-white group-hover/icon:text-white transition-colors duration-300" />
+                          <Twitter className="w-4 h-4 text-white group-hover/icon:text-white transition-colors duration-300" />
                         </motion.a>
                         <motion.a
                           href={member.github}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="bg-omniv-card/80 backdrop-blur-sm p-3 rounded-full hover:bg-omniv-primary transition-colors duration-300 group/icon"
+                          className="bg-gradient-to-r from-[#ff6b35] to-[#00d4aa] backdrop-blur-sm p-2 rounded-full hover:bg-omniv-primary transition-colors duration-300 group/icon"
                           initial={{ opacity: 0, scale: 0.8, x: -10 }}
                           animate={{ opacity: 1, scale: 1, x: 0 }}
                           transition={{ duration: 0.3, delay: 0.3 }}
                           whileHover={{ scale: 1.1 }}
                           whileTap={{ scale: 0.95 }}
                         >
-                          <Github className="w-5 h-5 text-white group-hover/icon:text-white transition-colors duration-300" />
+                          <Github className="w-4 h-4 text-white group-hover/icon:text-white transition-colors duration-300" />
                         </motion.a>
                       </motion.div>
                     )}
                   </AnimatePresence>
 
                   {/* Member Info Overlay */}
-                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-omniv-dark/90 via-omniv-dark/50 to-transparent p-4">
-                    <h3 className="text-lg font-semibold text-white mb-1">{member.name}</h3>
-                    <p className="text-omniv-muted text-sm">{member.role}</p>
+                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-omniv-dark/90 via-omniv-dark/50 to-transparent sm:p-4 p-2">
+                    <h3 className="text-sm font-semibold text-white mb-1">{member.name}</h3>
+                    <p className="text-omniv-muted text-xs">{member.role}</p>
                   </div>
                 </div>
               </motion.div>

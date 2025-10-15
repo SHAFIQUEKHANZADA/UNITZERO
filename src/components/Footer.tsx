@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useEffect, useRef, useState } from 'react'
-import { FaFacebookF, FaXTwitter, FaLinkedinIn } from 'react-icons/fa6'
+import { FaXTwitter, FaLinkedinIn, FaUpwork } from 'react-icons/fa6'
 import Image from 'next/image'
 import 'aos/dist/aos.css'
 import AOS from 'aos'
@@ -60,14 +60,14 @@ const Footer = () => {
   }
 
   return (
-    <footer ref={footerRef} className="relative bg-omniv-dark text-white sm:px-6 py-12 overflow-hidden">
+    <footer ref={footerRef} className="relative bg-omniv-dark text-white px-6 sm:py-12 py-6 overflow-hidden">
       {/* Background decorative elements */}
       {/* <div className="absolute inset-0 opacity-10">
         <div className="absolute top-20 left-10 w-96 h-66 bg-omniv-primary rounded-full blur-3xl"></div>
         <div className="absolute bottom-20 right-10 w-96 h-66 bg-omniv-secondary rounded-full blur-3xl"></div>
       </div> */}
 
-      <div className="max-w-[90%] mx-auto grid grid-cols-1 lg:grid-cols-5 md:grid-cols-3 gap-8">
+      <div className="max-w-[95%] mx-auto grid grid-cols-1 lg:grid-cols-5 md:grid-cols-3 gap-8">
         {/* Left Block */}
         <div>
           <div className="mb-4">      
@@ -82,10 +82,10 @@ const Footer = () => {
               </div>
           </div>
           <p className="text-sm mb-2 text-omniv-muted">Embrace the future of artificial intelligence!</p>
-          <a href="mailto:support@unitzero.com" className="text-omniv-primary text-sm block">
-            support@unitzero.com
+          <a href="mailto:services@unitzero.tech" className="text-omniv-primary text-sm block">
+            services@unitzero.tech
           </a>
-          <p className="text-sm mt-1 text-omniv-muted">+2 011 6114 5741</p>
+          <p className="text-sm mt-1 text-omniv-muted">+92 333 0677748</p>
         </div>
 
         {/* About */}
@@ -165,15 +165,15 @@ const Footer = () => {
 
           <p className="text-xs text-omniv-muted mt-2">By subscribing, you accept the Privacy Policy</p>
           <div className="flex space-x-4 mt-4 text-xl">
-            <Link href="#" className="text-omniv-muted hover:text-omniv-primary transition-colors"><FaFacebookF /></Link>
-            <Link href="#" className="text-omniv-muted hover:text-omniv-primary transition-colors"><FaXTwitter /></Link>
+            <Link href="https://www.upwork.com/agencies/unitzero/" target="_blank" className="text-omniv-muted hover:text-omniv-primary transition-colors"><FaUpwork /></Link>
+            <Link href="https://x.com/UnitzeroL50415" target="_blank" className="text-omniv-muted hover:text-omniv-primary transition-colors"><FaXTwitter /></Link>
             <Link href="https://www.linkedin.com/company/unitzero-pvtltd/" target="_blank" className="text-omniv-muted hover:text-omniv-primary transition-colors"><FaLinkedinIn /></Link>
           </div>
         </div>
       </div>
 
       {/* Bottom */}
-      <div className="border-t border-omniv w-[90%] mx-auto mt-10 pt-6 flex flex-col md:flex-row items-center justify-between text-sm text-omniv-muted">
+      <div className="border-t border-omniv sm:w-[90%] mx-auto mt-10 pt-6 flex flex-col md:flex-row items-center justify-between sm:text-sm text-xs text-omniv-muted">
         <p>©2025 UNITZERO, All Rights Reserved. With Love by <a href="https://unitzero.com" className="text-omniv-primary hover:text-omniv-secondary transition-colors">unitzero.tech</a></p>
        
       </div>

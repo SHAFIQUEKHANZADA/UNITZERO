@@ -76,7 +76,7 @@ export default function Testimonials() {
             <Star className="w-4 h-4 text-omniv-primary" />
             <span className="text-sm text-omniv-primary">What our clients say</span>
           </div>
-          <h2 className="text-4xl md:text-6xl font-bold leading-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight">
             Trusted Results. Real Outcomes.
           </h2>
           <p className="mt-4 text-omniv-muted max-w-2xl mx-auto">

@@ -173,17 +173,17 @@ const Category = () => {
       <div className="container mx-auto px-4 md:px-6 py-8 md:py-16 relative z-10">
         {/* Header */}
         <div className="text-center mb-8 md:mb-16">
-          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-white via-omniv-primary to-white bg-clip-text text-transparent mb-3 md:mb-6">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-white via-omniv-primary to-white bg-clip-text text-transparent mb-3 md:mb-6">
             Next-Gen Intelligence Solutions
           </h1>
-          <p className="text-sm sm:text-base md:text-lg lg:text-xl text-omniv-muted max-w-3xl mx-auto px-4">
+          <p className="text-sm sm:text-base md:text-lg text-omniv-muted max-w-3xl mx-auto px-4">
             Revolutionize your operations with powerful AI-driven automation that scales with your ambitions
           </p>
         </div>
 
         <div className="flex flex-col lg:flex-row gap-6 md:gap-8 lg:gap-12 items-start">
           {/* Sticky Image Section - Hidden on mobile, shown on desktop */}
-          <div className="w-full lg:w-1/2 sticky top-24 hidden lg:block">
+          <div className="w-full lg:w-1/2 sticky top-1/12 hidden lg:block">
             <div className="relative">
               <div
                 className={`absolute inset-0 bg-gradient-to-r ${services[activeSection].color} rounded-2xl opacity-40 blur-xl transform scale-110 transition-all duration-700`}
@@ -229,7 +229,7 @@ const Category = () => {
                       {React.createElement(service.icon, { size: 20, className: "text-white" })}
                     </div>
                     <div>
-                      <h2 className="text-lg pt-3 sm:text-xl md:text-2xl lg:text-3xl font-bold text-white">{service.title}</h2>
+                      <h2 className="text-lg pt-3 sm:text-xl md:text-2xl font-bold text-white">{service.title}</h2>
                       <div className={`h-1 w-12 md:w-16 lg:w-24 bg-gradient-to-r ${service.color} mt-2 rounded-full`}></div>
                     </div>
                   </div>
@@ -241,7 +241,7 @@ const Category = () => {
                   {service.features.map((feature, featureIndex) => (
                     <div
                       key={featureIndex}
-                      className={`bg-omniv-card/80 backdrop-blur-sm rounded-xl p-3 md:p-4 lg:p-6 shadow-lg border border-omniv hover:shadow-xl hover:border-omniv-primary/50 transition-all duration-300 hover:transform hover:scale-105 ${index === activeSection ? "animate-fade-in-up" : ""
+                      className={`bg-omniv-card/80 backdrop-blur-sm rounded-xl p-3 md:p-4 shadow-lg border border-omniv hover:shadow-xl hover:border-omniv-primary/50 transition-all duration-300 hover:transform hover:scale-105 ${index === activeSection ? "animate-fade-in-up" : ""
                         }`}
                       style={{ animationDelay: `${featureIndex * 100}ms` }}
                     >
@@ -250,8 +250,8 @@ const Category = () => {
                           {React.createElement(feature.icon, { size: 18, className: "text-white" })}
                         </div>
                         <div>
-                          <h3 className="text-base md:text-lg lg:text-xl font-semibold text-white mb-1 md:mb-2">{feature.title}</h3>
-                          <p className="text-xs md:text-sm lg:text-base text-omniv-muted leading-relaxed">{feature.description}</p>
+                          <h3 className="text-base md:text-lg font-semibold text-white mb-1 md:mb-2">{feature.title}</h3>
+                          <p className="text-xs md:text-sm text-omniv-muted leading-relaxed">{feature.description}</p>
                           <div className="mt-2 md:mt-3">
                             <span className={`inline-block px-2 md:px-3 py-1 text-xs font-medium rounded-full border ${
                               featureIndex % 2 === 0 

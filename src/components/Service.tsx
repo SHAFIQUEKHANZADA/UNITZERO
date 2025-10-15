@@ -84,7 +84,7 @@ export default function ServicesSection() {
       </div>
 
 
-      <div className="xl:px-40 lg:px-20 md:px-10 relative z-10">
+      <div className="md:px-10 relative z-10">
         {/* Enhanced Header */}
         <div className="text-center mb-16 animate-fade-in-up">
           <div
@@ -95,7 +95,7 @@ export default function ServicesSection() {
             <span className="text-sm text-omniv-primary font-medium">AI-Powered Services</span>
           </div>
           <h2 
-            className="text-4xl md:text-6xl font-bold text-white leading-tight animate-fade-in-up"
+            className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight animate-fade-in-up"
             style={{ animationDelay: '0.3s' }}
           >
             Services Designed To Meet<br />
@@ -109,7 +109,7 @@ export default function ServicesSection() {
         <div className="relative">
           <Swiper
             modules={[Navigation, Pagination]}
-            spaceBetween={20}
+            spaceBetween={18}
             loop={true}
             pagination={{
               clickable: true,
@@ -122,10 +122,10 @@ export default function ServicesSection() {
               nextEl: '.swiper-button-next-custom',
             }}
             breakpoints={{
-              640: {
+              460: {
                 slidesPerView: 1,
               },
-              740: {
+              540: {
                 slidesPerView: 2,
               },
               1024: {
@@ -140,7 +140,7 @@ export default function ServicesSection() {
             {services.map((service, index) => (
               <SwiperSlide key={index} className="px-2 my-10">
                 <div 
-                  className={`relative ${service.bgColor} p-8 rounded-2xl h-[450px] flex flex-col justify-between hover:shadow-2xl group overflow-hidden cursor-grab active:cursor-grabbing border border-omniv hover:border-omniv-primary/50 transition-all duration-300 animate-fade-in-up`}
+                  className={`relative ${service.bgColor} p-6 sm:py-6 py-10 rounded-2xl sm:h-[350px] flex flex-col justify-between hover:shadow-2xl group overflow-hidden cursor-grab active:cursor-grabbing border border-omniv hover:border-omniv-primary/50 transition-all duration-300 animate-fade-in-up`}
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
                   {/* Enhanced Floating bubble on right top */}
@@ -152,7 +152,7 @@ export default function ServicesSection() {
                   {/* Enhanced 3D Icon */}
                   <div className="flex justify-end">
                     <div 
-                      className={`w-32 h-32 mt-4 mr-4 flex items-center justify-center text-3xl transform rotate-3 group-hover:rotate-0 group-hover:scale-110 transition-all duration-500 relative overflow-hidden hover:scale-110 hover:rotate-0`}
+                      className={`lg:w-20 lg:h-20 w-32 h-32 mt-3 mr-3 flex items-center justify-center text-3xl transform rotate-3 group-hover:rotate-0 group-hover:scale-110 transition-all duration-500 relative overflow-hidden hover:scale-110 hover:rotate-0`}
                     >
                       {/* Animated icon */}
                       <span 
@@ -164,13 +164,13 @@ export default function ServicesSection() {
                   </div>
 
                   {/* Enhanced Content */}
-                  <div className="flex-grow mt-14 z-10">
+                  <div className="flex-grow mt-10 z-10">
                     <h3 
-                      className="text-xl font-bold text-white mb-4 leading-tight hover:text-omniv-primary transition-colors duration-300"
+                      className="sm:text-md font-bold text-white mb-4 leading-tight hover:text-omniv-primary transition-colors duration-300"
                     >
                       {service.title}
                     </h3>
-                    <p className="text-omniv-muted text-sm leading-relaxed">
+                    <p className="text-omniv-muted sm:text-[12px] leading-relaxed">
                       {service.description}
                     </p>
                   </div>
