@@ -3,7 +3,10 @@ import { Shield, Lock, Eye, Mail, MapPin, Calendar, FileText, Zap } from 'lucide
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: "Privacy Policy"
+  title: "Privacy Policy",
+  description: "UNITZERO Privacy Policy: how we collect, use, and protect your data.",
+  alternates: { canonical: "/privacy-policy" },
+  robots: { index: true, follow: true },
 }
 
 const PrivacyPolicy = () => {

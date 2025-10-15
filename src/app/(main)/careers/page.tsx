@@ -1,6 +1,14 @@
 "use client"
 
 import Link from "next/link"
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "Careers",
+  description: "Careers at UNITZERO: build AI automation, chatbots, voice agents, and enterprise AI.",
+  alternates: { canonical: "/careers" },
+  robots: { index: true, follow: true },
+}
 import { useState } from "react"
 import { 
   Briefcase, 

@@ -4,7 +4,10 @@ import { Users, Star, Globe, Award, Zap, Mail, Linkedin } from 'lucide-react'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: "Teams"
+  title: "Teams",
+  description: "Meet the UNITZERO team building AI automation, chatbots, voice agents, and enterprise AI.",
+  alternates: { canonical: "/team" },
+  robots: { index: true, follow: true },
 }
 
 const Team = () => {

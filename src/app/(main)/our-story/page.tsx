@@ -3,7 +3,10 @@ import { Target, Heart, Shield, Zap, Star, Users, Globe, Award } from 'lucide-re
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: "Our Story"
+  title: "Our Story",
+  description: "The UNITZERO story: customer-first AI automation, chatbots, and voice agents for real outcomes.",
+  alternates: { canonical: "/our-story" },
+  robots: { index: true, follow: true },
 }
 
 const Story = () => {
