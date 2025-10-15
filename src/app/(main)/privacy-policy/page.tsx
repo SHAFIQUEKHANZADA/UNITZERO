@@ -1,7 +1,10 @@
-"use client"
-
 import React from 'react'
 import { Shield, Lock, Eye, Mail, MapPin, Calendar, FileText, Zap } from 'lucide-react'
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: "Privacy Policy"
+}
 
 const PrivacyPolicy = () => {
   return (

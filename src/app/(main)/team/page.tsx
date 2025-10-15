@@ -1,8 +1,11 @@
-"use client"
-
 import Image from 'next/image'
 import React from 'react'
 import { Users, Star, Globe, Award, Zap, Mail, Linkedin } from 'lucide-react'
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: "Teams"
+}
 
 const Team = () => {
   const teamMembers = [

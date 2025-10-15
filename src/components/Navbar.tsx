@@ -38,18 +38,59 @@ const Navbar: React.FC = () => {
                 { label: 'Our Story', href: '/our-story', description: 'Learn about our journey' },
                 { label: 'Our Team', href: '/team', description: 'Meet our experts' },
                 { label: 'Careers', href: '/careers', description: 'Join our team' },
-                { label: 'Press', href: '/press', description: 'Media resources' }
+                // { label: 'Press', href: '/press', description: 'Media resources' }
             ]
         },
         {
-            label: 'FEATURES',
+            label: 'SERVICES',
             dropdown: [
-                { label: 'AI Solutions', href: '/ai-solutions', description: 'Cutting-edge AI technology' },
-                { label: 'Machine Learning', href: '/ml', description: 'Advanced ML capabilities' },
-                { label: 'Data Analytics', href: '/analytics', description: 'Data-driven insights' },
-                { label: 'Custom Development', href: '/development', description: 'Tailored solutions' }
+              {
+                label: 'AI Website Chatbot',
+                href: '/ai-solutions',
+                description: 'Engage visitors and capture leads through smart web chat.'
+              },
+              {
+                label: 'AI Voice Receptionist',
+                href: '/ml',
+                description: 'Answer calls, qualify leads, and book appointments automatically.'
+              },
+              {
+                label: 'Mini CRM + Lead Tracker',
+                href: '/analytics',
+                description: 'Track, manage, and organize all your leads in one place.'
+              },
+              {
+                label: 'Contract Automation',
+                href: '/development',
+                description: 'Auto-generate and send contracts instantly from your CRM.'
+              },
+              {
+                label: 'Confirmation Email & Notification Engine',
+                href: '/development',
+                description: 'Send instant confirmations and alerts for new leads or bookings.'
+              },
+              {
+                label: 'AI Ticketing Workflow',
+                href: '/development',
+                description: 'Automate support tickets from creation to resolution.'
+              },
+              {
+                label: 'Multi-Channel Lead Capture Hub',
+                href: '/development',
+                description: 'Collect and unify leads from chat, voice, and forms.'
+              },
+              {
+                label: 'AI Follow-Up Sequences',
+                href: '/development',
+                description: 'Automate personalized follow-ups until conversion.'
+              },
+              {
+                label: 'Real-Time Lead Qualification Bot',
+                href: '/development',
+                description: 'Instantly qualify and sync leads based on intent.'
+              }
             ]
-        },
+          },          
         {
             label: 'PAGES',
             dropdown: [
@@ -179,7 +220,7 @@ const Navbar: React.FC = () => {
 
                                         {/* Dropdown Menu */}
                                         {activeDropdown === item.label && item.dropdown && (
-                                            <div className="absolute top-full left-0 mt-2 w-72 bg-omniv-card rounded-lg shadow-lg border border-omniv z-50 opacity-0 translate-y-2 animate-dropdown">
+                                            <div className="absolute top-full left-0 mt-2 w-[400px] bg-omniv-card rounded-lg shadow-lg border border-omniv z-50 opacity-0 translate-y-2 animate-dropdown">
                                                 <div className="py-2">
                                                     {item.dropdown.map((dropdownItem, index) => (
                                                         <a
