@@ -15,6 +15,7 @@ export type PostFrontmatter = {
   // Content summary & media
   excerpt?: string; // summary/description
   coverImage?: string; // hero image url
+  image?: string; // alias supported in some posts
   // Controls & canonical
   published?: boolean;
   canonicalUrl?: string;
@@ -91,7 +92,7 @@ export async function getAllPosts(): Promise<PostListItem[]> {
         title: (fm.title || effectiveSlug) as string,
         excerpt: fm.excerpt,
         date: (fm.date || new Date().toISOString()) as string,
-        coverImage: fm.coverImage,
+        coverImage: fm.coverImage || fm.image,
         author: fm.author,
         readingTime: (fm as { readingTime?: number }).readingTime,
       } as PostListItem;
@@ -121,7 +122,7 @@ function buildPostFromMatter(fm: Partial<PostFrontmatter>, content: string, slug
     parkSlug: fm.parkSlug,
     keywords: fm.keywords,
     excerpt: fm.excerpt,
-    coverImage: fm.coverImage,
+    coverImage: fm.coverImage || fm.image,
     published: fm.published ?? true,
     canonicalUrl: fm.canonicalUrl,
     content,

@@ -1,7 +1,15 @@
 import Link from "next/link";
+import type { Metadata } from "next";
 import { getAllPosts } from "@/content/posts";
 
 export const dynamic = "force-static";
+
+export const metadata: Metadata = {
+  title: "Blogs",
+  description: "Latest insights and stories from UNITZERO on AI automation and product updates.",
+  alternates: { canonical: "/blogs" },
+  robots: { index: true, follow: true },
+};
 
 export default async function BlogPage() {
   const posts = await getAllPosts();

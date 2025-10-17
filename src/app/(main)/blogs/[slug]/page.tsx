@@ -5,6 +5,7 @@ import rehypeSlug from "rehype-slug";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import remarkGfm from "remark-gfm";
 import { getPostBySlug, getRelatedPosts } from "@/content/posts";
+import { useMDXComponents } from "@/mdx-components";
 
 type Params = { slug: string };
 
@@ -19,24 +20,33 @@ export async function generateStaticParams(): Promise<Params[]> {
   return slugs.map((slug: string) => ({ slug }));
 }
 
-export function generateMetadata({ params }: { params: Params }): Metadata {
-  const post = getPostBySlug(params.slug);
+export async function generateMetadata({ params }: { params: Promise<Params> }): Promise<Metadata> {
+  const { slug } = await params;
+  const post = getPostBySlug(slug);
   if (!post) return {};
   return {
     title: post.title,
     description: post.excerpt,
+    alternates: post.canonicalUrl ? { canonical: post.canonicalUrl } : undefined,
+    robots: { index: true, follow: true },
     openGraph: {
       title: post.title,
       description: post.excerpt,
-      images: post.coverImage ? [{ url: post.coverImage }] : undefined,
       type: "article",
+      images: post.coverImage ? [{ url: post.coverImage }] : undefined,
     },
-    alternates: post.canonicalUrl ? { canonical: post.canonicalUrl } : undefined,
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: post.excerpt,
+      images: post.coverImage ? [post.coverImage] : undefined,
+    },
   };
 }
 
-export default function PostPage({ params }: { params: Params }) {
-  const post = getPostBySlug(params.slug);
+export default async function PostPage({ params }: { params: Promise<Params> }) {
+  const { slug } = await params;
+  const post = getPostBySlug(slug);
   if (!post) return notFound();
 
   const related = getRelatedPosts(post, 5);
@@ -60,6 +70,7 @@ export default function PostPage({ params }: { params: Params }) {
           <div className="mt-8">
             <MDXRemote
               source={post.content}
+              components={useMDXComponents()}
               options={{
                 mdxOptions: {
                   remarkPlugins: [remarkGfm],

@@ -1,7 +1,7 @@
 "use client"
 
 import { CheckCircle, Zap, Database, Bot, BarChart3, Users, Phone, FileText, Mail, Workflow, Play, Pause, Settings } from "lucide-react"
-import { useEffect, useState, useRef } from "react"
+import { useEffect, useState, useRef, useCallback } from "react"
 
 export default function WorkflowAutomation() {
   const isBrowser = typeof window !== 'undefined'
@@ -17,7 +17,7 @@ export default function WorkflowAutomation() {
   const canvasRef = useRef<HTMLDivElement>(null)
 
   // Responsive node positions
-  const getInitialPositions = () => {
+  const getInitialPositions = useCallback(() => {
     const isMobile = isBrowser && window.innerWidth < 640
     if (isMobile) {
       return {
@@ -40,7 +40,7 @@ export default function WorkflowAutomation() {
       'email': { x: 650, y: 250 },
       'analytics': { x: 850, y: 200 }
     }
-  }
+  }, [isBrowser])
 
   const [nodePositions, setNodePositions] = useState<Record<string, { x: number; y: number }>>(getInitialPositions())
 
