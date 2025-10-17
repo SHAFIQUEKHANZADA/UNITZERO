@@ -1,0 +1,47 @@
+import Link from "next/link";
+import { getAllPosts } from "@/content/posts";
+
+export const dynamic = "force-static";
+
+export default async function BlogPage() {
+  const posts = await getAllPosts();
+
+  return (
+    <main className="mx-auto max-w-6xl px-4 py-12">
+      <h1 className="mb-10 text-4xl font-bold tracking-tight">Insights & Stories</h1>
+
+      <div className="grid gap-8 md:grid-cols-2">
+        {posts.map((post) => (
+          <Link
+            key={post.slug}
+            href={`/blogs/${post.slug}`}
+            className="group rounded-xl border bg-card p-4 transition hover:shadow-lg"
+          >
+            {post.coverImage ? (
+              <div className="relative mb-4 aspect-[16/9] overflow-hidden rounded-md">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={post.coverImage}
+                  alt={post.title}
+                  className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                  loading="lazy"
+                />
+              </div>
+            ) : null}
+            <h2 className="text-xl font-semibold leading-snug group-hover:underline">
+              {post.title}
+            </h2>
+            <div className="mt-2 flex flex-wrap items-center gap-x-3 text-xs text-muted-foreground">
+              <span>{new Date(post.date).toLocaleDateString()}</span>
+              {post.author ? <span>• {post.author}</span> : null}
+              {post.readingTime ? <span>• {post.readingTime} min read</span> : null}
+            </div>
+            {post.excerpt ? (
+              <p className="mt-3 line-clamp-3 text-sm text-foreground/80">{post.excerpt}</p>
+            ) : null}
+          </Link>
+        ))}
+      </div>
+    </main>
+  );
+}

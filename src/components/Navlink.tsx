@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { AiOutlineClose } from "react-icons/ai";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -10,6 +11,7 @@ import Image from "next/image";
 const MobileMenuBar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [activeSubMenu, setActiveSubMenu] = useState<string | null>(null);
+    const pathname = usePathname();
 
     useEffect(() => {
         AOS.init({
@@ -20,9 +22,19 @@ const MobileMenuBar = () => {
         });
     }, []);
 
+    // Close menu when route changes
+    useEffect(() => {
+        closeMenu();
+    }, [pathname]);
+
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
         if (!isMenuOpen) setActiveSubMenu(null);
+    };
+
+    const closeMenu = () => {
+        setIsMenuOpen(false);
+        setActiveSubMenu(null);
     };
 
     // Navigation items matching the navbar
@@ -69,7 +81,7 @@ const MobileMenuBar = () => {
 
             {/* Main Menu Drawer */}
             {isMenuOpen && (
-                <div className="fixed inset-0 z-50 h-[95%] w-full mt-16 text-white">
+                <div className="fixed inset-0 z-50 h-[95%] w-full mt-10 text-white">
                     <div
                         className={`relative w-full bg-omniv-dark border border-omniv-primary/30 p-4 h-full flex flex-col items-start overflow-hidden transition-transform duration-500 ${activeSubMenu ? "-translate-x-full" : "translate-x-0"
                             }`}
@@ -81,7 +93,7 @@ const MobileMenuBar = () => {
                             data-aos-offset="50"
                             className="flex items-center justify-between w-full hover:bg-omniv-card/50 rounded-lg p-2 transition-all duration-300"
                         >
-                            <Link href="/" className="text-[16px] font-medium py-[10px] text-omniv-primary hover:text-omniv-secondary transition-colors">
+                            <Link href="/" onClick={closeMenu} className="text-[16px] font-medium py-[10px] text-omniv-primary hover:text-omniv-secondary transition-colors">
                                 HOME
                             </Link>
                         </div>
@@ -121,13 +133,13 @@ const MobileMenuBar = () => {
                             data-aos-offset="50"
                             className="flex items-center justify-between w-full hover:bg-omniv-card/50 rounded-lg p-2 transition-all duration-300"
                         >
-                            <Link href="/contact" className="text-[16px] font-medium py-[10px] text-white hover:text-omniv-primary transition-colors">
+                            <Link href="/contact" onClick={closeMenu} className="text-[16px] font-medium py-[10px] text-white hover:text-omniv-primary transition-colors">
                                 CONTACT
                             </Link>
                         </div>
                         <div data-aos="fade-up" data-aos-duration="400" data-aos-delay={200} data-aos-offset="50" className="w-full h-[0.1px] bg-omniv-primary/30 my-2"></div>
 
-                        {/* GET STARTED Button */}
+                        {/* GET DEMO Button */}
                         <div
                             data-aos="fade-up"
                             data-aos-duration="400"
@@ -135,9 +147,13 @@ const MobileMenuBar = () => {
                             data-aos-offset="50"
                             className="w-full mt-4"
                         >
-                            <button className="w-full bg-gradient-to-r from-[#ff6b35] to-[#00d4aa] text-white px-6 py-3 rounded-xl text-sm font-bold hover:from-omniv-primary/90 hover:to-omniv-secondary/90 transition-all duration-200 transform hover:scale-105 hover:shadow-lg">
-                                GET STARTED
-                            </button>
+                            <Link
+                                href="/demo"
+                                onClick={closeMenu}
+                                className="w-full bg-gradient-to-r from-[#ff6b35] to-[#00d4aa] text-white px-6 py-3 rounded-xl text-sm font-bold hover:from-omniv-primary/90 hover:to-omniv-secondary/90 transition-all duration-200 transform hover:scale-105 hover:shadow-lg inline-block text-center"
+                            >
+                                GET DEMO
+                            </Link>
                         </div>
 
                         {/* Brain Icon - Right Side */}
@@ -183,7 +199,7 @@ const MobileMenuBar = () => {
                                         <Link 
                                             href={subItem.href} 
                                             className="block text-[16px] font-medium py-2 text-white hover:text-omniv-primary transition-colors hover:bg-omniv-card/50 rounded-lg px-2"
-                                            onClick={() => setActiveSubMenu(null)}
+                                            onClick={closeMenu}
                                         >
                                             <div className="font-medium text-white transition-colors duration-200">{subItem.label}</div>
                                             {subItem.description && (

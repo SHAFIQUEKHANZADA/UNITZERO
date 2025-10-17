@@ -60,18 +60,18 @@ const Footer = () => {
   }
 
   return (
-    <footer ref={footerRef} className="relative bg-omniv-dark text-white px-6 sm:py-12 py-6 overflow-hidden">
+    <footer ref={footerRef} className="relative bg-omniv-dark text-white sm:px-6 px-3 sm:py-12 py-6 overflow-hidden">
       {/* Background decorative elements */}
       {/* <div className="absolute inset-0 opacity-10">
         <div className="absolute top-20 left-10 w-96 h-66 bg-omniv-primary rounded-full blur-3xl"></div>
         <div className="absolute bottom-20 right-10 w-96 h-66 bg-omniv-secondary rounded-full blur-3xl"></div>
       </div> */}
 
-      <div className="max-w-[95%] mx-auto grid grid-cols-1 lg:grid-cols-5 md:grid-cols-3 gap-8">
+      <div className="sm:max-w-[95%] mx-auto grid grid-cols-1 lg:grid-cols-5 md:grid-cols-3 gap-8">
         {/* Left Block */}
         <div>
           <div className="mb-4">      
-              <div className="w-[200px] h-full">
+              <div className="w-[200px] h-full px-0">
                 <Image
                   src="/images/unitzerof.png"
                   alt="UNITZERO Logo"

@@ -1,8 +1,17 @@
 import type { NextConfig } from "next";
+import createMDX from "@next/mdx";
+
+const withMDX = createMDX({
+  extension: /\.(md|mdx)$/,
+  options: {
+    // Use string plugin identifiers for Turbopack compatibility
+    remarkPlugins: ["remark-gfm"],
+    rehypePlugins: ["rehype-slug", "rehype-autolink-headings"],
+  },
+});
 
 const nextConfig: NextConfig = {
-  /* config options here */
-   images: {
+  images: {
     remotePatterns: [
       {
         protocol: 'https',
@@ -12,6 +21,7 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"],
 };
 
-export default nextConfig;
+export default withMDX(nextConfig);

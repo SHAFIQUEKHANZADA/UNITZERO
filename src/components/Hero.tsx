@@ -112,10 +112,10 @@ const Hero = () => {
                                     className="text-center group cursor-pointer transition-all duration-300 hover:scale-110 hover:-translate-y-2"
                                     style={{ animationDelay: `${1.2 + index * 0.1}s` }}
                                 >
-                                    <div className={`sm:text-3xl text-[25px] font-bold text-white group-hover:text-${stat.color} transition-colors duration-300`}>
+                                    <div className={`sm:text-3xl text-[23px] font-bold text-white group-hover:text-${stat.color} transition-colors duration-300`}>
                                         {stat.number}
                                     </div>
-                                    <div className="sm:text-sm text-[12px] text-omniv-muted group-hover:text-white transition-colors duration-300">
+                                    <div className="sm:text-sm text-[10px] text-omniv-muted group-hover:text-white transition-colors duration-300">
                                         {stat.label}
                                     </div>
                                 </div>

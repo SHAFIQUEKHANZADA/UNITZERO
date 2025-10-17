@@ -37,7 +37,7 @@ const Navbar: React.FC = () => {
             dropdown: [
                 { label: 'Our Story', href: '/our-story', description: 'Learn about our journey' },
                 { label: 'Our Team', href: '/team', description: 'Meet our experts' },
-                { label: 'Careers', href: '/careers', description: 'Join our team' },
+                // { label: 'Careers', href: '/careers', description: 'Join our team' },
                 // { label: 'Press', href: '/press', description: 'Media resources' }
             ]
         },
@@ -95,9 +95,9 @@ const Navbar: React.FC = () => {
             label: 'PAGES',
             dropdown: [
                 { label: 'Case Studies', href: '/case-studies', description: 'Success stories' },
-                { label: 'Blog', href: '/blog', description: 'Latest insights' },
-                { label: 'Resources', href: '/resources', description: 'Helpful materials' },
-                { label: 'Support', href: '/support', description: 'Get help' },
+                { label: 'Blogs', href: '/blogs', description: 'Latest insights' },
+                // { label: 'Resources', href: '/resources', description: 'Helpful materials' },
+                // { label: 'Support', href: '/support', description: 'Get help' },
                 { label: 'Privacy Policy', href: '/privacy-policy', description: 'Our privacy policy' }
             ]
         }
@@ -255,9 +255,12 @@ const Navbar: React.FC = () => {
                             >
                                 CONTACT
                             </Link>
-                            <button className="bg-gradient-to-r from-[#ff6b35] to-[#00d4aa] text-white lg:px-6 px-3 py-3 rounded-xl text-xs font-bold hover:from-omniv-primary/90 hover:to-omniv-secondary/90 transition-all duration-200 transform hover:scale-105 hover:shadow-lg">
-                                GET STARTED
-                            </button>
+                            <Link
+                                href="/demo"
+                                className="bg-gradient-to-r from-[#ff6b35] to-[#00d4aa] text-white lg:px-6 px-3 py-3 rounded-xl text-xs font-bold hover:from-omniv-primary/90 hover:to-omniv-secondary/90 transition-all duration-200 transform hover:scale-105 hover:shadow-lg inline-block"
+                            >
+                                GET DEMO
+                            </Link>
                         </div>
                     </div>
                     <MobileMenuBar />
