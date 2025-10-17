@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { MDXRemote } from "next-mdx-remote/rsc";
-import rehypeSlug from "rehype-slug";
-import rehypeAutolinkHeadings from "rehype-autolink-headings";
-import remarkGfm from "remark-gfm";
+// import { MDXRemote } from "next-mdx-remote/rsc";
+// import rehypeSlug from "rehype-slug";
+// import rehypeAutolinkHeadings from "rehype-autolink-headings";
+// import remarkGfm from "remark-gfm";
 import { getPostBySlug, getRelatedPosts } from "@/content/posts";
-import { useMDXComponents } from "@/mdx-components";
+import { MdxRenderer } from "./mdx-renderer"; // client component
 
 type Params = { slug: string };
 
@@ -67,18 +67,9 @@ export default async function PostPage({ params }: { params: Promise<Params> }) 
               <> • Updated {new Date(post.updatedAt).toLocaleDateString()}</>
             ) : null}
           </p>
-          <div className="mt-8">
-            <MDXRemote
-              source={post.content}
-              components={useMDXComponents()}
-              options={{
-                mdxOptions: {
-                  remarkPlugins: [remarkGfm],
-                  rehypePlugins: [rehypeSlug, [rehypeAutolinkHeadings, { behavior: "wrap" }]],
-                },
-              }}
-            />
-          </div>
+
+          {/* ✅ Client MDX Renderer */}
+          <MdxRenderer content={post.content} />
         </article>
 
         <aside className="top-24 h-max space-y-4 lg:sticky">
