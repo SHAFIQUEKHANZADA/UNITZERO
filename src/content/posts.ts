@@ -156,7 +156,7 @@ export function getRelatedPosts(base: Post, limit = 5): PostListItem[] {
       title: (fm.title || slug) as string,
       excerpt: fm.excerpt,
       date: (fm.date || new Date().toISOString()) as string,
-      coverImage: fm.coverImage,
+      coverImage: fm.image,
       author: fm.author,
       readingTime: (fm as { readingTime?: number }).readingTime,
     };

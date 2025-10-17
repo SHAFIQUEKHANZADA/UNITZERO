@@ -15,10 +15,10 @@ export default async function BlogPage() {
   const posts = await getAllPosts();
 
   return (
-    <main className="mx-auto max-w-6xl px-4 py-12">
-      <h1 className="mb-10 text-4xl font-bold tracking-tight">Insights & Stories</h1>
+    <main className="md:px-16 lg:px-20 px-4 py-12 bg-omniv-dark">
+      <h1 className="mb-10 sm:text-4xl text-xl font-bold tracking-tight sm:mt-0 mt-8">Insights & Stories</h1>
 
-      <div className="grid gap-8 md:grid-cols-2">
+      <div className="grid gap-8 md:grid-cols-3">
         {posts.map((post) => (
           <Link
             key={post.slug}

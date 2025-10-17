@@ -44,8 +44,6 @@ const MobileMenuBar = () => {
             items: [
                 { label: 'Our Story', href: '/our-story', description: 'Learn about our journey' },
                 { label: 'Our Team', href: '/team', description: 'Meet our experts' },
-                { label: 'Careers', href: '/careers', description: 'Join our team' },
-                { label: 'Press', href: '/press', description: 'Media resources' }
             ]
         },
         {
@@ -61,9 +59,7 @@ const MobileMenuBar = () => {
             label: 'PAGES',
             items: [
                 { label: 'Case Studies', href: '/case-studies', description: 'Success stories' },
-                { label: 'Blog', href: '/blog', description: 'Latest insights' },
-                { label: 'Resources', href: '/resources', description: 'Helpful materials' },
-                { label: 'Support', href: '/support', description: 'Get help' }
+                { label: 'Blogs', href: '/blogs', description: 'Latest insights' },
             ]
         }
     ];
@@ -81,7 +77,7 @@ const MobileMenuBar = () => {
 
             {/* Main Menu Drawer */}
             {isMenuOpen && (
-                <div className="fixed inset-0 z-50 h-[95%] w-full mt-10 text-white">
+                <div className="fixed inset-0 z-50 h-[95%] w-full mt-12 text-white">
                     <div
                         className={`relative w-full bg-omniv-dark border border-omniv-primary/30 p-4 h-full flex flex-col items-start overflow-hidden transition-transform duration-500 ${activeSubMenu ? "-translate-x-full" : "translate-x-0"
                             }`}
