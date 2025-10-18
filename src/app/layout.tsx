@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Script from "next/script";
+import Chatbot from "@/components/Chatbot";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -161,12 +162,13 @@ export default function RootLayout({
           })}
         </Script>
         {/* ✅ Tidio chat widget */}
-        <Script
+        {/* <Script
           src="//code.tidio.co/nfyyb1bm0hrktj1gh8rhmcyklpvz1t1a.js"
           strategy="afterInteractive"
-        />
+        /> */}
 
         <Navbar />
+        <Chatbot />
         {children}
         <Footer />
       </body>
